@@ -1,0 +1,206 @@
+[
+  {
+    "title": "NIVEL A1 — FUNDAMENTOS DE COMUNICACIÓN",
+    "units": [
+      {
+        "title": "Unidad 1 — Presentarse y dar información personal",
+        "grammar": "Gramática principal: Ser, estar, tener, llamarse · Presente regular"
+      },
+      {
+        "title": "Unidad 2 — Hablar de metas y razones para aprender",
+        "grammar": "Gramática principal: Presente de indicativo · Pronombres sujeto · Preposiciones básicas"
+      },
+      {
+        "title": "Unidad 3 — Ubicar lugares y pedir información básica",
+        "grammar": "Gramática principal: Estar · Hay · Interrogativos · Cuantificadores"
+      },
+      {
+        "title": "Unidad 4 — Expresar preferencias y planes simples",
+        "grammar": "Gramática principal: Demostrativos · Tener que + infinitivo · Verbo ir"
+      },
+      {
+        "title": "Unidad 5 — Hablar de relaciones y gustos",
+        "grammar": "Gramática principal: Posesivos · Verbo gustar"
+      },
+      {
+        "title": "Unidad 6 — Describir la rutina diaria",
+        "grammar": "Gramática principal: Presente irregular · Reflexivos · Marcadores temporales"
+      },
+      {
+        "title": "Unidad 7 — Hablar de comida y hábitos",
+        "grammar": "Gramática principal: Forma impersonal con se · Verbos poner y traer"
+      },
+      {
+        "title": "Unidad 8 — Describir lugares y barrios",
+        "grammar": "Gramática principal: Cuantificadores · Preposiciones de lugar"
+      },
+      {
+        "title": "Unidad 9 — Hablar de habilidades y experiencias",
+        "grammar": "Gramática principal: Saber + infinitivo · Pretérito perfecto"
+      },
+      {
+        "title": "Unidad 10 — Contar eventos del pasado",
+        "grammar": "Gramática principal: Pretérito indefinido · Marcadores del pasado"
+      }
+    ]
+  },
+  {
+    "title": "NIVEL A2 — EXPANSIÓN COMUNICATIVA",
+    "units": [
+      {
+        "title": "Unidad 1 — Hablar de la experiencia de aprender español",
+        "grammar": "Gramática principal: Presente irregular · Verbos reflexivos · Duración con desde / hace"
+      },
+      {
+        "title": "Unidad 2 — Narrar experiencias pasadas",
+        "grammar": "Gramática principal: Pretérito indefinido · Marcadores temporales"
+      },
+      {
+        "title": "Unidad 3 — Describir la casa y el entorno",
+        "grammar": "Gramática principal: Comparativos · Ser vs estar · Preposiciones"
+      },
+      {
+        "title": "Unidad 4 — Interactuar en conversaciones cotidianas",
+        "grammar": "Gramática principal: Condicional de cortesía · Estar + gerundio"
+      },
+      {
+        "title": "Unidad 5 — Hablar de planes y actividades de ocio",
+        "grammar": "Gramática principal: Ir a + infinitivo · Pretérito perfecto"
+      },
+      {
+        "title": "Unidad 6 — Hablar de comida y hábitos alimentarios",
+        "grammar": "Gramática principal: Pronombres OD · Impersonal con se"
+      },
+      {
+        "title": "Unidad 7 — Valorar experiencias y actividades",
+        "grammar": "Gramática principal: Perfecto vs indefinido · Valoraciones"
+      },
+      {
+        "title": "Unidad 8 — Dar instrucciones y recomendaciones simples",
+        "grammar": "Gramática principal: Imperativo afirmativo · Verbos de estado"
+      },
+      {
+        "title": "Unidad 9 — Comparar pasado y presente",
+        "grammar": "Gramática principal: Pretérito imperfecto · Contraste pasado-presente"
+      },
+      {
+        "title": "Unidad 10 — Narrar acontecimientos importantes",
+        "grammar": "Gramática principal: Indefinido irregular · Contraste de pasados"
+      }
+    ]
+  },
+  {
+    "title": "NIVEL B1 — CONSOLIDACIÓN Y SUBJUNTIVO INICIAL",
+    "units": [
+      {
+        "title": "Unidad 1 — Experiencias y cambios personales",
+        "grammar": "Gramática principal: Contraste de pasados · Perífrasis de continuidad"
+      },
+      {
+        "title": "Unidad 2 — Futuro y predicciones",
+        "grammar": "Gramática principal: Futuro simple · Condicional básico"
+      },
+      {
+        "title": "Unidad 3 — Normas sociales",
+        "grammar": "Gramática principal: Obligación · Prohibición · Soler + infinitivo"
+      },
+      {
+        "title": "Unidad 4 — Deseos y reacciones",
+        "grammar": "Gramática principal: Subjuntivo de deseo"
+      },
+      {
+        "title": "Unidad 5 — Narración oral",
+        "grammar": "Gramática principal: Presente narrativo · Pluscuamperfecto"
+      },
+      {
+        "title": "Unidad 6 — Recomendaciones y órdenes",
+        "grammar": "Gramática principal: Imperativo · Pronombres combinados"
+      },
+      {
+        "title": "Unidad 7 — Reclamos y soluciones",
+        "grammar": "Gramática principal: Subjuntivo de influencia"
+      },
+      {
+        "title": "Unidad 8 — Comunicación indirecta",
+        "grammar": "Gramática principal: Estilo indirecto"
+      },
+      {
+        "title": "Unidad 9 — Emociones y conflictos",
+        "grammar": "Gramática principal: Subjuntivo emocional"
+      },
+      {
+        "title": "Unidad 10 — Descripción avanzada",
+        "grammar": "Gramática principal: Superlativos · Relativas básicas"
+      },
+      {
+        "title": "Unidad 11 — Opinión social",
+        "grammar": "Gramática principal: Subjuntivo de opinión · Condicional"
+      },
+      {
+        "title": "Unidad 12 — Probabilidad avanzada",
+        "grammar": "Gramática principal: Futuro perfecto · Condicional"
+      },
+      {
+        "title": "Unidad 13 — Relativas avanzadas",
+        "grammar": "Gramática principal: Relativas indicativo vs subjuntivo"
+      },
+      {
+        "title": "Unidad 14 — Reacciones formales",
+        "grammar": "Gramática principal: Perfecto de subjuntivo"
+      }
+    ]
+  },
+  {
+    "title": "NIVEL B2 — PRECISIÓN Y COMPLEJIDAD DISCURSIVA",
+    "units": [
+      {
+        "title": "Unidad 1 — Consejos, juicios y exigencias formales",
+        "grammar": "Gramática principal: Subjuntivo presente e imperfecto"
+      },
+      {
+        "title": "Unidad 2 — Discurso referido avanzado",
+        "grammar": "Gramática principal: Estilo indirecto avanzado"
+      },
+      {
+        "title": "Unidad 3 — Descripción avanzada y relativas",
+        "grammar": "Gramática principal: Relativas complejas"
+      },
+      {
+        "title": "Unidad 4 — Procesos y cambios",
+        "grammar": "Gramática principal: Perífrasis verbales avanzadas"
+      },
+      {
+        "title": "Unidad 5 — Argumentación y opinión avanzada",
+        "grammar": "Gramática principal: Conectores argumentativos"
+      },
+      {
+        "title": "Unidad 6 — Hipótesis y condicionales complejos",
+        "grammar": "Gramática principal: Condicionales irreales"
+      },
+      {
+        "title": "Unidad 7 — Valoración y pasiva",
+        "grammar": "Gramática principal: Voz pasiva"
+      },
+      {
+        "title": "Unidad 8 — Comparación avanzada",
+        "grammar": "Gramática principal: Comparativos complejos · Como si + subjuntivo"
+      },
+      {
+        "title": "Unidad 9 — Matiz y atenuación",
+        "grammar": "Gramática principal: Atenuadores e intensificadores"
+      },
+      {
+        "title": "Unidad 10 — Emociones y rectificación",
+        "grammar": "Gramática principal: Subjuntivo en reacción emocional"
+      },
+      {
+        "title": "Unidad 11 — Contraste y concesión",
+        "grammar": "Gramática principal: Aunque + indicativo / subjuntivo"
+      },
+      {
+        "title": "Unidad 12 — Reclamos y finalidad",
+        "grammar": "Gramática principal: Oraciones finales · Subjuntivo formal"
+      }
+    ]
+  }
+]
