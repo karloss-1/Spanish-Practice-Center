@@ -1,30 +1,40 @@
-# Validation record
+# Validation — September 8, 2026
 
-## Passed in this environment
+## Baseline preservation
 
-- Five HTML entry points exist and include viewport metadata, a main landmark and consistent navigation.
-- All relative links and referenced local assets resolve; fragment destinations exist.
-- All 46 curriculum titles and their grammar descriptions match the extracted original Program text, in order.
-- Student matching: whitespace/case normalization, unknown name, blank name, inactive status, duplicate active names, unsafe URL scheme, impersonating hostname, and empty URL.
-- All 46 imported routing records passed local checks, including inactive exclusion. The public data file remains empty pending explicit publication approval. The inactive example file is not loaded.
-- JavaScript syntax checks pass.
-- No public email address or mailto link in generated HTML.
-- External application destinations returned HTTP 200. AI trainer and italki links match the original Home page.
-- No original Google Site, Notion page or existing GitHub repository was modified.
+Inspected `ui-redesign` HEAD `f2bdcb7d78bc2127e7b380ab286b9b4e88ab60e7`, both commits in its history, all five HTML pages, CSS, JavaScript, JSON files, README and existing tests before editing. There were no repository AGENTS.md instructions or hosting configuration.
 
-## Pending manual browser validation
+All five HTML files and `assets/styles.css` are byte-for-byte unchanged from that HEAD. Navigation logic is unchanged. The 46 roadmap units and shared resource/Practice links are preserved. No redesign, framework, accounts or database server was introduced.
 
-A browser-accessible deployment was not available. Do not describe the following as passed:
+## Passed locally
 
-- Desktop at 100% zoom; tablet around 768px; mobile around 390px.
-- Verify there is no horizontal overflow, clipping or uncomfortable wrapping on each page.
-- On mobile, open/close Menu, follow each link, press Escape, and check focus returns to Menu.
-- Keyboard-only navigation: skip link, all links, form input/button and all accordions; check visible focus.
-- Open/close Course Roadmap units with keyboard and touch.
-- On My Learning Space, test a real active student after adding verified data; test inactive and invalid names.
-- Simulate a failed JSON request and confirm friendly retry feedback.
-- Check focus and layout at 200% text enlargement and with reduced motion enabled.
-- Follow external practice and resource links; test trainers while signed into ChatGPT.
-- Check each page for visual consistency and contrast, including hover and focus states.
+- Existing 8 routing checks.
+- New API checks: active match, case, whitespace, Unicode, initial punctuation, exact-key read, unknown/inactive indistinguishable 404, empty/invalid input, unsafe URLs, oversized and malformed requests, cross-site requests, unsupported methods, missing KV binding, and storage failures.
+- Successful API body contains only the matching URL; additional record fields are not exposed. All API responses use no-store. The handler reads one key and never lists KV.
+- Explicit static build allowlist excludes all student files, server source, tests and private files.
+- Browser checks using a local server running the actual function with **synthetic records**: 390px and 1440px, all five pages without horizontal overflow, desktop navigation and mobile Menu/Escape, all navigation destinations, four Practice cards, seven resource rows, 46 roadmap accordions and expand/collapse behavior.
+- Fresh isolated browser sessions: active name, capitalization, surrounding spaces, invalid name, inactive name, whitespace-only and empty input. Synthetic Notion navigation was intercepted to avoid confusing it with real destination validation.
+- Browser request capture confirms only entered name is posted; successful response contains one URL; inactive and unknown return identical bodies; no students.json request or complete mapping is downloaded.
+- Mobile and desktop My Learning Space screenshots inspected for layout.
+- Git diff whitespace checks and preservation comparison passed.
 
-All three previously pending reference links now point to the verified Notion pages. The original logo remains unavailable.
+## Verified source data, not imported
+
+Re-read the Notion Formal class, Conversation class and Inactive category pages: 22 + 14 active entries and 10 inactive entries. No normalized exact-name duplicates. Two active first names repeat with a surname-initial variant; the owner explicitly confirmed these are distinct students and that the existing M suffix distinguishes them. Preserve exact matching and those established lookup names; do not infer initials or routes.
+
+The mapping was held outside repository files and was not published. Category links establish page identity/status but do not by themselves prove signed-out public access to every destination.
+
+## Blocking live validation
+
+Cloudflare account, Pages, Workers and KV reads succeeded. Creating the Git-integrated Pages preview project and the KV namespace each failed with Cloudflare `10000: Authentication error`. No project, namespace, student import, deployment or preview URL was confirmed.
+
+After write access is corrected:
+
+1. Create the Git-integrated preview and private namespace; bind STUDENTS in Preview.
+2. Re-read source data for freshness, check names and populate verified mappings privately.
+3. Confirm deployed commit equals GitHub ui-redesign HEAD and production auto-deploy is disabled.
+4. Repeat the API/browser checks on the real Cloudflare URL, including real active/inactive names and fresh browsers.
+5. Verify signed-out Notion destination access and real network payloads. Check KV status-update propagation.
+6. Verify student file URLs return 404 and that deployed assets and GitHub contain no mapping.
+
+Do not label these live checks passed until they actually run. No production release, custom domain, Google Sites redirect, Notion edits or other repository changes were made.

@@ -1,63 +1,79 @@
 # Spanish Practice Center
 
-Development implementation of Azael’s Spanish student portal. **For review, not a production release.** The existing Google Site and the separate learning apps remain unchanged.
+Development preview of Azael’s Spanish student portal. GitHub remains the source of truth: [karloss-1/Spanish-Practice-Center](https://github.com/karloss-1/Spanish-Practice-Center), branch **ui-redesign**. Do not merge to main, remove the preview banner, connect a domain, or redirect Google Sites without separate approval.
 
-## Status
+## Implementation and deployment status — September 8, 2026
 
-- Repository: https://github.com/karloss-1/Spanish-Practice-Center
-- Review branch: `ui-redesign`. No production release or replacement of Google Sites.
-- Five static pages, responsive CSS, no framework, backend, database, dependencies, or build step.
-- Student routing is implemented, but `data/students.json` is empty pending explicit approval to publish names and page links in this public repository.
-- All three shared Notion resources are connected. Links point to the exact page addresses returned by Notion, not expiring PDF downloads.
-- The original logo image could not be downloaded (HTTP 403). The portal uses a text identity.
-- Browser visual/interaction QA and unauthenticated Notion access checks remain pending.
+The existing five HTML pages and shared CSS are preserved from `f2bdcb7`. Only the student lookup and deployment preparation have changed. There is no framework, SQL database, account system, or authentication.
 
-## Structure
+The new endpoint is implemented and locally tested. **Cloudflare deployment and private data import are pending:** account/resource reads succeeded, but both Pages project creation and KV namespace creation returned Cloudflare error `10000: Authentication error`. No preview URL or live namespace is available yet. Do not describe the local tests as a deployed student lookup.
 
-- `index.html`: compact entry page, two primary paths and “What to do today.”
-- `my-learning-space.html`: first-name form and accessible feedback.
-- `practice.html`: vocabulary, conjugation, writing and conversation.
-- `resources.html`: shared references and practice links.
-- `course-roadmap.html`: all 46 original Spanish curriculum units, in native `details` / `summary` accordions. Content is present without JavaScript.
-- `assets/styles.css`: shared palette, typography, responsive layout, focus states and reduced motion.
-- `assets/app.js`: mobile navigation and name form behavior.
-- `assets/student-routing.mjs`: pure name matching and URL validation.
-- `data/students.json`: **the only student routing data source**.
-- `data/students.example.json`: an inactive example with an empty URL, never loaded by the website.
-- `data/roadmap.json`: reference snapshot of the original curriculum; the rendered curriculum lives in `course-roadmap.html`. This JSON is not loaded at runtime.
-- `tests/student-routing.mjs`: synthetic routing tests; fixtures are not real student pages and are not used by the portal.
-- `VALIDATION.md`: performed checks and pending browser checks.
+Notion category lists were re-read: 22 Formal class, 14 Conversation class, 10 Inactive. The owner confirmed that the existing names with and without a surname initial identify different students. Keep those exact distinctions; never use prefix or fuzzy matching. Full mappings are not committed here.
 
-## Run locally
+## How lookup works
 
-From this project directory:
+The existing form sends `POST /api/student-lookup` with only `{ "name": "entered name" }`. The Pages Function normalizes Unicode, surrounding/repeated whitespace, case, and an optional final period on initials. It reads exactly one key from the private `STUDENTS` KV binding. A valid active record returns only `{ "url": "matching HTTPS Notion URL" }`.
 
-```sh
-python3 -m http.server 8000
+Unknown and inactive records return the same HTTP 404 body: `{ "error": "not_found" }`. There is no public listing or bulk lookup endpoint. Responses are marked `no-store`. The browser has no directory, account, saved-link dependency, or local-storage mapping.
+
+Only HTTPS Notion hostnames are accepted. The endpoint accepts JSON POST requests, bounds bodies to 1 KB and names to 100 characters, rejects explicit cross-site browser requests, and hides storage errors. These are basic protections, not authentication or a guarantee against guessing. There is no application rate limiter. Monitor usage before deciding whether additional protection is necessary.
+
+## Private student maintenance
+
+**Once provisioned**, records live in Cloudflare Workers KV namespace **spanish-practice-center-preview-students**, bound to the Pages preview environment as **STUDENTS**. The namespace ID belongs in Cloudflare settings, not browser configuration. Routine changes require no GitHub commit or redeployment.
+
+Open Cloudflare dashboard → Storage & databases → KV → the namespace → KV Pairs. Each lookup has a normalized key `student:example` and a JSON value with just `url` and Boolean `active`:
+
+```json
+{"url":"https://example.notion.site/replace-with-verified-page","active":true}
 ```
 
-Open `http://localhost:8000`. Use an HTTP server rather than opening HTML files directly: the student form loads JSON with `fetch`.
+This is a synthetic format example. Never use it as an actual student record.
 
-## Student maintenance — one file only
+| Operation | Exact steps |
+| --- | --- |
+| Add | Verify the student's current Notion public link and status. Search the namespace for the normalized name first. If absent, add key `student:` plus the lowercase name, and save the JSON with the verified URL and `active: true`. Never overwrite another student's key. |
+| Deactivate | Open that student's key, preserve the URL, change `active` to `false` (without quotes), and save. |
+| Reactivate | Verify the URL is still correct, change `active` to `true`, and save. |
+| Change Notion URL | Open the key, replace only `url` with the verified HTTPS public Notion link, preserve `active`, and save. |
+| Remove | Verify the key belongs to the intended student, then delete that key. The name will return not found. |
 
-Edit `data/students.json`. It contains a JSON array of entries with `name`, `url`, and `active` fields. The file is currently empty pending publication approval.
+After any change, allow at least 60 seconds for KV propagation, then test the name in a fresh browser session. Propagation can take longer; a previous active URL can still be returned briefly during propagation. Deactivation does not revoke a previously known public Notion link.
 
-Copy the entry from `data/students.example.json` into the array, replace `Example` with the student's first name, paste their actual HTTPS Notion link into `url`, and set `active` to `true`.
+Use the established full lookup name when it includes an initial. A final period on an initial is optional. Do not create first-name aliases that collide with another student, including inactive students. Before introducing new duplicate names, agree distinct lookup names with the owner (normally first name plus last initial) and update the affected keys. If a formerly unique bare name becomes ambiguous, replace its value with `{"ambiguous":true}` so it requests an initial rather than choosing a student. Do not publish the alternatives. Remove obsolete aliases when changing a lookup name.
 
-1. **Add:** append an entry, separated from previous entries by a comma. No trailing comma after the last entry.
-2. **Update link:** change only that student's `url`.
-3. **Deactivate:** change `active` from `true` to `false`.
-4. **Reactivate:** change `active` back to `true`.
+An assistant can safely perform these operations through the connected Cloudflare API: read the named key first, verify the requested change and source URL, update only that key, then read it back and test lookup. Listing the private namespace for a duplicate audit is an admin action only. Never copy mappings into GitHub, public outputs, frontend files, or deployment assets. Notion moves do not synchronize automatically; ask the assistant to re-read category membership when refreshing status. Do not modify Notion pages.
 
-Save and commit this one file to the deployed branch. No HTML, CSS or JavaScript edits are necessary. The form requests the current JSON without its own cache or service worker.
+## Cloudflare preview setup (pending access)
 
-Matching trims surrounding spaces, normalizes repeated whitespace and Unicode, and ignores letter case. Inactive students are excluded. Only HTTPS URLs on `app.notion.com`, `notion.so`, `notion.site`, or the latter two domains’ subdomains are accepted.
+1. Enable Cloudflare connection permissions for Pages project/deployment writes and Workers KV writes. Authorize Cloudflare's GitHub integration for **only this repository** where possible.
+2. Create the KV namespace above. Import only freshly verified mappings; preserve explicit inactive status and the owner's established name distinctions. Check normalized-key collisions before writing anything.
+3. Create a **Git-integrated Cloudflare Pages** project named `spanish-practice-center-preview`, using the existing GitHub repository. Do not choose Direct Upload if Git integration is intended.
+4. Set build command `node scripts/build.mjs`, output directory `dist`, and root directory `/`. Node 22 or later is sufficient; no dependencies are needed for this copy-only build.
+5. Configure production branch `main` with **automatic production deployments disabled**. Set preview branch controls to custom, include only `ui-redesign`, and disable PR comments. Trigger only an `ui-redesign` preview deployment.
+6. In project Settings → Bindings, select the **Preview** environment and add KV binding `STUDENTS` to the namespace. Set the preview compatibility date to `2026-09-08`. Redeploy the preview for the binding to apply.
+7. Verify the successful deployment's Git commit matches GitHub `ui-redesign`. Record Cloudflare's actual preview URL here only after successful deployment; never infer a URL.
+8. Test real active/inactive names, case, whitespace, fresh-session redirects, and network payloads. Verify real Notion destination access while signed out. Leave preview/noindex labeling intact.
 
-Use the exact page name for students with initials. If two active students have the same lookup name, neither match will open automatically. Assign distinct values, such as first name plus surname initial, in this same file and tell those students what to type. Names are never presented as a directory or dropdown.
+Cloudflare handles runtime/deployment; GitHub retains all source. No custom domain or Google Sites redirect belongs in this preview setup.
 
-This is routing, not authentication. The JSON is publicly downloadable on static hosting, including inactive entries. Deactivation stops name lookup; it does not revoke access to a Notion URL. Do not store sensitive information in this file.
+## Build and local checks
 
-Notion category changes do not sync automatically. To reflect a move between categories, update `active` in this JSON or ask a coding agent to refresh it from Notion. No student page content is copied into this repository.
+```sh
+node scripts/build.mjs
+node tests/student-routing.mjs
+node tests/student-lookup.mjs
+```
+
+The build copies an explicit allowlist of HTML/CSS/JS into `dist`. It excludes `data`, tests, documentation, server source, and private files. Pages compiles `functions/api/student-lookup.js` separately from static assets. Only `/api/*` invokes Functions. A 404 file prevents unknown paths from falling back to the home page.
+
+A plain static server can preview the design but cannot execute the API. Use Cloudflare's Pages local development tool with a local `STUDENTS` KV binding for full runtime testing; keep test data synthetic. No real mapping should enter the repository, even in an ignored file if it can be avoided.
+
+## Costs and maintenance
+
+This small lookup is intended to fit Cloudflare's free allowances, subject to actual traffic and account plan. No paid plan was enabled. As checked September 8, 2026, [KV Free](https://developers.cloudflare.com/kv/platform/pricing/) includes 100,000 reads/day, 1,000 writes/day and 1 GB storage; exceeding a free allowance causes operations to fail until reset. Each lookup reads one key, including misses. [Pages Functions](https://developers.cloudflare.com/pages/functions/pricing/) use Workers request allowances; static assets have separate treatment. Check the dashboard's current plan and usage before launch or upgrades.
+
+There is no always-on server to maintain. Maintain student records, retain the GitHub integration, and review usage/errors periodically. [KV is eventually consistent](https://developers.cloudflare.com/kv/concepts/how-kv-works/), so updates are not immediate everywhere. Names can be guessed, public Notion links remain public, and Notion sharing changes can break a destination independently of this portal. This design prevents downloading a centralized directory; it does not authenticate students.
 
 ## Connected destinations
 
@@ -83,30 +99,6 @@ The original markup uses slate blue `#2F4E6F`, secondary blue `#4F79A7`, light b
 
 The curriculum was extracted verbatim from the public Program page: A1 (10 units), A2 (10), B1 (14), B2 (12). Both unit titles and grammar descriptions remain in Spanish. Surrounding navigation is English.
 
-## GitHub review workflow
+## Validation and release
 
-The new repository has a minimal README on `main`. All portal implementation is on `ui-redesign`. Review that branch before any production merge. This repository is independent of ConjuFlow and Mexican-Spanish.
-
-## Student data approval
-
-The Notion category lists were inspected and the routing data was verified locally. No student names or page URLs are included in this public repository pending explicit publication approval. The JSON remains empty. Category membership will determine active status when the import is authorized; no lesson content is copied.
-
-## Optional GitHub Pages development preview
-
-GitHub Pages can serve this static root directory from `ui-redesign`. If choosing this review route, enable Pages under the new repository’s Settings, select deployment from a branch, choose `ui-redesign`, and select `/ (root)`. Use GitHub’s displayed URL; do not assume a URL before deployment succeeds. The preview banner and `noindex,nofollow` metadata must remain during review. This does not redirect or change Google Sites.
-
-## Production only after explicit approval
-
-After manual review and explicit approval, choose a production branch, merge the reviewed commit, and point Pages at that branch. Remove the development banner and `noindex,nofollow` only at that time. Do not add a custom domain or redirect the current portal without separate authorization.
-
-## Portability
-
-All local paths are relative and work under a GitHub Pages repository subpath. Any standard static web host can serve the same files. A future move to Cloudflare needs a static deployment configuration, not a frontend rewrite. No Cloudflare integration, GitHub-specific runtime logic, build process, or service worker is included.
-
-## Checks
-
-```sh
-node tests/student-routing.mjs
-```
-
-Follow `VALIDATION.md` for the remaining browser checks before release.
+See `VALIDATION.md` for performed checks and outstanding live checks. Google Sites, Notion, ConjuFlow, Mexican Spanish Flashcards, and other repositories must remain unchanged. Production requires the owner's separate manual review and approval.

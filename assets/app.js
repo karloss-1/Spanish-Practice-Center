@@ -1,4 +1,4 @@
-import { findStudent } from './student-routing.mjs';
+import { validNotionUrl } from './student-routing.mjs';
 const menu = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
 const mobile = matchMedia('(max-width: 640px)');
@@ -31,14 +31,34 @@ if (form) {
   });
   form.addEventListener('submit', async event => {
     event.preventDefault();
+    if (submit.disabled) return;
+    if (!input.value.trim()) {
+      message.textContent = 'Please enter your first name.';
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+      return;
+    }
     submit.disabled = true;
     message.textContent = 'Finding your learning space…';
     try {
-      const response = await fetch('./data/students.json', { cache: 'no-store' });
-      if (!response.ok) throw new Error('Unavailable');
-      const students = await response.json();
-      if (!Array.isArray(students)) throw new Error('Invalid data');
-      const url = findStudent(students, input.value);
+      const response = await fetch('./api/student-lookup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: input.value }),
+        cache: 'no-store',
+        credentials: 'omit',
+        signal: AbortSignal.timeout(15000)
+      });
+      if (response.status === 409) {
+        message.textContent = 'Please enter your first name and last initial. Ask Azael if you’re unsure which name to use.';
+        input.setAttribute('aria-invalid', 'true');
+        input.focus();
+        return;
+      }
+      if (!response.ok && response.status !== 404) throw new Error('Unavailable');
+      const result = await response.json();
+      const url = response.ok ? validNotionUrl(result.url) : null;
+      if (response.ok && !url) throw new Error('Invalid response');
       if (url) {
         message.textContent = 'Opening your learning space…';
         window.location.assign(url);
