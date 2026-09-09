@@ -5,7 +5,7 @@ const output = new URL('dist/', root);
 await rm(output, { recursive: true, force: true });
 await mkdir(new URL('assets/', output), { recursive: true });
 // Explicit public-file allowlist. Never copy data, tests, private files, or source folders.
-for (const file of ['index.html', 'my-learning-space.html', 'practice.html', 'resources.html', 'course-roadmap.html', 'assets/styles.css', 'assets/app.js', 'assets/student-routing.mjs']) {
+for (const file of ['index.html', 'my-learning-space.html', 'practice.html', 'resources.html', 'course-roadmap.html', 'assets/styles.css', 'assets/home.css', 'assets/home-hero.webp', 'assets/app.js', 'assets/student-routing.mjs']) {
   await copyFile(new URL(file, root), new URL(file, output));
 }
 await writeFile(new URL('_routes.json', output), JSON.stringify({ version: 1, include: ['/api/*'], exclude: [] }));
