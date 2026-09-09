@@ -1,3 +1,84 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Your Spanish learning materials, practice tools and course roadmap with Azael."><title>Practice · Spanish Practice Center</title><link rel="stylesheet" href="assets/styles.css"><script type="module" src="assets/app.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><div class="preview">Development preview <span>· For review</span></div><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>with Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html" aria-current="page">Practice</a><a href="resources.html">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main"><div class="intro"><p class="eyebrow">BETWEEN CLASSES</p><h1>Practice Spanish</h1><p class="lede">Choose what you’d like to work on today.</p></div><div class="tool-grid"><section class="tool-card" id="flashcards"><p class="eyebrow">Vocabulary</p><h2>Mexican Spanish Flashcards</h2><p>Recall useful Mexican Spanish vocabulary and review it with spaced repetition.</p><a class="text-link" href="https://karloss-1.github.io/Mexican-Spanish/">Open Mexican Spanish Flashcards</a></section><section class="tool-card" id="conjugation"><p class="eyebrow">Conjugation</p><h2>ConjuFlow</h2><p>Practice verb forms by tense and pattern, at your own pace.</p><a class="text-link" href="https://karloss-1.github.io/Conjuflow/">Open ConjuFlow</a></section><section class="tool-card" id="writing"><p class="eyebrow">Writing</p><h2>AI Writing Trainer</h2><p>Write something short or check your homework, then learn from the feedback.</p><a class="text-link" href="https://chatgpt.com/g/g-6978e9457bf081918eab1b87cda5cf94-spanish-writing-trainer">Open AI Writing Trainer</a></section><section class="tool-card" id="conversation"><p class="eyebrow">Conversation</p><h2>AI Conversation Trainer</h2><p>Practice a topic from class through a conversation. Text works best.</p><a class="text-link" href="https://chatgpt.com/g/g-697ee7ce5c748191a327590755eee86e-conversation-trainer">Open AI Conversation Trainer</a></section></div><p class="note">The AI trainers require you to be signed in to ChatGPT.</p></main><footer><span>Spanish Practice Center · with Azael</span><a class="" href="https://www.italki.com/en/teacher/1284133">Azael on italki</a></footer></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Your Spanish learning materials, practice tools and course roadmap with Azael."><title>Practice · Spanish Practice Center</title><link rel="stylesheet" href="assets/styles.css"><script type="module" src="assets/app.js"></script><style>
+/* Practice-only presentation; shared pages and behavior retain their styles. */
+.practice { background:#fff; color:var(--muted); }
+.practice main { max-width:none; padding:0; }
+.practice .header-inner { padding-block:1rem; }
+.practice .practice-container { width:min(100% - 48px,1120px); margin-inline:auto; }
+.practice .eyebrow { font-size:.75rem; letter-spacing:.14em; margin:0 0 16px; }
+.practice h1,.practice h2,.practice h3 { color:var(--blue); }
+.practice h1 { font-size:clamp(2.4rem,4.5vw,3.4rem); margin:0 0 16px; }
+.practice h2 { font-size:clamp(1.8rem,3vw,2.5rem); line-height:1.15; letter-spacing:-.045em; margin:0 0 12px; }
+.practice h3 { font-size:clamp(1.3rem,2vw,1.65rem); line-height:1.25; letter-spacing:-.035em; margin:0 0 10px; }
+.practice-hero { background:#f8f5ed; overflow:hidden; }
+.practice-hero .practice-container { min-height:260px; padding-block:40px; position:relative; }
+.practice-hero-copy { position:relative; z-index:1; max-width:660px; }
+.practice-hero .practice-question { font-size:1.4rem; color:var(--blue); margin-bottom:4px; }
+.practice-hero p:last-child { margin-bottom:0; font-size:1.125rem; }
+.practice-still-life { position:absolute; right:0; bottom:0; width:300px; height:200px; opacity:.65; }
+.practice-books { position:absolute; bottom:28px; right:90px; transform:rotate(-5deg); }
+.practice-books span { display:block; width:150px; padding:4px 20px; border-radius:4px; background:var(--blue); color:#fff; font-size:.8rem; text-align:center; border-bottom:3px solid #d5dee7; }
+.practice-books span:nth-child(2) { background:#d5dee7; color:var(--blue); transform:translateX(8px); }
+.practice-cup { position:absolute; right:16px; bottom:24px; width:74px; height:90px; background:#fff; border:2px solid var(--line); border-radius:5px 5px 24px 24px; }
+.practice-cup::after { content:""; position:absolute; left:100%; top:12px; width:22px; height:36px; border:7px solid #fff; border-left:0; border-radius:0 18px 18px 0; }
+.practice-section { padding-block:44px; }
+.practice-section-intro { max-width:670px; margin-bottom:26px; }
+.practice-section-intro > p:last-child { font-size:1.125rem; line-height:1.5; margin:0; }
+.practice-unit { background:var(--soft); }
+.practice-unit h2 { max-width:590px; }
+.practice-modules { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.practice-module { padding:28px; border:1px solid var(--line); border-radius:8px; background:#fff; display:flex; flex-direction:column; scroll-margin-top:24px; }
+.practice-module-art { height:104px; position:relative; margin-bottom:16px; }
+.practice-icon { width:78px; height:78px; border-radius:50%; background:var(--soft); color:var(--blue); display:grid; place-items:center; }
+.practice-icon svg { width:44px; height:44px; }
+.practice-example { position:absolute; right:12px; top:0; padding:14px 24px; background:var(--soft); color:#63809a; border-radius:5px; transform:rotate(-8deg); font-family:Georgia,serif; font-style:italic; line-height:1.5; font-size:1.2rem; }
+.practice-example.cards { border:6px solid #e2edf4; outline:1px solid var(--line); padding:18px 30px; }
+.practice-example.bubble { border-radius:24px 24px 4px 24px; }
+.practice-module .eyebrow { margin-bottom:10px; }
+.practice-emphasis { font-size:1.125rem; color:var(--blue); margin-bottom:6px; line-height:1.5; }
+.practice-description { line-height:1.5; margin-bottom:20px; }
+.practice-cta { align-self:flex-start; display:inline-flex; align-items:center; justify-content:center; gap:14px; min-height:48px; padding:11px 20px; border:1px solid var(--blue); border-radius:5px; background:var(--blue); color:#fff; text-decoration:none; font-weight:600; line-height:1.5; margin-top:auto; }
+.practice-cta:hover { background:#24415e; }
+.practice-cta span { font-size:1.3rem; }
+.practice-info { display:flex; gap:14px; align-items:center; border:1px solid #c5d7e6; border-radius:5px; padding:16px 20px; color:var(--blue); margin:16px 0 0; line-height:1.5; }
+.practice-info svg { flex:0 0 22px; width:22px; height:22px; }
+.practice footer { max-width:1120px; width:calc(100% - 48px); padding-inline:0; margin-top:28px; font-size:.8rem; }
+@media(max-width:1100px) { .practice-hero-copy { max-width:70%; } .practice-still-life { transform:scale(.8); transform-origin:right bottom; } }
+@media(max-width:760px) { .practice-modules { grid-template-columns:1fr; } .practice-still-life { display:none; } .practice-hero-copy { max-width:none; } .practice-hero .practice-container { min-height:0; padding-block:32px; } }
+@media(max-width:640px) { .practice .practice-container { width:calc(100% - 40px); } .practice .header-inner { padding:16px 20px; } .practice-section { padding-block:32px; } .practice-module { padding:24px; } .practice-hero .practice-question { font-size:1.2rem; } .practice-hero p:last-child { font-size:1rem; } .practice-cta { width:100%; padding-inline:12px; } .practice-example { right:0; font-size:1.05rem; padding:12px 18px; } .practice-info { align-items:flex-start; padding:14px; } .practice footer { width:calc(100% - 40px); } }
+</style></head>
+<body class="practice"><a class="skip" href="#main">Skip to content</a><div class="preview">Development preview <span>· For review</span></div><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>with Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html" aria-current="page">Practice</a><a href="resources.html">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main">
+<section class="practice-hero" aria-labelledby="practice-title"><div class="practice-container">
+<div class="practice-hero-copy"><p class="eyebrow">BETWEEN CLASSES</p><h1 id="practice-title">Practice Spanish</h1><p class="practice-question">What do you want to work on today?</p><p>Choose how you’d like to practice between classes.</p></div>
+<div class="practice-still-life" aria-hidden="true"><div class="practice-books"><span>Hablar</span><span>Practicar</span><span>Mejorar</span></div><div class="practice-cup"></div></div>
+</div></section>
+<section class="practice-section" aria-labelledby="independent-title"><div class="practice-container">
+<div class="practice-section-intro"><p class="eyebrow">INDEPENDENT PRACTICE</p><h2 id="independent-title">Build your Spanish over time</h2><p>Practice high-frequency vocabulary and strengthen your control of verb forms at your own pace.</p></div>
+<div class="practice-modules"><article class="practice-module" id="flashcards" aria-labelledby="flashcards-title">
+<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="8" y="13" width="26" height="30" rx="3"/><path d="m17 6 23 3-3 28"/></svg></span><span class="practice-example cards">hola</span></div>
+<p class="eyebrow">VOCABULARY</p><h3 id="flashcards-title">Mexican Spanish Flashcards</h3>
+<p class="practice-emphasis">Build a stronger everyday vocabulary.</p><p class="practice-description">Practice a curated set of 600 common words and 300 common verbs from spoken Mexican Spanish, using spaced repetition.</p>
+<a class="practice-cta" href="https://karloss-1.github.io/Mexican-Spanish/">Open Flashcards <span aria-hidden="true">→</span></a>
+</article>
+<article class="practice-module" id="conjugation" aria-labelledby="conjugation-title">
+<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></span><span class="practice-example ">hablo<br>hablas<br>habla</span></div>
+<p class="eyebrow">CONJUGATION</p><h3 id="conjugation-title">ConjuFlow</h3>
+<p class="practice-emphasis">Get more comfortable with verbs.</p><p class="practice-description">Practice verb forms by tense and conjugation pattern at your own pace.</p>
+<a class="practice-cta" href="https://karloss-1.github.io/Conjuflow/">Open ConjuFlow <span aria-hidden="true">→</span></a>
+</article></div></div></section>
+<section class="practice-section practice-unit" aria-labelledby="unit-title"><div class="practice-container">
+<div class="practice-section-intro"><p class="eyebrow">PRACTICE YOUR CURRENT UNIT</p><h2 id="unit-title">Take what we’re learning beyond the classroom</h2><p>Use your current unit code to continue practicing the vocabulary, grammar and communication goals from class.</p></div>
+<div class="practice-modules"><article class="practice-module" id="writing" aria-labelledby="writing-title">
+<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="m7 41 5-14L33 6a4 4 0 0 1 6 6L18 34zM29 10l8 8M12 27l6 7"/></svg></span><span class="practice-example ">Escribe<br>Practica</span></div>
+<p class="eyebrow">WRITING</p><h3 id="writing-title">AI Writing Trainer</h3>
+<p class="practice-emphasis">Put your current Spanish into words.</p><p class="practice-description">Enter your unit code to get a writing task or extra exercises based on the vocabulary and grammar we’re studying in class. You can also submit your writing for feedback.</p>
+<a class="practice-cta" href="https://chatgpt.com/g/g-6978e9457bf081918eab1b87cda5cf94-spanish-writing-trainer">Open Writing Trainer <span aria-hidden="true">→</span></a>
+</article>
+<article class="practice-module" id="conversation" aria-labelledby="conversation-title">
+<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8 8h23a4 4 0 0 1 4 4v15H17l-9 8v-8H4V12a4 4 0 0 1 4-4zM35 19h9v20h-6v6l-8-6H20v-7"/></svg></span><span class="practice-example bubble">¿Qué opinas?</span></div>
+<p class="eyebrow">CONVERSATION</p><h3 id="conversation-title">AI Conversation Trainer</h3>
+<p class="practice-emphasis">Use what you’re learning in conversation.</p><p class="practice-description">Enter your unit code to start a guided conversation built around the vocabulary and grammar we’re practicing in class.</p>
+<a class="practice-cta" href="https://chatgpt.com/g/g-697ee7ce5c748191a327590755eee86e-conversation-trainer">Open Conversation Trainer <span aria-hidden="true">→</span></a>
+</article></div>
+<p class="practice-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><span>Writing and Conversation Trainers open in ChatGPT and require you to be signed in.</span></p>
+</div></section></main><footer><span>Spanish Practice Center · with Azael</span><a class="" href="https://www.italki.com/en/teacher/1284133">Azael on italki</a></footer></body></html>
