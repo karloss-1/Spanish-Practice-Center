@@ -1,3 +1,107 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Your Spanish learning materials, practice tools and course roadmap with Azael."><title>Resources · Spanish Practice Center</title><link rel="stylesheet" href="assets/styles.css"><script type="module" src="assets/app.js"></script></head>
-<body><a class="skip" href="#main">Skip to content</a><div class="preview">Development preview <span>· For review</span></div><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>with Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html">Practice</a><a href="resources.html" aria-current="page">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main"><div class="intro"><p class="eyebrow">SHARED MATERIALS</p><h1>Resources</h1><p class="lede">Useful references and tools to support your lessons.</p></div><section class="resource-section"><h2>Learn &amp; reference</h2><div class="resource-list"><a class="resource-row" href="https://app.notion.com/p/3b3ef88948668044a2aef9877b717fbf"><div><h3>Spanish Learning Cheat Sheet</h3><p>A quick reference for your Spanish studies.</p></div><span aria-hidden="true">↗</span></a><a class="resource-row" href="https://app.notion.com/p/3c6ef889486680c8b65be3544abefbae"><div><h3>Essential Mexican Spanish</h3><p>Vocabulary materials for everyday Mexican Spanish.</p></div><span aria-hidden="true">↗</span></a><a class="resource-row" href="https://app.notion.com/p/3d0ef88948668119b4bce27ee4cc9dbb"><div><h3>Conjugation reference materials</h3><p>Tables to consult alongside your verb practice.</p></div><span aria-hidden="true">↗</span></a></div></section><section class="resource-section"><h2>Practice</h2><div class="resource-list"><a class="resource-row" href="https://karloss-1.github.io/Mexican-Spanish/"><div><h3>Mexican Spanish Flashcards</h3><p>Recall useful Mexican Spanish vocabulary and review it with spaced repetition.</p></div><span aria-hidden="true">↗</span></a><a class="resource-row" href="https://karloss-1.github.io/Conjuflow/"><div><h3>ConjuFlow</h3><p>Practice verb forms by tense and pattern, at your own pace.</p></div><span aria-hidden="true">↗</span></a><a class="resource-row" href="https://chatgpt.com/g/g-6978e9457bf081918eab1b87cda5cf94-spanish-writing-trainer"><div><h3>AI Writing Trainer</h3><p>Write something short or check your homework, then learn from the feedback.</p></div><span aria-hidden="true">↗</span></a><a class="resource-row" href="https://chatgpt.com/g/g-697ee7ce5c748191a327590755eee86e-conversation-trainer"><div><h3>AI Conversation Trainer</h3><p>Practice a topic from class through a conversation. Text works best.</p></div><span aria-hidden="true">↗</span></a></div></section><section class="roadmap-link"><h2>See how it fits together</h2><p>Explore the course structure. We adapt the pace to your learning.</p><a href="course-roadmap.html">View the Course Roadmap</a></section></main><footer><span>Spanish Practice Center · with Azael</span><a class="" href="https://www.italki.com/en/teacher/1284133">Azael on italki</a></footer></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Your Spanish learning materials, practice tools and course roadmap with Azael."><title>Resources · Spanish Practice Center</title><link rel="stylesheet" href="assets/styles.css"><script type="module" src="assets/app.js"></script><style>
+/* Resources-only presentation; uses the shared site tokens and navigation. */
+.resources { background:#fff; color:var(--muted); }
+.resources main { max-width:none; padding:0; }
+.resources .header-inner { padding-block:1rem; }
+.resources .library-container { width:min(100% - 48px,1120px); margin-inline:auto; }
+.resources .eyebrow { font-size:.75rem; letter-spacing:.14em; margin:0 0 10px; }
+.resources h1,.resources h2,.resources h3 { color:var(--blue); }
+.resources h1 { font-size:clamp(2.4rem,4.5vw,3.4rem); margin:0 0 16px; }
+.resources h2 { font-size:clamp(1.8rem,3vw,2.2rem); line-height:1.15; letter-spacing:-.045em; margin:0 0 8px; }
+.resources h3 { font-size:clamp(1.3rem,2vw,1.65rem); line-height:1.25; letter-spacing:-.035em; margin:0 0 8px; }
+.library-hero { position:relative; isolation:isolate; background:#f8f5ed; overflow:hidden; }
+.library-hero-image { position:absolute; right:0; top:0; width:min(100%,1100px); height:100%; object-fit:cover; object-position:right 65%; mask-image:linear-gradient(to right,transparent,#000 35%); }
+.library-hero .library-container { position:relative; min-height:260px; padding-block:44px; }
+.library-hero-copy { max-width:480px; }
+.library-hero .eyebrow { margin-bottom:16px; }
+.library-hero-copy > p:last-child { font-size:1.25rem; line-height:1.5; color:var(--blue); margin:0; }
+.library-content { padding-block:36px; }
+.library-section + .library-section { margin-top:40px; }
+.library-intro { margin-bottom:24px; }
+.library-intro > p:last-child { font-size:1.125rem; line-height:1.5; margin:0; }
+.library-feature,.library-item,.library-practice { display:grid; grid-template-columns:88px minmax(0,1fr) auto; align-items:center; gap:28px; border-radius:5px; padding:24px; }
+.library-feature { grid-template-columns:156px minmax(0,1fr) auto; background:var(--soft); border:1px solid var(--line); padding:28px; }
+.library-icon { width:78px; height:78px; display:grid; place-items:center; border-radius:50%; background:var(--soft); color:var(--blue); }
+.library-icon svg { width:44px; height:44px; }
+.library-feature .library-icon { width:136px; height:136px; background:#e0ebf4; }
+.library-feature .library-icon svg { width:68px; height:68px; }
+.library-copy { min-width:0; }
+.library-copy > p:last-child { margin:0; line-height:1.5; }
+.library-short { color:var(--blue); font-size:1.0625rem; line-height:1.5; margin:0 0 8px; }
+.library-feature .library-short { font-size:1.125rem; }
+.library-action { display:inline-flex; align-items:center; justify-content:center; gap:16px; min-height:48px; color:var(--blue); font-weight:600; text-decoration:none; line-height:1.5; }
+.library-action span { font-size:1.3rem; }
+.library-action:hover { text-decoration:underline; }
+.library-button { background:var(--blue); color:#fff; border:1px solid var(--blue); border-radius:5px; padding:11px 20px; }
+.library-button:hover { background:#24415e; text-decoration:none; }
+/* Repeat a library-item for each future reference; no item-count-dependent layout. */
+.library-list { list-style:none; display:grid; gap:12px; margin:0; padding:0; }
+.library-item { border:1px solid var(--line); }
+.library-item .library-action { justify-self:end; }
+.library-practice { margin-top:36px; background:var(--soft); }
+.library-practice .library-icon { background:#e0ebf4; }
+.resources footer { max-width:1120px; width:calc(100% - 48px); padding-inline:0; font-size:.8rem; }
+@media(max-width:1000px) {
+  .library-hero-copy { max-width:52%; }
+  .library-feature { grid-template-columns:112px minmax(0,1fr); gap:20px; }
+  .library-feature .library-icon { width:104px; height:104px; grid-row:span 2; }
+  .library-feature .library-action { grid-column:2; justify-self:start; }
+  .library-item,.library-practice { grid-template-columns:78px minmax(0,1fr); gap:12px 20px; }
+  .library-item .library-icon,.library-practice .library-icon { grid-row:span 2; }
+  .library-item .library-action,.library-practice .library-action { grid-column:2; justify-self:start; }
+}
+@media(max-width:640px) {
+  .resources .library-container,.resources footer { width:calc(100% - 40px); }
+  .resources .header-inner { padding:16px 20px; }
+  .library-hero .library-container { min-height:0; padding-block:32px; }
+  .library-hero-copy { max-width:none; }
+  .library-hero-copy > p:last-child { font-size:1.125rem; }
+  .library-hero-image { opacity:.12; object-position:right center; }
+  .library-content { padding-block:28px; }
+  .library-intro { margin-bottom:18px; }
+  .library-intro > p:last-child { font-size:1rem; }
+  .library-section + .library-section { margin-top:32px; }
+  .library-feature,.library-item,.library-practice { grid-template-columns:1fr; padding:20px; gap:16px; }
+  .library-feature .library-icon,.library-item .library-icon,.library-practice .library-icon { width:60px; height:60px; grid-row:auto; }
+  .library-feature .library-icon svg,.library-icon svg { width:34px; height:34px; }
+  .library-feature .library-action,.library-item .library-action,.library-practice .library-action { grid-column:auto; justify-self:start; }
+  .library-practice { margin-top:28px; }
+}
+</style></head>
+<body class="resources"><a class="skip" href="#main">Skip to content</a><div class="preview">Development preview <span>· For review</span></div><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>with Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html">Practice</a><a href="resources.html" aria-current="page">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main">
+<section class="library-hero" aria-labelledby="resources-title">
+<img class="library-hero-image" src="assets/practice-hero.jpg" alt="" width="2172" height="724" fetchpriority="high">
+<div class="library-container"><div class="library-hero-copy"><p class="eyebrow">SHARED MATERIALS</p><h1 id="resources-title">Resources</h1><p>Useful materials to support your Spanish between classes.</p></div></div>
+</section>
+<div class="library-container library-content">
+<section class="library-section" aria-labelledby="featured-title">
+<div class="library-intro"><h2 id="featured-title">Featured guide</h2><p>A practical guide to help you make the most of your study time.</p></div>
+<article class="library-feature" aria-labelledby="cheat-sheet-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></div>
+<div class="library-copy"><p class="eyebrow">STUDY GUIDE</p><h3 id="cheat-sheet-title">Spanish Learning Cheat Sheet</h3><p class="library-short">Simple ideas for practicing Spanish between classes.</p><p>Practical tips for vocabulary, listening, speaking, grammar and writing, plus simple study routines for the time you have available.</p></div>
+<a class="library-action library-button" href="https://app.notion.com/p/3b3ef88948668044a2aef9877b717fbf">Open Cheat Sheet <span aria-hidden="true">→</span></a>
+</article>
+</section>
+<section class="library-section" aria-labelledby="references-title">
+<div class="library-intro"><p class="eyebrow">REFERENCE MATERIALS</p><h2 id="references-title">Keep these references handy</h2><p>Vocabulary and conjugation materials to consult whenever you need them.</p></div>
+<ul class="library-list">
+<li><article class="library-item" aria-labelledby="vocabulary-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M24 11C17 6 9 6 4 9v30c6-3 13-3 20 2 7-5 14-5 20-2V9c-5-3-13-3-20 2v30"/></svg></div>
+<div class="library-copy"><p class="eyebrow">VOCABULARY</p><h3 id="vocabulary-title">Essential Mexican Spanish</h3><p class="library-short">Useful vocabulary to keep nearby.</p><p>Browse PDF reference lists of common words and verbs from spoken Mexican Spanish. These lists contain the same vocabulary used in the flashcards app.</p></div>
+<a class="library-action" href="https://app.notion.com/p/3c6ef889486680c8b65be3544abefbae">Open Vocabulary Lists <span aria-hidden="true">→</span></a>
+</article></li>
+<li><article class="library-item" aria-labelledby="conjugation-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></div>
+<div class="library-copy"><p class="eyebrow">GRAMMAR &amp; CONJUGATION</p><h3 id="conjugation-title">Conjugation Reference Materials</h3><p class="library-short">Check a verb form or pattern when you need it.</p><p>Use PDF conjugation tables organized by tense and conjugation pattern as a quick reference while studying.</p></div>
+<a class="library-action" href="https://app.notion.com/p/3d0ef88948668119b4bce27ee4cc9dbb">Open Conjugation Guides <span aria-hidden="true">→</span></a>
+</article></li>
+</ul>
+</section>
+<section class="library-practice" aria-labelledby="practice-link-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="m7 41 5-14L33 6a4 4 0 0 1 6 6L18 34zM29 10l8 8M12 27l6 7"/></svg></div>
+<div class="library-copy"><p class="eyebrow">WANT TO PRACTICE INSTEAD?</p><h2 id="practice-link-title">Go to Practice</h2><p>Use the flashcards, conjugation practice, writing and conversation trainers to apply what you’re learning.</p></div>
+<a class="library-action library-button" href="practice.html">Go to Practice <span aria-hidden="true">→</span></a>
+</section>
+</div>
+</main><footer><span>Spanish Practice Center · with Azael</span><a class="" href="https://www.italki.com/en/teacher/1284133">Azael on italki</a></footer></body></html>
