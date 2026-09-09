@@ -10,17 +10,12 @@
 .practice h1 { font-size:clamp(2.4rem,4.5vw,3.4rem); margin:0 0 16px; }
 .practice h2 { font-size:clamp(1.8rem,3vw,2.5rem); line-height:1.15; letter-spacing:-.045em; margin:0 0 12px; }
 .practice h3 { font-size:clamp(1.3rem,2vw,1.65rem); line-height:1.25; letter-spacing:-.035em; margin:0 0 10px; }
-.practice-hero { background:#f8f5ed; overflow:hidden; }
+.practice-hero { position:relative; isolation:isolate; background:#f8f5ed; overflow:hidden; }
 .practice-hero .practice-container { min-height:260px; padding-block:40px; position:relative; }
 .practice-hero-copy { position:relative; z-index:1; max-width:660px; }
 .practice-hero .practice-question { font-size:1.4rem; color:var(--blue); margin-bottom:4px; }
 .practice-hero p:last-child { margin-bottom:0; font-size:1.125rem; }
-.practice-still-life { position:absolute; right:0; bottom:0; width:300px; height:200px; opacity:.65; }
-.practice-books { position:absolute; bottom:28px; right:90px; transform:rotate(-5deg); }
-.practice-books span { display:block; width:150px; padding:4px 20px; border-radius:4px; background:var(--blue); color:#fff; font-size:.8rem; text-align:center; border-bottom:3px solid #d5dee7; }
-.practice-books span:nth-child(2) { background:#d5dee7; color:var(--blue); transform:translateX(8px); }
-.practice-cup { position:absolute; right:16px; bottom:24px; width:74px; height:90px; background:#fff; border:2px solid var(--line); border-radius:5px 5px 24px 24px; }
-.practice-cup::after { content:""; position:absolute; left:100%; top:12px; width:22px; height:36px; border:7px solid #fff; border-left:0; border-radius:0 18px 18px 0; }
+.practice-hero-image { position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:cover; object-position:center; }
 .practice-section { padding-block:44px; }
 .practice-section-intro { max-width:670px; margin-bottom:26px; }
 .practice-section-intro > p:last-child { font-size:1.125rem; line-height:1.5; margin:0; }
@@ -43,14 +38,13 @@
 .practice-info { display:flex; gap:14px; align-items:center; border:1px solid #c5d7e6; border-radius:5px; padding:16px 20px; color:var(--blue); margin:16px 0 0; line-height:1.5; }
 .practice-info svg { flex:0 0 22px; width:22px; height:22px; }
 .practice footer { max-width:1120px; width:calc(100% - 48px); padding-inline:0; margin-top:28px; font-size:.8rem; }
-@media(max-width:1100px) { .practice-hero-copy { max-width:70%; } .practice-still-life { transform:scale(.8); transform-origin:right bottom; } }
-@media(max-width:760px) { .practice-modules { grid-template-columns:1fr; } .practice-still-life { display:none; } .practice-hero-copy { max-width:none; } .practice-hero .practice-container { min-height:0; padding-block:32px; } }
+@media(max-width:1100px) { .practice-hero-copy { max-width:70%; } }
+@media(max-width:760px) { .practice-modules { grid-template-columns:1fr; } .practice-hero-image { display:none; } .practice-hero-copy { max-width:none; } .practice-hero .practice-container { min-height:0; padding-block:32px; } }
 @media(max-width:640px) { .practice .practice-container { width:calc(100% - 40px); } .practice .header-inner { padding:16px 20px; } .practice-section { padding-block:32px; } .practice-module { padding:24px; } .practice-hero .practice-question { font-size:1.2rem; } .practice-hero p:last-child { font-size:1rem; } .practice-cta { width:100%; padding-inline:12px; } .practice-example { right:0; font-size:1.05rem; padding:12px 18px; } .practice-info { align-items:flex-start; padding:14px; } .practice footer { width:calc(100% - 40px); } }
 </style></head>
 <body class="practice"><a class="skip" href="#main">Skip to content</a><div class="preview">Development preview <span>· For review</span></div><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>with Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html" aria-current="page">Practice</a><a href="resources.html">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main">
-<section class="practice-hero" aria-labelledby="practice-title"><div class="practice-container">
+<section class="practice-hero" aria-labelledby="practice-title"><img class="practice-hero-image" src="assets/practice-hero.jpg" alt="" width="2172" height="724" fetchpriority="high"><div class="practice-container">
 <div class="practice-hero-copy"><p class="eyebrow">BETWEEN CLASSES</p><h1 id="practice-title">Practice Spanish</h1><p class="practice-question">What do you want to work on today?</p><p>Choose how you’d like to practice between classes.</p></div>
-<div class="practice-still-life" aria-hidden="true"><div class="practice-books"><span>Hablar</span><span>Practicar</span><span>Mejorar</span></div><div class="practice-cup"></div></div>
 </div></section>
 <section class="practice-section" aria-labelledby="independent-title"><div class="practice-container">
 <div class="practice-section-intro"><p class="eyebrow">INDEPENDENT PRACTICE</p><h2 id="independent-title">Build your Spanish over time</h2><p>Practice high-frequency vocabulary and strengthen your control of verb forms at your own pace.</p></div>
