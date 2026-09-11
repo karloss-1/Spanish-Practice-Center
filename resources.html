@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Your Spanish learning materials, practice tools and course roadmap with Azael."><title>Resources · Spanish Practice Center</title><link rel="stylesheet" href="assets/styles.css"><script type="module" src="assets/app.js"></script><style>
+/* Resources-only presentation; uses the shared site tokens and navigation. */
+.resources { background:#fff; color:var(--muted); }
+.resources main { max-width:none; padding:0; }
+.resources .header-inner { padding-block:1rem; }
+.resources .library-container { width:min(100% - 48px,1120px); margin-inline:auto; }
+.resources .eyebrow { font-size:.75rem; letter-spacing:.14em; margin:0 0 10px; }
+.resources h1,.resources h2,.resources h3 { color:var(--blue); }
+.resources h1 { font-size:clamp(2.4rem,4.5vw,3.4rem); margin:0 0 16px; }
+.resources h2 { font-size:clamp(1.8rem,3vw,2.2rem); line-height:1.15; letter-spacing:-.045em; margin:0 0 8px; }
+.resources h3 { font-size:clamp(1.3rem,2vw,1.65rem); line-height:1.25; letter-spacing:-.035em; margin:0 0 8px; }
+.library-hero { position:relative; isolation:isolate; background:#f8f5ed; overflow:hidden; }
+.library-hero-image { position:absolute; right:0; top:0; width:min(100%,1100px); height:100%; object-fit:cover; object-position:right 65%; mask-image:linear-gradient(to right,transparent,#000 35%); }
+.library-hero .library-container { position:relative; min-height:260px; padding-block:44px; }
+.library-hero-copy { max-width:480px; }
+.library-hero .eyebrow { margin-bottom:16px; }
+.library-hero-copy > p:last-child { font-size:1.25rem; line-height:1.5; color:var(--blue); margin:0; }
+.library-content { padding-block:36px; }
+.library-section + .library-section { margin-top:40px; }
+.library-intro { margin-bottom:24px; }
+.library-intro > p:last-child { font-size:1.125rem; line-height:1.5; margin:0; }
+.library-feature,.library-item,.library-practice { display:grid; grid-template-columns:88px minmax(0,1fr) auto; align-items:center; gap:28px; border-radius:5px; padding:24px; }
+.library-feature { grid-template-columns:156px minmax(0,1fr) auto; background:var(--soft); border:1px solid var(--line); padding:28px; }
+.library-icon { width:78px; height:78px; display:grid; place-items:center; border-radius:50%; background:var(--soft); color:var(--blue); }
+.library-icon svg { width:44px; height:44px; }
+.library-feature .library-icon { width:136px; height:136px; background:#e0ebf4; }
+.library-feature .library-icon svg { width:68px; height:68px; }
+.library-copy { min-width:0; }
+.library-copy > p:last-child { margin:0; line-height:1.5; }
+.library-short { color:var(--blue); font-size:1.0625rem; line-height:1.5; margin:0 0 8px; }
+.library-feature .library-short { font-size:1.125rem; }
+.library-action { display:inline-flex; align-items:center; justify-content:center; gap:16px; min-height:48px; color:var(--blue); font-weight:600; text-decoration:none; line-height:1.5; }
+.library-action span { font-size:1.3rem; }
+.library-action:hover { text-decoration:underline; }
+.library-button { background:var(--blue); color:#fff; border:1px solid var(--blue); border-radius:5px; padding:11px 20px; }
+.library-button:hover { background:#24415e; text-decoration:none; }
+/* Repeat a library-item for each future reference; no item-count-dependent layout. */
+.library-list { list-style:none; display:grid; gap:12px; margin:0; padding:0; }
+.library-item { border:1px solid var(--line); }
+.library-item .library-action { justify-self:end; }
+.library-practice { margin-top:36px; background:var(--soft); }
+.library-practice .library-icon { background:#e0ebf4; }
+.library-disclosure { border:0; padding:0; background:transparent; font:inherit; cursor:pointer; }
+.library-disclosure .disclosure-icon { display:inline-block; transition:transform .15s ease; }
+.library-disclosure[aria-expanded="true"] .disclosure-icon { transform:rotate(180deg); }
+.library-list > li { min-width:0; }
+.library-list > li:has(.library-collection:not([hidden])) .library-item { border-radius:5px 5px 0 0; }
+.library-collection { margin-top:-1px; border:1px solid var(--line); border-radius:0 0 5px 5px; padding:24px 24px 28px 140px; background:#f8fafc; }
+.library-groups { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
+.library-groups.three-groups { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.library-group { min-width:0; }
+.library-group h4 { margin:0 0 8px; color:var(--blue); font-size:.75rem; line-height:1.4; letter-spacing:.1em; }
+.pdf-list { list-style:none; margin:0; padding:0; border:1px solid var(--line); border-radius:4px; overflow:hidden; }
+.pdf-list li + li { border-top:1px solid var(--line); }
+.pdf-link { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:46px; padding:10px 12px; background:#fff; color:var(--blue); text-decoration:none; line-height:1.35; }
+.pdf-link:hover { background:var(--soft); text-decoration:underline; }
+.pdf-meta { flex:0 0 auto; color:var(--muted); font-size:.72rem; font-weight:600; white-space:nowrap; }
+.source-note { margin:22px 0 0; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.78rem; line-height:1.55; }
+.source-note strong { color:var(--blue); }
+.resources footer { max-width:1120px; width:calc(100% - 48px); padding-inline:0; font-size:.8rem; }
+@media(max-width:1000px) {
+  .library-hero-copy { max-width:52%; }
+  .library-feature { grid-template-columns:112px minmax(0,1fr); gap:20px; }
+  .library-feature .library-icon { width:104px; height:104px; grid-row:span 2; }
+  .library-feature .library-action { grid-column:2; justify-self:start; }
+  .library-item,.library-practice { grid-template-columns:78px minmax(0,1fr); gap:12px 20px; }
+  .library-item .library-icon,.library-practice .library-icon { grid-row:span 2; }
+  .library-item .library-action,.library-practice .library-action { grid-column:2; justify-self:start; }
+}
+@media(max-width:640px) {
+  .resources .library-container,.resources footer { width:calc(100% - 40px); }
+  .resources .header-inner { padding:16px 20px; }
+  .library-hero .library-container { min-height:0; padding-block:32px; }
+  .library-hero-copy { max-width:none; }
+  .library-hero-copy > p:last-child { font-size:1.125rem; }
+  .library-hero-image { opacity:.12; object-position:right center; }
+  .library-content { padding-block:28px; }
+  .library-intro { margin-bottom:18px; }
+  .library-intro > p:last-child { font-size:1rem; }
+  .library-section + .library-section { margin-top:32px; }
+  .library-feature,.library-item,.library-practice { grid-template-columns:1fr; padding:20px; gap:16px; }
+  .library-feature .library-icon,.library-item .library-icon,.library-practice .library-icon { width:60px; height:60px; grid-row:auto; }
+  .library-feature .library-icon svg,.library-icon svg { width:34px; height:34px; }
+  .library-feature .library-action,.library-item .library-action,.library-practice .library-action { grid-column:auto; justify-self:start; }
+  .library-practice { margin-top:28px; }
+  .library-collection { padding:20px; }
+  .library-groups,.library-groups.three-groups { grid-template-columns:1fr; gap:22px; }
+  .pdf-link { align-items:flex-start; min-height:48px; }
+  .pdf-meta { padding-top:2px; }
+}
+</style></head>
+<body class="resources"><a class="skip" href="#main">Skip to content</a><div class="preview">Development preview <span>· For review</span></div><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>with Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html">Practice</a><a href="resources.html" aria-current="page">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main">
+<section class="library-hero" aria-labelledby="resources-title">
+<img class="library-hero-image" src="assets/practice-hero.jpg" alt="" width="2172" height="724" fetchpriority="high">
+<div class="library-container"><div class="library-hero-copy"><p class="eyebrow">SHARED MATERIALS</p><h1 id="resources-title">Resources</h1><p>Useful materials to support your Spanish between classes.</p></div></div>
+</section>
+<div class="library-container library-content">
+<section class="library-section" aria-labelledby="featured-title">
+<div class="library-intro"><h2 id="featured-title">Featured guide</h2><p>A practical guide to help you make the most of your study time.</p></div>
+<article class="library-feature" aria-labelledby="cheat-sheet-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></div>
+<div class="library-copy"><p class="eyebrow">STUDY GUIDE</p><h3 id="cheat-sheet-title">Spanish Learning Cheat Sheet</h3><p class="library-short">Simple ideas for practicing Spanish between classes.</p><p>Practical tips for vocabulary, listening, speaking, grammar and writing, plus simple study routines for the time you have available.</p></div>
+<a class="library-action library-button" href="assets/resources/spanish-learning-cheat-sheet/Spanish-Learning-Cheat-Sheet.pdf" target="_blank" rel="noopener noreferrer">Open Cheat Sheet <span aria-hidden="true">↗</span></a>
+</article>
+</section>
+<section class="library-section" aria-labelledby="references-title">
+<div class="library-intro"><p class="eyebrow">REFERENCE MATERIALS</p><h2 id="references-title">Keep these references handy</h2><p>Vocabulary and conjugation materials to consult whenever you need them.</p></div>
+<ul class="library-list">
+<li><article class="library-item" aria-labelledby="vocabulary-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M24 11C17 6 9 6 4 9v30c6-3 13-3 20 2 7-5 14-5 20-2V9c-5-3-13-3-20 2v30"/></svg></div>
+<div class="library-copy"><p class="eyebrow">VOCABULARY</p><h3 id="vocabulary-title">Essential Mexican Spanish</h3><p class="library-short">Useful vocabulary to keep nearby.</p><p>Browse PDF reference lists of common words and verbs from spoken Mexican Spanish. These lists contain the same vocabulary used in the flashcards app.</p></div>
+<button class="library-action library-disclosure" type="button" aria-expanded="false" aria-controls="vocabulary-collection">Browse Vocabulary Lists <span class="disclosure-icon" aria-hidden="true">⌄</span></button>
+</article>
+<div class="library-collection" id="vocabulary-collection" hidden>
+<div class="library-groups">
+<section class="library-group" aria-labelledby="verbs-group-title"><h4 id="verbs-group-title">300 HIGH-UTILITY VERBS</h4><ul class="pdf-list">
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_001-100.pdf" target="_blank" rel="noopener noreferrer"><span>Verbs 1–100</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_101-200.pdf" target="_blank" rel="noopener noreferrer"><span>Verbs 101–200</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_201-300.pdf" target="_blank" rel="noopener noreferrer"><span>Verbs 201–300</span><span class="pdf-meta">PDF · New tab</span></a></li>
+</ul></section>
+<section class="library-group" aria-labelledby="words-group-title"><h4 id="words-group-title">600 HIGH-UTILITY WORDS &amp; EXPRESSIONS</h4><ul class="pdf-list">
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_001-100.pdf" target="_blank" rel="noopener noreferrer"><span>Words &amp; Expressions 1–100</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_101-200.pdf" target="_blank" rel="noopener noreferrer"><span>Words &amp; Expressions 101–200</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_201-300.pdf" target="_blank" rel="noopener noreferrer"><span>Words &amp; Expressions 201–300</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_301-400.pdf" target="_blank" rel="noopener noreferrer"><span>Words &amp; Expressions 301–400</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_401-500.pdf" target="_blank" rel="noopener noreferrer"><span>Words &amp; Expressions 401–500</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_501-600.pdf" target="_blank" rel="noopener noreferrer"><span>Words &amp; Expressions 501–600</span><span class="pdf-meta">PDF · New tab</span></a></li>
+</ul></section>
+</div>
+<p class="source-note"><strong>Source:</strong> The selection is informed by real conversations from Mexico City in the AMERESCO Corpus. Corpus AMERESCO – Mexico City, coordinated by Albelda &amp; Estellés (Universitat de València, ISSN 2659-8337). Mexican Spanish corpus coordinated by Ricardo Maldonado Soto. Licensed under CC BY-NC-SA 4.0. Vocabulary selection, organization, translations, examples and learning materials by Azael P. L.</p>
+</div></li>
+<li><article class="library-item" aria-labelledby="conjugation-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></div>
+<div class="library-copy"><p class="eyebrow">GRAMMAR &amp; CONJUGATION</p><h3 id="conjugation-title">Conjugation Reference Materials</h3><p class="library-short">Check a verb form or pattern when you need it.</p><p>Use PDF conjugation tables organized by tense and conjugation pattern as a quick reference while studying.</p></div>
+<button class="library-action library-disclosure" type="button" aria-expanded="false" aria-controls="conjugation-collection">Browse Conjugation Guides <span class="disclosure-icon" aria-hidden="true">⌄</span></button>
+</article>
+<div class="library-collection" id="conjugation-collection" hidden>
+<div class="library-groups three-groups">
+<section class="library-group" aria-labelledby="indicative-group-title"><h4 id="indicative-group-title">INDICATIVE MOOD</h4><ul class="pdf-list">
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/01_Present_Indicative.pdf" target="_blank" rel="noopener noreferrer"><span>Present Indicative</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/02_Preterite.pdf" target="_blank" rel="noopener noreferrer"><span>Preterite</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/03_Imperfect.pdf" target="_blank" rel="noopener noreferrer"><span>Imperfect</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/04_Future_and_Conditional.pdf" target="_blank" rel="noopener noreferrer"><span>Future and Conditional</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/05_Present_Perfect.pdf" target="_blank" rel="noopener noreferrer"><span>Present Perfect</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/06_Pluperfect.pdf" target="_blank" rel="noopener noreferrer"><span>Pluperfect</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/07_Future_Perfect_and_Conditional_Perfect.pdf" target="_blank" rel="noopener noreferrer"><span>Future Perfect and Conditional Perfect</span><span class="pdf-meta">PDF · New tab</span></a></li>
+</ul></section>
+<section class="library-group" aria-labelledby="subjunctive-group-title"><h4 id="subjunctive-group-title">SUBJUNCTIVE MOOD</h4><ul class="pdf-list">
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/08_Present_Subjunctive.pdf" target="_blank" rel="noopener noreferrer"><span>Present Subjunctive</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/09_Imperfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer"><span>Imperfect Subjunctive</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/10_Present_Perfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer"><span>Present Perfect Subjunctive</span><span class="pdf-meta">PDF · New tab</span></a></li>
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/11_Pluperfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer"><span>Pluperfect Subjunctive</span><span class="pdf-meta">PDF · New tab</span></a></li>
+</ul></section>
+<section class="library-group" aria-labelledby="commands-group-title"><h4 id="commands-group-title">COMMANDS</h4><ul class="pdf-list">
+<li><a class="pdf-link" href="assets/resources/conjugation-guides/12_Imperative.pdf" target="_blank" rel="noopener noreferrer"><span>Imperative</span><span class="pdf-meta">PDF · New tab</span></a></li>
+</ul></section>
+</div>
+</div></li>
+</ul>
+</section>
+<section class="library-practice" aria-labelledby="practice-link-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="m7 41 5-14L33 6a4 4 0 0 1 6 6L18 34zM29 10l8 8M12 27l6 7"/></svg></div>
+<div class="library-copy"><p class="eyebrow">WANT TO PRACTICE INSTEAD?</p><h2 id="practice-link-title">Go to Practice</h2><p>Use the flashcards, conjugation practice, writing and conversation trainers to apply what you’re learning.</p></div>
+<a class="library-action library-button" href="practice.html">Go to Practice <span aria-hidden="true">→</span></a>
+</section>
+</div>
+</main><footer><span>Spanish Practice Center · with Azael</span><a class="" href="https://www.italki.com/en/teacher/1284133">Azael on italki</a></footer><script>
+document.querySelectorAll('.library-disclosure').forEach(button => {
+  const panel = document.getElementById(button.getAttribute('aria-controls'));
+  button.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') !== 'true';
+    button.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  });
+});
+</script></body></html>
