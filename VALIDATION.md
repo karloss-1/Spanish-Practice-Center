@@ -1,5 +1,13 @@
 # Validation — September 8, 2026
 
+## Student authentication — September 12, 2026
+
+The `student-auth` branch is based on the exact production commit `f439c2c4539aebea8d8b4e8778f539ee9c58a849`. Cloudflare production remains on `main`; no production deployment or production secret was changed.
+
+Local automated checks cover signed and expired/tampered sessions, the 30-day secure cookie, correct and incorrect passwords, protected HTML and API behavior, same-origin form enforcement, safe return paths, logout, the external allowlist, and existing KV lookup privacy. The explicit static build’s Function route manifest covers protected pages, extensionless variants, downloads, APIs, login/logout, and external gateways.
+
+Live Preview checks remain pending until the owner supplies the shared student password. It will be stored only as a Cloudflare Preview encrypted variable, never in this repository. After deployment, repeat the complete browser checklist at desktop and mobile sizes and record the deployment URL and commit here.
+
 ## Baseline preservation
 
 Inspected `ui-redesign` HEAD `f2bdcb7d78bc2127e7b380ab286b9b4e88ab60e7`, both commits in its history, all five HTML pages, CSS, JavaScript, JSON files, README and existing tests before editing. There were no repository AGENTS.md instructions or hosting configuration.

@@ -1,8 +1,14 @@
 # Spanish Practice Center
 
-Development preview of Azael’s Spanish student portal. GitHub remains the source of truth: [karloss-1/Spanish-Practice-Center](https://github.com/karloss-1/Spanish-Practice-Center), branch **ui-redesign**. Do not merge to main, remove the preview banner, connect a domain, or redirect Google Sites without separate approval.
+Spanish student portal for Azael. GitHub remains the source of truth: [karloss-1/Spanish-Practice-Center](https://github.com/karloss-1/Spanish-Practice-Center). Production is built from **main**; shared-password authentication is developed and reviewed on **student-auth**. Do not merge or deploy authentication to production without explicit approval.
 
-## Implementation and deployment status — September 8, 2026
+## Student Area authentication — preview work
+
+Home remains public. My Learning Space, Practice, Resources, Course Roadmap, downloadable student materials, approved external practice tools, and the lookup API require a server-verified session. The shared password and independent signing key are Cloudflare encrypted variables; neither belongs in GitHub or browser-delivered files. Sessions last 30 days in a signed `HttpOnly`, `Secure`, `SameSite=Lax` cookie.
+
+See [AUTHENTICATION.md](AUTHENTICATION.md) for architecture, route coverage, Preview-only secret setup, maintenance, and testing.
+
+## Historical implementation record — September 8, 2026
 
 The existing five HTML pages and shared CSS are preserved from `f2bdcb7`. Only the student lookup and deployment preparation have changed. There is no framework, SQL database, account system, or authentication.
 
@@ -16,7 +22,7 @@ The existing form sends `POST /api/student-lookup` with only `{ "name": "entered
 
 Unknown and inactive records return the same HTTP 404 body: `{ "error": "not_found" }`. There is no public listing or bulk lookup endpoint. Responses are marked `no-store`. The browser has no directory, account, saved-link dependency, or local-storage mapping.
 
-Only HTTPS Notion hostnames are accepted. The endpoint accepts JSON POST requests, bounds bodies to 1 KB and names to 100 characters, rejects explicit cross-site browser requests, and hides storage errors. These are basic protections, not authentication or a guarantee against guessing. There is no application rate limiter. Monitor usage before deciding whether additional protection is necessary.
+Only HTTPS Notion hostnames are accepted. The endpoint accepts JSON POST requests from authenticated sessions, bounds bodies to 1 KB and names to 100 characters, rejects cross-site browser requests, and hides storage errors. There is no application rate limiter; monitor failed login and lookup traffic before deciding whether additional protection is necessary.
 
 ## Private student maintenance
 
@@ -73,7 +79,7 @@ A plain static server can preview the design but cannot execute the API. Use Clo
 
 This small lookup is intended to fit Cloudflare's free allowances, subject to actual traffic and account plan. No paid plan was enabled. As checked September 8, 2026, [KV Free](https://developers.cloudflare.com/kv/platform/pricing/) includes 100,000 reads/day, 1,000 writes/day and 1 GB storage; exceeding a free allowance causes operations to fail until reset. Each lookup reads one key, including misses. [Pages Functions](https://developers.cloudflare.com/pages/functions/pricing/) use Workers request allowances; static assets have separate treatment. Check the dashboard's current plan and usage before launch or upgrades.
 
-There is no always-on server to maintain. Maintain student records, retain the GitHub integration, and review usage/errors periodically. [KV is eventually consistent](https://developers.cloudflare.com/kv/concepts/how-kv-works/), so updates are not immediate everywhere. Names can be guessed, public Notion links remain public, and Notion sharing changes can break a destination independently of this portal. This design prevents downloading a centralized directory; it does not authenticate students.
+There is no always-on server to maintain. Maintain student records, retain the GitHub integration, and review usage/errors periodically. [KV is eventually consistent](https://developers.cloudflare.com/kv/concepts/how-kv-works/), so updates are not immediate everywhere. The shared password authenticates access to the portal; it does not create individual identities, revoke already known public Notion links, or synchronize Notion sharing changes.
 
 ## Connected destinations
 

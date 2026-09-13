@@ -1,0 +1,18 @@
+.logout-form { display: flex; margin: 0; }
+.logout-form button { border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--muted); padding: .45rem 0; font: inherit; cursor: pointer; }
+.logout-form button:hover { border-color: var(--accent); }
+.auth-page { background: var(--soft); }
+.auth-main { display: grid; place-items: center; min-height: calc(100vh - 190px); padding-block: 3rem; }
+.auth-card { width: min(100%, 470px); padding: 2.4rem; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 18px 50px rgba(47, 78, 111, .08); }
+.auth-card form { margin-top: 1.6rem; }
+.auth-card .button { width: 100%; border-radius: 5px; }
+.auth-message { margin: 1rem 0 0; color: #8f2424; font-size: .9375rem; }
+.auth-back { display: inline-block; margin-top: 1.5rem; font-weight: 600; }
+.auth-page footer { border-top: 0; }
+.auth-page input { min-height: 48px; }
+.auth-page input:focus { outline: 3px solid #b8cee3; outline-offset: 2px; }
+@media (max-width: 640px) {
+  .logout-form button { width: 100%; text-align: left; padding: .7rem .4rem; }
+  .auth-card { padding: 1.6rem; }
+  .auth-main { padding-block: 1.8rem; }
+}
