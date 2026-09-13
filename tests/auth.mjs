@@ -48,6 +48,14 @@ assert.match(goodLogin.headers.get('set-cookie'), /HttpOnly/u);
 const unsafeLogin = await studentAccess({ request: loginRequest(env.STUDENT_PASSWORD, '//evil.example/'), env });
 assert.equal(unsafeLogin.headers.get('location'), '/');
 assert.equal((await studentAccess({ request: loginRequest(env.STUDENT_PASSWORD, '/', 'https://evil.example'), env })).status, 403);
+const fetchMetadataLogin = new Request('https://portal.example/student-access', {
+  method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Sec-Fetch-Site': 'same-origin' },
+  body: new URLSearchParams({ password: env.STUDENT_PASSWORD, returnTo: '/practice.html' })
+});
+assert.equal((await studentAccess({ request: fetchMetadataLogin, env })).headers.get('location'), '/practice.html');
+assert.equal((await studentAccess({ request: new Request('https://portal.example/student-access', {
+  method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ password: env.STUDENT_PASSWORD })
+}), env })).status, 403);
 
 const logoutResponse = logout({ request: new Request('https://portal.example/student-access/logout', { method: 'POST', headers: { Origin: 'https://portal.example' } }) });
 assert.equal(logoutResponse.status, 303);
