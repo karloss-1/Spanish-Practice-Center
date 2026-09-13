@@ -26,6 +26,7 @@ for (const unsafe of ['https://evil.example/', '//evil.example/', 'javascript:al
 let nextCalls = 0;
 const deniedPage = await middleware({ request: new Request('https://portal.example/resources.html?view=all'), env, next: async () => { nextCalls += 1; } });
 assert.equal(deniedPage.status, 401);
+assert.equal(deniedPage.headers.get('Referrer-Policy'), 'same-origin');
 assert.match(await deniedPage.text(), /name="returnTo" value="\/resources\.html\?view=all"/u);
 const deniedApi = await middleware({ request: new Request('https://portal.example/api/student-lookup'), env, next: async () => { nextCalls += 1; } });
 assert.equal(deniedApi.status, 401);
@@ -48,6 +49,16 @@ assert.match(goodLogin.headers.get('set-cookie'), /HttpOnly/u);
 const unsafeLogin = await studentAccess({ request: loginRequest(env.STUDENT_PASSWORD, '//evil.example/'), env });
 assert.equal(unsafeLogin.headers.get('location'), '/');
 assert.equal((await studentAccess({ request: loginRequest(env.STUDENT_PASSWORD, '/', 'https://evil.example'), env })).status, 403);
+const rejectedLogin = await studentAccess({ request: loginRequest('wrong', '/', 'https://evil.example'), env });
+assert.match(await rejectedLogin.text(), /role="alert"[^>]*>This sign-in request was rejected/u);
+const malformedLogin = await studentAccess({ request: new Request('https://portal.example/student-access', {
+  method: 'POST', headers: { Origin: 'https://portal.example', 'Content-Type': 'application/json' }, body: '{}'
+}), env });
+assert.equal(malformedLogin.status, 400);
+assert.match(await malformedLogin.text(), /form could not be read/u);
+const protectedHtml = await middleware({ request: authenticatedRequest('/resources'), env,
+  next: async () => new Response('<html>Resources</html>', { headers: { 'Content-Type': 'text/html', 'Referrer-Policy': 'no-referrer' } }) });
+assert.equal(protectedHtml.headers.get('Referrer-Policy'), 'same-origin');
 assert.equal((await studentAccess({ request: new Request('https://portal.example/student-access', {
   method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', Origin: 'https://portal.example', 'Sec-Fetch-Site': 'cross-site' },
   body: new URLSearchParams({ password: env.STUDENT_PASSWORD })
