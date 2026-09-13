@@ -32,9 +32,9 @@ export async function onRequest({ request, env }) {
     return htmlResponse(request.method === 'HEAD' ? null : loginPage(returnTo));
   }
   if (request.method !== 'POST') return new Response(null, { status: 405, headers: { Allow: 'GET, HEAD, POST' } });
-  if (!sameOrigin(request)) return htmlResponse(loginPage('/'), 403);
+  if (!sameOrigin(request)) return htmlResponse(loginPage('/', { rejected: true }), 403);
   let form;
-  try { form = await readForm(request); } catch { return htmlResponse(loginPage('/'), 400); }
+  try { form = await readForm(request); } catch { return htmlResponse(loginPage('/', { malformed: true }), 400); }
   const returnTo = safeReturnPath(form.get('returnTo') || '/', url.origin);
   try {
     if (!await passwordMatches(form.get('password'), env)) return htmlResponse(loginPage(returnTo, { error: true }), 401);

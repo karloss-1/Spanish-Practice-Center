@@ -2,8 +2,8 @@ function escapeAttribute(value) {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 }
 
-export function loginPage(returnTo, { error = false, unavailable = false } = {}) {
-  const message = unavailable ? 'Student Access is temporarily unavailable. Please try again later.' : error ? 'That password wasn’t correct. Please try again.' : '';
+export function loginPage(returnTo, { error = false, unavailable = false, rejected = false, malformed = false } = {}) {
+  const message = rejected ? 'This sign-in request was rejected (403). Please reopen the student page and try again.' : malformed ? 'The sign-in form could not be read. Please reload this page and try again.' : unavailable ? 'Student Access is temporarily unavailable. Please try again later.' : error ? 'That password wasn’t correct. Please try again.' : '';
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Student Access · Spanish Practice Center</title><link rel="stylesheet" href="/assets/styles.css"><link rel="stylesheet" href="/assets/auth.css"></head>
 <body class="auth-page"><a class="skip" href="#main">Skip to content</a><header><div class="header-inner"><a class="brand" href="/"><strong>Spanish Practice Center</strong><span>with Azael</span></a></div></header>
