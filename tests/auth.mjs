@@ -59,7 +59,7 @@ const fetchMetadataLogin = new Request('https://portal.example/student-access', 
 assert.equal((await studentAccess({ request: fetchMetadataLogin, env })).headers.get('location'), '/practice.html');
 assert.equal((await studentAccess({ request: new Request('https://portal.example/student-access', {
   method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ password: env.STUDENT_PASSWORD })
-}), env })).status, 303);
+}), env })).status, 403);
 
 const logoutResponse = logout({ request: new Request('https://portal.example/student-access/logout', { method: 'POST', headers: { Origin: 'https://portal.example' } }) });
 assert.equal(logoutResponse.status, 303);
