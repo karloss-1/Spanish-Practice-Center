@@ -77,6 +77,14 @@ export function clearSessionCookie() {
 }
 
 export function sameOrigin(request) {
+  const expectedOrigin = new URL(request.url).origin;
+  const fetchSite = request.headers.get('sec-fetch-site');
+  if (fetchSite === 'cross-site') return false;
   const origin = request.headers.get('origin');
-  return origin === new URL(request.url).origin && request.headers.get('sec-fetch-site') !== 'cross-site';
+  if (origin) return origin === expectedOrigin;
+  const referer = request.headers.get('referer');
+  if (referer) {
+    try { return new URL(referer).origin === expectedOrigin; } catch { return false; }
+  }
+  return fetchSite === 'same-origin';
 }
