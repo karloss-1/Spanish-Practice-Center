@@ -86,5 +86,5 @@ export function sameOrigin(request) {
   if (referer) {
     try { return new URL(referer).origin === expectedOrigin; } catch { return false; }
   }
-  return true;
+  return fetchSite === 'same-origin';
 }
