@@ -6,7 +6,11 @@ The `student-auth` branch is based on the exact production commit `f439c2c4539ae
 
 Local automated checks cover signed and expired/tampered sessions, the 30-day secure cookie, correct and incorrect passwords, protected HTML and API behavior, same-origin form enforcement, safe return paths, logout, the external allowlist, and existing KV lookup privacy. The explicit static build’s Function route manifest covers protected pages, extensionless variants, downloads, APIs, login/logout, and external gateways.
 
-Live Preview checks remain pending until the owner supplies the shared student password. It will be stored only as a Cloudflare Preview encrypted variable, never in this repository. After deployment, repeat the complete browser checklist at desktop and mobile sizes and record the deployment URL and commit here.
+The owner supplied the shared password, and it is stored only as the encrypted Cloudflare Preview secret `STUDENT_PASSWORD`. An independently generated signing key is stored only as the Preview secret `SESSION_SECRET`. The production environment has no authentication secrets, and neither value appears in the repository or browser assets.
+
+Live Preview passed 49 HTTP assertions against the `student-auth` deployment: public Home; locked page, extensionless-route and PDF access; restrained wrong-password handling; exact safe return after login; all secure 30-day cookie attributes; authenticated navigation; four protected external-resource gateways with an allowlist and an unknown-slug 404; anonymous/authenticated lookup behavior; logout; authentication status; and the new stylesheet. Desktop and 390px browser inspection passed for the access screen with no visible layout problems. The stable branch preview is `https://student-auth.spanish-practice-center-preview.pages.dev`.
+
+A successful lookup using a real student's name was intentionally not run because no real lookup name was supplied for this validation. The authenticated lookup route was exercised with a synthetic unknown name and reached the existing KV-backed privacy-preserving 404 behavior. Final third-party sign-in or application behavior beyond each allowlisted redirect is also outside this deployment test.
 
 ## Baseline preservation
 
