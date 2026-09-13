@@ -13,5 +13,5 @@ export function loginPage(returnTo, { error = false, unavailable = false, reject
 }
 
 export function htmlResponse(body, status = 200, extraHeaders = {}) {
-  return new Response(body, { status, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'X-Robots-Tag': 'noindex, nofollow', 'Referrer-Policy': 'no-referrer', ...extraHeaders } });
+  return new Response(body, { status, headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'X-Robots-Tag': 'noindex, nofollow', 'Referrer-Policy': 'same-origin', ...extraHeaders } });
 }
