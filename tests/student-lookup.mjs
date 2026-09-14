@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { onRequest } from '../functions/api/student-lookup.js';
+import { createSession, SESSION_COOKIE } from '../functions/_lib/auth.js';
 
 // Entirely synthetic data: never import real student records into the repository.
 const records = new Map([
@@ -11,10 +12,11 @@ const records = new Map([
   ['student:unsafe', { active: true, url: 'https://notion.site.evil.example/page' }]
 ]);
 let reads = [];
-const env = { STUDENTS: { get: async key => { reads.push(key); return records.get(key) ?? null; } } };
+const env = { SESSION_SECRET: crypto.randomUUID() + crypto.randomUUID(), STUDENT_PASSWORD: crypto.randomUUID(), STUDENTS: { get: async key => { reads.push(key); return records.get(key) ?? null; } } };
+const session = await createSession(env);
 async function lookup(name, options = {}) {
   return onRequest({ request: new Request('https://portal.example/api/student-lookup', {
-    method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://portal.example', ...options.headers },
+    method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://portal.example', Cookie: `${SESSION_COOKIE}=${session}`, ...options.headers },
     body: options.body ?? JSON.stringify({ name })
   }), env: options.env ?? env });
 }
@@ -52,8 +54,9 @@ for (const method of ['GET', 'OPTIONS', 'PUT', 'DELETE']) {
   assert.equal(response.status, 405);
   assert.equal(response.headers.get('allow'), 'POST');
 }
-const failure = await lookup('Example', { env: { STUDENTS: { get() { throw new Error('private storage detail'); } } } });
+assert.equal((await lookup('Example', { headers: { Cookie: '' } })).status, 401);
+const failure = await lookup('Example', { env: { ...env, STUDENTS: { get() { throw new Error('private storage detail'); } } } });
 assert.equal(failure.status, 503);
 assert.deepEqual(await failure.json(), { error: 'unavailable' });
-assert.equal((await lookup('Example', { env: {} })).status, 503);
+assert.equal((await lookup('Example', { env: {} })).status, 401);
 console.log('Student API checks passed: normalization, privacy, inactivity, ambiguity, validation and failures.');

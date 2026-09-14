@@ -28,6 +28,8 @@
 .home-tool p { line-height: 1.5; margin-bottom: 18px; }
 .home-tool > a { margin-top: auto; }
 .home-tool > a, .home-resource a { min-height: 44px; }
+.home [data-student-access]::after { content: "🔒"; margin-left: .35rem; font-size: .78em; line-height: 1; filter: grayscale(1); opacity: .72; }
+.home.student-authenticated [data-student-access]::after { display: none; }
 .home-tool > a, .home-resource a { display: inline-flex; align-items: center; gap: 10px; color: #2f4e6f; font-size: .94rem; font-weight: 600; text-decoration: none; line-height: 1.5; }
 .home-tool > a span, .home-resource a span { font-size: 1.35rem; flex-shrink: 0; }
 .home-tool > a:hover, .home-resource a:hover, .home-steps a:hover { text-decoration: underline; text-underline-offset: 4px; }

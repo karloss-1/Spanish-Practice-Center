@@ -20,6 +20,25 @@ document.addEventListener('keydown', event => {
 });
 mobile.addEventListener('change', updateMenu);
 updateMenu();
+if (document.body.classList.contains('home')) {
+  fetch('/api/auth/status', { credentials: 'same-origin', cache: 'no-store' })
+    .then(response => response.ok ? response.json() : null)
+    .then(result => { if (result?.authenticated) document.body.classList.add('student-authenticated'); })
+    .catch(() => {});
+}
+if (!document.body.classList.contains('home')) {
+  const authStyles = document.createElement('link');
+  authStyles.rel = 'stylesheet';
+  authStyles.href = '/assets/auth.css';
+  document.head.append(authStyles);
+  const logout = document.createElement('form');
+  logout.className = 'logout-form';
+  logout.action = '/student-access/logout';
+  logout.method = 'post';
+  logout.innerHTML = '<button type="submit">Log out</button>';
+  navigation.append(logout);
+  logout.addEventListener('submit', () => logout.querySelector('button').disabled = true);
+}
 const form = document.querySelector('#student-form');
 if (form) {
   const input = document.querySelector('#first-name');
@@ -46,7 +65,7 @@ if (form) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: input.value }),
         cache: 'no-store',
-        credentials: 'omit',
+        credentials: 'same-origin',
         signal: AbortSignal.timeout(15000)
       });
       if (response.status === 409) {
