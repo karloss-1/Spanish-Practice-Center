@@ -56,6 +56,11 @@
 .pdf-link { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:46px; padding:10px 12px; background:#fff; color:var(--blue); text-decoration:none; line-height:1.35; }
 .pdf-link:hover { background:var(--soft); text-decoration:underline; }
 .pdf-meta { flex:0 0 auto; color:var(--muted); font-size:.72rem; font-weight:600; white-space:nowrap; }
+.conversation-list { list-style:none; display:grid; gap:12px; margin:0; padding:0; }
+.conversation-resource { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:20px; padding:16px; border:1px solid var(--line); border-radius:4px; background:#fff; }
+.conversation-resource h4 { margin:0; color:var(--blue); font-size:1rem; line-height:1.4; }
+.conversation-actions { display:flex; align-items:center; flex-wrap:wrap; justify-content:flex-end; gap:8px 20px; }
+.conversation-actions .library-action { min-height:44px; }
 .source-note { margin:22px 0 0; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.78rem; line-height:1.55; }
 .source-note strong { color:var(--blue); }
 .resources footer { max-width:1120px; width:calc(100% - 48px); padding-inline:0; font-size:.8rem; }
@@ -88,6 +93,8 @@
   .library-groups,.library-groups.three-groups { grid-template-columns:1fr; gap:22px; }
   .pdf-link { align-items:flex-start; min-height:48px; }
   .pdf-meta { padding-top:2px; }
+  .conversation-resource { grid-template-columns:1fr; gap:12px; }
+  .conversation-actions { align-items:flex-start; justify-content:flex-start; }
 }
 </style></head>
 <body class="resources"><a class="skip" href="#main">Skip to content</a><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>by Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html">Practice</a><a href="resources.html" aria-current="page">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main">
@@ -162,6 +169,19 @@
 <div class="library-copy"><p class="eyebrow">GRAMMAR · SUBJUNCTIVE</p><h3 id="subjunctive-map-title">Subjunctive Trigger Map</h3><p class="library-short">Review the most common contexts and structures that trigger the Spanish subjunctive.</p><p>Explore an interactive map of 17 key subjunctive trigger groups, with common structures, examples and essential usage notes. A downloadable Quick Reference is also available inside the resource.</p></div>
 <a class="library-action library-button" href="https://karloss-1.github.io/Subjunctive-Trigger-Map/" target="_blank" rel="noopener noreferrer">Open Trigger Map <span aria-hidden="true">↗</span></a>
 </article></li>
+<li><article class="library-item" aria-labelledby="real-life-conversations-title">
+<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M7 9h24v19H17L9 35v-7H7zM31 16h10v20h-3v6l-7-6h-9v-8"/></svg></div>
+<div class="library-copy"><p class="eyebrow">REAL-LIFE SPANISH</p><h3 id="real-life-conversations-title">Real-Life Mexican Spanish Conversations</h3><p class="library-short">Practical phrases and conversations for everyday situations in Mexico.</p><p>Learn what you can say, what you’re likely to hear, and how everyday interactions actually work in Mexican Spanish.</p></div>
+<button class="library-action library-disclosure" type="button" aria-expanded="false" aria-controls="real-life-conversations-collection">Browse Conversations <span class="disclosure-icon" aria-hidden="true">⌄</span></button>
+</article>
+<div class="library-collection" id="real-life-conversations-collection" hidden>
+<ul class="conversation-list">
+<li class="conversation-resource"><h4>At a Restaurant</h4><div class="conversation-actions" aria-label="At a Restaurant resources">
+<a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-el-restaurante.pdf" target="_blank" rel="noopener noreferrer">Open PDF <span aria-hidden="true">↗</span></a>
+<a class="library-action" href="https://quizlet.com/mx/1208603933/en-el-restaurante-flash-cards/?i=hwb8b&amp;x=1qqt" target="_blank" rel="noopener noreferrer">Practice with Quizlet <span aria-hidden="true">↗</span></a>
+</div></li>
+</ul>
+</div></li>
 </ul>
 </section>
 <section class="library-practice" aria-labelledby="practice-link-title">
