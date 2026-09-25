@@ -96,6 +96,234 @@
   .conversation-resource { grid-template-columns:1fr; gap:12px; }
   .conversation-actions { align-items:flex-start; justify-content:flex-start; }
 }
+
+/* Resources refinements: illustrations are HTML/CSS and stay inside this page. */
+.resources {
+  --resource-navy:#2f4e6f;
+  --resource-slate:#f3f5f5;
+  --resource-slate-art:#d8e3e7;
+  --resource-sage:#f0f4ef;
+  --resource-sage-art:#d5e2d4;
+  --resource-sage-line:#c2d0c3;
+  --resource-sand:#f4f1e8;
+  --resource-sand-art:#e4dbc7;
+  --resource-sand-line:#d2cbbd;
+  --resource-clay:#f5ece6;
+  --resource-clay-art:#e6d1c5;
+  --resource-clay-line:#d7c6bb;
+  --resource-plum:#f1eef4;
+  --resource-plum-art:#dcd6e5;
+  --resource-plum-line:#d0c9da;
+}
+.resources .library-featured {
+  grid-template-columns:minmax(0,1fr) 250px;
+  grid-template-areas:"copy visual" "action visual";
+  gap:8px 32px;
+  align-items:center;
+  padding:24px 30px;
+  border-radius:8px;
+  background:var(--resource-slate);
+  border-color:#d4e0e6;
+}
+.resources .library-featured .library-copy { grid-area:copy; }
+.resources .library-featured .library-action { grid-area:action; justify-self:start; }
+.study-notes-preview {
+  grid-area:visual;
+  position:relative;
+  display:grid;
+  place-items:center;
+  min-height:154px;
+  isolation:isolate;
+  color:var(--resource-navy);
+}
+.study-note-back {
+  position:absolute;
+  width:76%;
+  height:78%;
+  border-radius:9px;
+  background:#e4ebee;
+  transform:rotate(-8deg) translate(-12px,2px);
+  z-index:-1;
+}
+.study-note-front {
+  display:grid;
+  gap:9px;
+  width:min(100%,208px);
+  padding:17px 20px;
+  border:1px solid #d7e0e4;
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 9px 22px rgb(47 78 111 / 10%);
+  transform:rotate(-4deg);
+  font-size:.82rem;
+}
+.study-note-front strong { margin-bottom:2px; color:var(--resource-navy); }
+.study-note-front span { color:#506b83; }
+.resources .resource-header {
+  grid-template-columns:64px minmax(0,1fr) minmax(150px,220px) minmax(145px,175px);
+  grid-template-areas:"icon copy visual action";
+  gap:clamp(16px,2.2vw,26px);
+  min-width:0;
+  padding:16px 22px;
+  border-radius:8px;
+  border-width:1px;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.resources .resource-header.resource-sage { --resource-surface:var(--resource-sage); --resource-art-bg:var(--resource-sage-art); --resource-line-color:var(--resource-sage-line); }
+.resources .resource-header.resource-sand { --resource-surface:var(--resource-sand); --resource-art-bg:var(--resource-sand-art); --resource-line-color:var(--resource-sand-line); }
+.resources .resource-header.resource-clay { --resource-surface:var(--resource-clay); --resource-art-bg:var(--resource-clay-art); --resource-line-color:var(--resource-clay-line); }
+.resources .resource-header.resource-plum { --resource-surface:var(--resource-plum); --resource-art-bg:var(--resource-plum-art); --resource-line-color:var(--resource-plum-line); }
+.resources .resource-header { background:var(--resource-surface); border-color:var(--resource-line-color); }
+.resources .resource-header .library-icon {
+  grid-area:icon;
+  width:64px;
+  height:64px;
+  background:var(--resource-art-bg);
+  color:var(--resource-navy);
+}
+.resources .resource-header .library-icon svg { width:38px; height:38px; }
+.resources .resource-header .library-copy { grid-area:copy; }
+.resources .resource-header .library-copy .eyebrow { margin-bottom:5px; color:var(--resource-navy); font-size:.68rem; }
+.resources .resource-header .library-copy > p:last-child { font-size:.91rem; }
+.resources .resource-header .library-short { font-size:1rem; margin-bottom:4px; }
+.resources .resource-header h3 { margin-bottom:4px; font-size:clamp(1.2rem,1.8vw,1.55rem); }
+.resources .resource-header .library-action { grid-area:action; justify-self:stretch; color:var(--resource-navy); text-align:left; line-height:1.35; }
+.resources .resource-header .library-disclosure { justify-content:space-between; gap:10px; padding:8px 6px 8px 0; }
+.resources .resource-header .library-button { min-height:46px; justify-self:center; padding:9px 13px; border-radius:5px; }
+.resources .resource-header .disclosure-icon { flex:0 0 auto; }
+.resources .resource-header[aria-expanded="true"], .resources .resource-header:has(.library-disclosure[aria-expanded="true"]) {
+  border-color:#aabac7;
+  box-shadow:0 2px 8px rgb(30 53 75 / 6%);
+}
+.resources .resource-art {
+  grid-area:visual;
+  position:relative;
+  display:grid;
+  place-items:center;
+  align-self:stretch;
+  min-width:0;
+  min-height:92px;
+  overflow:hidden;
+  border-radius:7px;
+  background:var(--resource-art-bg);
+}
+.microviz-vocabulary { display:grid; gap:5px; width:min(88%,204px); transform:rotate(-3deg); }
+.microviz-vocabulary span {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:6px 9px;
+  border-radius:6px;
+  background:#fff;
+  color:var(--resource-navy);
+  box-shadow:0 3px 9px rgb(47 78 111 / 8%);
+  font-size:.76rem;
+}
+.microviz-vocabulary span:nth-child(2) { margin-left:14px; }
+.microviz-vocabulary span:nth-child(3) { margin-left:27px; }
+.microviz-vocabulary small { color:#58715f; font-size:.67rem; }
+.microviz-reference {
+  display:grid;
+  width:min(88%,205px);
+  padding:7px 10px;
+  border:1px solid rgb(98 89 67 / 13%);
+  border-radius:7px;
+  background:#fff;
+  color:var(--resource-navy);
+  box-shadow:0 4px 11px rgb(47 78 111 / 8%);
+  transform:rotate(-3deg);
+  font-size:.74rem;
+}
+.microviz-reference > strong { display:flex; justify-content:space-between; padding-bottom:5px; border-bottom:1px solid #e4e7e8; }
+.microviz-reference > strong small { font-weight:400; color:#718096; }
+.microviz-reference > span { display:flex; justify-content:space-between; padding-top:4px; }
+.microviz-reference i { font-style:normal; color:#526b83; }
+.microviz-reference b { color:#245f96; }
+.microviz-grammar { display:flex; gap:7px; width:88%; transform:rotate(-3deg); }
+.microviz-grammar span {
+  display:grid;
+  align-content:center;
+  gap:7px;
+  flex:1;
+  min-width:0;
+  padding:12px 9px;
+  border:1px solid #e6d8cf;
+  border-radius:7px;
+  background:#fff;
+  color:var(--resource-navy);
+  box-shadow:0 3px 8px rgb(47 78 111 / 7%);
+}
+.microviz-grammar b { font-size:.8rem; }
+.microviz-grammar small { color:#68788a; font-size:.62rem; line-height:1.3; }
+.resource-map-art { background:var(--resource-plum-art); }
+.microviz-map { position:relative; display:grid; place-items:center; width:92px; height:76px; }
+.map-node { z-index:1; display:grid; place-items:center; width:62px; height:62px; border:1px solid rgb(118 102 125 / 20%); border-radius:50%; background:#fff; color:#655777; font-size:.62rem; }
+.map-orbit { position:absolute; left:50%; top:50%; width:40px; height:1px; background:#9c8eb0; transform-origin:left center; }
+.map-orbit::after { content:""; position:absolute; right:-3px; top:-3px; width:7px; height:7px; border-radius:50%; background:#9384a8; }
+.map-orbit-one { transform:rotate(0deg) translateX(27px); }
+.map-orbit-two { transform:rotate(90deg) translateX(27px); }
+.map-orbit-three { transform:rotate(180deg) translateX(27px); }
+.map-orbit-four { transform:rotate(270deg) translateX(27px); }
+.microviz-dialogue { position:relative; width:90%; height:76px; color:#44684e; font-size:.67rem; }
+.microviz-dialogue span { position:absolute; display:block; max-width:76%; padding:8px 10px; border-radius:9px 9px 9px 2px; background:#fff; box-shadow:0 3px 8px rgb(47 78 111 / 8%); }
+.microviz-dialogue span:first-child { left:0; top:4px; }
+.microviz-dialogue span:last-child { right:0; bottom:4px; background:#e5efe3; border-radius:9px 9px 2px 9px; }
+.resources .resource-header + .library-collection {
+  margin-top:-1px;
+  padding:22px;
+  border-color:#d8e0e5;
+  border-radius:0 0 8px 8px;
+  background:#fff;
+}
+.resources .library-groups.three-groups { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.resources .pdf-list { border-color:#d7e0e7; border-radius:5px; }
+.resources .pdf-list li + li { border-color:#d7e0e7; }
+.resources .pdf-link { min-height:44px; padding:8px 11px; transition:background-color .14s ease; }
+.resources .pdf-link:hover { background:#f4f7f8; }
+.resources .pdf-meta { padding:3px 8px; border-radius:4px; background:#e9eef1; color:#48627b; }
+.resources .conversation-resource { border-color:#dce3e7; border-radius:6px; }
+.resources .conversation-actions .library-button { min-height:44px; padding:8px 13px; }
+.resources .conversation-actions .library-action:not(.library-button) { min-height:44px; }
+.resources .source-note { color:#5d6c7b; }
+@media(max-width:1000px) {
+  .resources .library-featured { grid-template-columns:minmax(0,1fr) 220px; gap:10px 24px; }
+  .resources .resource-header {
+    grid-template-columns:60px minmax(0,1fr) minmax(125px,180px);
+    grid-template-areas:"icon copy visual" "icon action visual";
+    gap:8px 18px;
+  }
+  .resources .resource-header .library-action { justify-self:start; }
+  .resources .resource-header .library-disclosure { min-height:44px; }
+  .resources .library-groups.three-groups { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:640px) {
+  .resources .library-featured {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"copy" "visual" "action";
+    gap:16px;
+    padding:20px;
+  }
+  .resources .study-notes-preview { width:100%; min-height:140px; }
+  .resources .resource-header {
+    grid-template-columns:48px minmax(0,1fr);
+    grid-template-areas:"icon copy" "visual visual" "action action";
+    gap:14px;
+    padding:18px;
+  }
+  .resources .resource-header .library-icon { width:48px; height:48px; }
+  .resources .resource-header .library-icon svg { width:30px; height:30px; }
+  .resources .resource-header .library-action { justify-self:start; }
+  .resources .resource-art { width:min(100%,320px); min-height:94px; justify-self:center; }
+  .resources .resource-header .library-button { justify-self:start; }
+  .resources .resource-header + .library-collection { padding:18px; }
+  .resources .library-groups.three-groups { grid-template-columns:1fr; }
+  .resources .conversation-resource { padding:14px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .resources .resource-header,.resources .pdf-link { transition:none; }
+}
+
 </style></head>
 <body class="resources"><a class="skip" href="#main">Skip to content</a><span class="sr-only" id="new-tab-description">Opens in a new tab</span><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>by Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html">Practice</a><a href="resources.html" aria-current="page">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main">
 <section class="library-hero" aria-labelledby="resources-title">
@@ -105,8 +333,11 @@
 <div class="library-container library-content">
 <section class="library-section" aria-labelledby="featured-title">
 <div class="library-intro"><h2 id="featured-title">Featured guide</h2><p>A practical guide to help you make the most of your study time.</p></div>
-<article class="library-feature" aria-labelledby="cheat-sheet-title">
-<div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></div>
+<article class="library-feature library-featured" aria-labelledby="cheat-sheet-title">
+<div class="study-notes-preview" aria-hidden="true">
+<span class="study-note-back"></span>
+<div class="study-note-front"><strong>Study notes</strong><span>Review one idea</span><span>Practice 5 minutes</span><span>Try again tomorrow</span></div>
+</div>
 <div class="library-copy"><p class="eyebrow">STUDY GUIDE</p><h3 id="cheat-sheet-title">Spanish Learning Cheat Sheet</h3><p class="library-short">Simple ideas for practicing Spanish between classes.</p><p>Practical tips for vocabulary, listening, speaking, grammar and writing, plus simple study routines for the time you have available.</p></div>
 <a class="library-action library-button" href="assets/resources/spanish-learning-cheat-sheet/Spanish-Learning-Cheat-Sheet.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open Cheat Sheet</a>
 </article>
@@ -114,11 +345,11 @@
 <section class="library-section" aria-labelledby="references-title">
 <div class="library-intro"><p class="eyebrow">REFERENCE MATERIALS</p><h2 id="references-title">Keep these references handy</h2><p>Vocabulary and conjugation materials to consult whenever you need them.</p></div>
 <ul class="library-list">
-<li><article class="library-item" aria-labelledby="vocabulary-title">
+<li><article class="library-item resource-header resource-sage resource-vocabulary" aria-labelledby="vocabulary-title">
 <div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M24 11C17 6 9 6 4 9v30c6-3 13-3 20 2 7-5 14-5 20-2V9c-5-3-13-3-20 2v30"/></svg></div>
 <div class="library-copy"><p class="eyebrow">VOCABULARY</p><h3 id="vocabulary-title">Essential Mexican Spanish</h3><p class="library-short">Useful vocabulary to keep nearby.</p><p>Browse PDF reference lists of common words and verbs from spoken Mexican Spanish. These lists contain the same vocabulary used in the flashcards app.</p></div>
 <button class="library-action library-disclosure" type="button" aria-expanded="false" aria-controls="vocabulary-collection">Browse Vocabulary Lists <span class="disclosure-icon" aria-hidden="true">⌄</span></button>
-</article>
+<div class="resource-art resource-vocab-art" aria-hidden="true"><div class="microviz-vocabulary"><span><strong>platicar</strong><small>to chat</small></span><span><strong>chamba</strong><small>work</small></span><span><strong>ahorita</strong><small>in a little while</small></span></div></div></article>
 <div class="library-collection" id="vocabulary-collection" hidden>
 <div class="library-groups">
 <section class="library-group" aria-labelledby="verbs-group-title"><h4 id="verbs-group-title">300 HIGH-UTILITY VERBS</h4><ul class="pdf-list">
@@ -137,11 +368,11 @@
 </div>
 <p class="source-note"><strong>Source:</strong> The selection is informed by real conversations from Mexico City in the AMERESCO Corpus. Corpus AMERESCO – Mexico City, coordinated by Albelda &amp; Estellés (Universitat de València, ISSN 2659-8337). Mexican Spanish corpus coordinated by Ricardo Maldonado Soto. Licensed under CC BY-NC-SA 4.0. Vocabulary selection, organization, translations, examples and learning materials by Azael P. L.</p>
 </div></li>
-<li><article class="library-item" aria-labelledby="conjugation-title">
+<li><article class="library-item resource-header resource-sand resource-conjugation" aria-labelledby="conjugation-title">
 <div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></div>
 <div class="library-copy"><p class="eyebrow">GRAMMAR &amp; CONJUGATION</p><h3 id="conjugation-title">Conjugation Reference Materials</h3><p class="library-short">Check a verb form or pattern when you need it.</p><p>Use PDF conjugation tables organized by tense and conjugation pattern as a quick reference while studying.</p></div>
 <button class="library-action library-disclosure" type="button" aria-expanded="false" aria-controls="conjugation-collection">Browse Conjugation Guides <span class="disclosure-icon" aria-hidden="true">⌄</span></button>
-</article>
+<div class="resource-art resource-reference-art" aria-hidden="true"><div class="microviz-reference"><strong>hablar <small>present</small></strong><span><i>yo</i><b>hablo</b></span><span><i>tú</i><b>hablas</b></span></div></div></article>
 <div class="library-collection" id="conjugation-collection" hidden>
 <div class="library-groups three-groups">
 <section class="library-group" aria-labelledby="indicative-group-title"><h4 id="indicative-group-title">INDICATIVE MOOD</h4><ul class="pdf-list">
@@ -164,26 +395,26 @@
 </ul></section>
 </div>
 </div></li>
-<li><article class="library-item" aria-labelledby="grammar-quick-guides-title">
+<li><article class="library-item resource-header resource-clay resource-grammar" aria-labelledby="grammar-quick-guides-title">
 <div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></div>
 <div class="library-copy"><p class="eyebrow">GRAMMAR</p><h3 id="grammar-quick-guides-title">Grammar Quick Guides</h3><p class="library-short">Clear explanations for common grammar problems.</p><p>Use these short PDF guides to review grammar points that are often confusing, with practical explanations and examples focused on contemporary Mexican Spanish.</p></div>
 <button class="library-action library-disclosure" type="button" aria-expanded="false" aria-controls="grammar-quick-guides-collection">Browse Grammar Guides <span class="disclosure-icon" aria-hidden="true">⌄</span></button>
-</article>
+<div class="resource-art resource-grammar-art" aria-hidden="true"><div class="microviz-grammar"><span><b>SER</b><small>identity · origin</small></span><span><b>ESTAR</b><small>state · location</small></span></div></div></article>
 <div class="library-collection" id="grammar-quick-guides-collection" hidden>
 <ul class="pdf-list">
 <li><a class="pdf-link" href="assets/resources/grammar-quick-guides/SER-ESTAR-Essential-Guide.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>SER &amp; ESTAR</span><span class="pdf-meta">PDF</span></a></li>
 </ul>
 </div></li>
-<li><article class="library-item" aria-labelledby="subjunctive-map-title">
+<li><article class="library-item resource-header resource-plum resource-subjunctive" aria-labelledby="subjunctive-map-title">
 <div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M24 6v9m0 0-11 7m11-7 11 7M13 22v9m22-9v9M13 31l-6 7m6-7 6 7m16-7-6 7m6-7 6 7"/></svg></div>
 <div class="library-copy"><p class="eyebrow">GRAMMAR · SUBJUNCTIVE</p><h3 id="subjunctive-map-title">Subjunctive Trigger Map</h3><p class="library-short">Review the most common contexts and structures that trigger the Spanish subjunctive.</p><p>Explore an interactive map of 17 key subjunctive trigger groups, with common structures, examples and essential usage notes. A downloadable Quick Reference is also available inside the resource.</p></div>
 <a class="library-action library-button" href="https://karloss-1.github.io/Subjunctive-Trigger-Map/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open Trigger Map</a>
-</article></li>
-<li><article class="library-item" aria-labelledby="real-life-conversations-title">
+<div class="resource-art resource-map-art" aria-hidden="true"><div class="microviz-map"><span class="map-node">subjuntivo</span><i class="map-orbit map-orbit-one"></i><i class="map-orbit map-orbit-two"></i><i class="map-orbit map-orbit-three"></i><i class="map-orbit map-orbit-four"></i></div></div></article></li>
+<li><article class="library-item resource-header resource-sage resource-conversations" aria-labelledby="real-life-conversations-title">
 <div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M7 9h24v19H17L9 35v-7H7zM31 16h10v20h-3v6l-7-6h-9v-8"/></svg></div>
 <div class="library-copy"><p class="eyebrow">REAL-LIFE SPANISH</p><h3 id="real-life-conversations-title">Real-Life Mexican Spanish Conversations</h3><p class="library-short">Practical phrases and conversations for everyday situations in Mexico.</p><p>Learn what you can say, what you’re likely to hear, and how everyday interactions actually work in Mexican Spanish.</p></div>
 <button class="library-action library-disclosure" type="button" aria-expanded="false" aria-controls="real-life-conversations-collection">Browse Conversations <span class="disclosure-icon" aria-hidden="true">⌄</span></button>
-</article>
+<div class="resource-art resource-conversation-art" aria-hidden="true"><div class="microviz-dialogue"><span>¿Me puede ayudar?</span><span>Claro, con gusto.</span></div></div></article>
 <div class="library-collection" id="real-life-conversations-collection" hidden>
 <ul class="conversation-list">
 <li class="conversation-resource"><h4>At a Restaurant</h4><div class="conversation-actions" aria-label="At a Restaurant resources">
