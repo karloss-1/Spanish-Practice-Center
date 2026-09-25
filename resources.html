@@ -191,7 +191,7 @@
 .resources .resource-header .library-disclosure { justify-content:space-between; gap:10px; padding:8px 6px 8px 0; }
 .resources .resource-header .library-button { min-height:46px; justify-self:center; padding:9px 13px; border-radius:5px; }
 .resources .resource-header .disclosure-icon { flex:0 0 auto; }
-.resources .resource-header[aria-expanded="true"], .resources .resource-header:has(.library-disclosure[aria-expanded="true"]) {
+.resources .resource-header:has(.library-disclosure[aria-expanded="true"]) {
   border-color:#aabac7;
   box-shadow:0 2px 8px rgb(30 53 75 / 6%);
 }
@@ -286,6 +286,7 @@
 .resources .conversation-actions .library-button { min-height:44px; padding:8px 13px; }
 .resources .conversation-actions .library-action:not(.library-button) { min-height:44px; }
 .resources .source-note { color:#5d6c7b; }
+.resources .resource-header .library-button { color:#fff; }
 @media(max-width:1000px) {
   .resources .library-featured { grid-template-columns:minmax(0,1fr) 220px; gap:10px 24px; }
   .resources .resource-header {
