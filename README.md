@@ -84,7 +84,7 @@ There is no always-on server to maintain. Maintain student records, retain the G
 ## Connected destinations
 
 - Mexican Spanish Flashcards: https://karloss-1.github.io/Mexican-Spanish/
-- ConjuFlow: https://karloss-1.github.io/Conjuflow/
+- Conjugón: https://karloss-1.github.io/Conjuflow/
 - AI Writing Trainer: https://chatgpt.com/g/g-6978e9457bf081918eab1b87cda5cf94-spanish-writing-trainer
 - AI Conversation Trainer: https://chatgpt.com/g/g-697ee7ce5c748191a327590755eee86e-conversation-trainer
 - Learning Cheat Sheet: https://app.notion.com/p/3b3ef88948668044a2aef9877b717fbf
