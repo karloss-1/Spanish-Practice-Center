@@ -23,8 +23,12 @@
 .home-tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .home-tool, .home-resource { border: 1px solid #d5dee7; border-radius: 10px; padding: 24px; background: #fff; }
 .home-tool { display: flex; flex-direction: column; }
-.home-icon { width: 78px; height: 78px; border-radius: 50%; background: #eef3f8; color: #2f4e6f; display: grid; place-items: center; flex-shrink: 0; margin-bottom: 16px; }
+.home { --home-blue-soft: #eef3f8; --home-blue-ink: #2f4e6f; --home-terracotta-soft: #f5e9e3; --home-terracotta-ink: #81503e; --home-sage-soft: #eaf1ec; --home-sage-ink: #456b56; --home-lavender-soft: #f0edf6; --home-lavender-ink: #63567e; }
+.home-icon { width: 78px; height: 78px; border-radius: 50%; background: var(--home-blue-soft); color: var(--home-blue-ink); display: grid; place-items: center; flex-shrink: 0; margin-bottom: 16px; }
 .home-icon svg { width: 44px; height: 44px; }
+.home .tone-terracotta .home-icon { background: var(--home-terracotta-soft); color: var(--home-terracotta-ink); }
+.home .tone-sage .home-icon { background: var(--home-sage-soft); color: var(--home-sage-ink); }
+.home .tone-lavender .home-icon { background: var(--home-lavender-soft); color: var(--home-lavender-ink); }
 .home-tool p { line-height: 1.5; margin-bottom: 18px; }
 .home-tool > a { margin-top: auto; }
 .home-tool > a, .home-resource a { min-height: 44px; }
@@ -45,9 +49,14 @@
 .home-steps h3 { font-size: 1rem; margin-bottom: 10px; letter-spacing: -.015em; }
 .home-steps a { color: inherit; text-decoration: none; }
 .home-steps p { font-size: .9rem; }
-.home-resources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.home-resource { display: flex; align-items: flex-start; gap: 24px; }
-.home-resource p { line-height: 1.5; margin-bottom: 14px; }
+.home-resources { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.home-resource { display: flex; flex-direction: column; align-items: flex-start; padding: 20px; }
+.home-resource .home-icon { width: 58px; height: 58px; margin-bottom: 14px; }
+.home-resource .home-icon svg { width: 31px; height: 31px; }
+.home-resource-copy { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.home-resource h3 { font-size: 1.125rem; }
+.home-resource a { margin-top: auto; align-self: flex-start; }
+.home-resource p { line-height: 1.5; margin-bottom: 10px; font-size: .94rem; }
 .home footer { max-width: 1120px; padding-inline: 0; width: calc(100% - 48px); font-size: .8rem; }
 @media (max-width: 1100px) {
   .home-tool { padding: 20px; }
@@ -60,7 +69,7 @@
   .home-hero { min-height: 520px; }
   .home-hero-image { object-position: 42% center; opacity: .55; }
   .home-today-layout { grid-template-columns: 1fr; }
-  .home-resource { flex-direction: column; gap: 0; }
+  .home-resources { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
   .home-container { width: calc(100% - 40px); }
@@ -78,6 +87,6 @@
   .home-steps { gap: 22px; }
   .home-steps li, .home-steps li:first-child { padding: 0 0 0 52px; border: 0; position: relative; }
   .home-step-number { position: absolute; left: 0; top: 0; }
-  .home-resource { padding: 24px; }
+  .home-resource { padding: 20px; }
   .home footer { width: calc(100% - 40px); }
 }
