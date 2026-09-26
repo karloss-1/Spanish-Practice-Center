@@ -1,11 +1,27 @@
 import assert from 'node:assert/strict';
+import { runInNewContext } from 'node:vm';
 import { clearSessionCookie, createSession, hasValidSession, passwordMatches, safeReturnPath, sessionCookie, SESSION_COOKIE, SESSION_MAX_AGE } from '../functions/_lib/auth.js';
+import { loginPage } from '../functions/_lib/login-page.js';
 import { onRequest as middleware } from '../functions/_middleware.js';
 import { onRequest as studentAccess } from '../functions/student-access.js';
 import { onRequest as logout } from '../functions/student-access/logout.js';
 import { onRequest as go } from '../functions/go/[resource].js';
 
 const env = { STUDENT_PASSWORD: crypto.randomUUID(), SESSION_SECRET: crypto.randomUUID() + crypto.randomUUID() };
+const page = loginPage('/resources.html');
+assert.match(page, /type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false"/u);
+assert.match(page, /class="password-toggle" type="button" aria-label="Show password"/u);
+const input = { type: 'password', value: 'aBc 123!' };
+const toggle = { setAttribute(name, value) { this[name] = value; }, addEventListener(name, callback) { assert.equal(name, 'click'); this.click = callback; } };
+runInNewContext(page.match(/<script>(.*?)<\/script>/su)[1], { document: { getElementById: () => input, querySelector: () => toggle } });
+toggle.click();
+assert.equal(input.type, 'text');
+assert.equal(input.value, 'aBc 123!');
+assert.equal(toggle['aria-label'], 'Hide password');
+toggle.click();
+assert.equal(input.type, 'password');
+assert.equal(input.value, 'aBc 123!');
+assert.equal(toggle['aria-label'], 'Show password');
 const now = Date.now();
 const token = await createSession(env, now);
 const authenticatedRequest = path => new Request(`https://portal.example${path}`, { headers: { Cookie: `${SESSION_COOKIE}=${token}` } });
