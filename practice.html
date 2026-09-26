@@ -41,6 +41,223 @@
 @media(max-width:1100px) { .practice-hero-copy { max-width:70%; } }
 @media(max-width:760px) { .practice-modules { grid-template-columns:1fr; } .practice-hero-image { display:none; } .practice-hero-copy { max-width:none; } .practice-hero .practice-container { min-height:0; padding-block:32px; } }
 @media(max-width:640px) { .practice .practice-container { width:calc(100% - 40px); } .practice .header-inner { padding:16px 20px; } .practice-section { padding-block:32px; } .practice-module { padding:24px; } .practice-hero .practice-question { font-size:1.2rem; } .practice-hero p:last-child { font-size:1rem; } .practice-cta { width:100%; padding-inline:12px; } .practice-example { right:0; font-size:1.05rem; padding:12px 18px; } .practice-info { align-items:flex-start; padding:14px; } .practice footer { width:calc(100% - 40px); } }
+
+/* Product identities for the Practice launcher; values match Home and Resources. */
+.practice {
+  --practice-navy:#2f4e6f;
+  --practice-sage:#f0f4ef;
+  --practice-sage-art:#d5e2d4;
+  --practice-sage-line:#c2d0c3;
+  --practice-sage-ink:#456b56;
+  --practice-sand:#f4f1e8;
+  --practice-sand-art:#e4dbc7;
+  --practice-sand-line:#d2cbbd;
+  --practice-sand-ink:#625943;
+  --practice-clay:#f5ece6;
+  --practice-clay-art:#e6d1c5;
+  --practice-clay-line:#d7c6bb;
+  --practice-clay-ink:#7b5645;
+  --practice-plum:#f1eef4;
+  --practice-plum-art:#dcd6e5;
+  --practice-plum-line:#d0c9da;
+  --practice-plum-ink:#76667d;
+}
+.practice .practice-module-sage { --module-surface:var(--practice-sage); --module-art:var(--practice-sage-art); --module-line:var(--practice-sage-line); --module-ink:var(--practice-sage-ink); }
+.practice .practice-module-sand { --module-surface:var(--practice-sand); --module-art:var(--practice-sand-art); --module-line:var(--practice-sand-line); --module-ink:var(--practice-sand-ink); }
+.practice .practice-module-clay { --module-surface:var(--practice-clay); --module-art:var(--practice-clay-art); --module-line:var(--practice-clay-line); --module-ink:var(--practice-clay-ink); }
+.practice .practice-module-plum { --module-surface:var(--practice-plum); --module-art:var(--practice-plum-art); --module-line:var(--practice-plum-line); --module-ink:var(--practice-plum-ink); }
+.practice .practice-module {
+  padding:0;
+  border-color:var(--module-line);
+  border-radius:10px;
+  background:#fff;
+}
+.practice .practice-module-art {
+  display:flex;
+  align-items:center;
+  height:112px;
+  margin:0;
+  padding:16px 24px;
+  border-radius:9px 9px 0 0;
+  background:var(--module-surface);
+  color:var(--module-ink);
+}
+.practice .practice-icon {
+  width:64px;
+  height:64px;
+  margin:0;
+  background:var(--module-art);
+  color:var(--module-ink);
+}
+.practice .practice-icon svg { width:38px; height:38px; }
+.practice .practice-art-visual {
+  position:absolute;
+  top:50%;
+  right:22px;
+  display:grid;
+  place-items:center;
+  width:min(210px,52%);
+  height:88px;
+  min-width:150px;
+  transform:translateY(-50%);
+  color:var(--module-ink);
+}
+.practice .practice-flashcard-sheet {
+  position:absolute;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:min(140px,88%);
+  height:70px;
+  padding:9px 12px;
+  border:1px solid var(--module-line);
+  border-radius:6px;
+  background:#fff;
+  box-shadow:0 2px 7px rgb(47 78 111 / 8%);
+  color:var(--practice-navy);
+  line-height:1.35;
+}
+.practice .practice-flashcard-back {
+  top:0;
+  left:42px;
+  transform:rotate(-8deg);
+  background:#e5ece6;
+}
+.practice .practice-flashcard-middle {
+  top:9px;
+  left:26px;
+  transform:rotate(5deg);
+  background:#edf0e9;
+}
+.practice .practice-flashcard-front {
+  top:18px;
+  left:38px;
+  align-items:stretch;
+  background:#fff;
+  transform:rotate(-2deg);
+}
+.practice .practice-flashcard-sheet > span:first-child { font-size:.72rem; font-weight:700; }
+.practice .practice-flashcard-sheet small { font-size:.55rem; color:#5d7163; }
+.practice .practice-flashcard-front > small { font-size:.48rem; font-weight:700; letter-spacing:.09em; color:#627c69; }
+.practice .practice-flashcard-word { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.practice .practice-flashcard-word strong { font-size:1.05rem; }
+.practice .practice-flashcard-word svg { width:17px; height:17px; color:#456b56; }
+.practice .practice-flashcard-front > span:last-child { font-size:.63rem; color:#627c69; }
+.practice-conjugation-window {
+  width:min(214px,100%);
+  overflow:hidden;
+  border:1px solid #d2cbbd;
+  border-radius:6px;
+  background:#fffdf9;
+  box-shadow:0 2px 7px rgb(86 76 57 / 6%);
+  color:var(--practice-navy);
+  transform:rotate(-2deg);
+}
+.practice-conjugation-head {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:7px 11px;
+  background:#e7e6dc;
+}
+.practice-conjugation-head strong { font-size:.82rem; }
+.practice-conjugation-head small { color:#586c65; font-size:.58rem; }
+.practice-conjugation-row {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  padding:4px 11px;
+  border-top:1px solid #e4e2da;
+  font-size:.67rem;
+}
+.practice-conjugation-row i { color:#677783; font-style:normal; }
+.practice-conjugation-row b { font-weight:700; }
+.practice-writing-note {
+  position:relative;
+  width:min(166px,100%);
+  height:76px;
+  padding:9px 12px;
+  border:1px solid var(--practice-clay-line);
+  border-radius:6px;
+  background:#fff;
+  box-shadow:0 3px 8px rgb(47 78 111 / 7%);
+  color:var(--practice-navy);
+  transform:rotate(-3deg);
+}
+.practice-writing-note strong { display:block; font-size:.69rem; color:var(--practice-clay-ink); }
+.practice-writing-line { display:block; width:100%; height:1px; margin-top:8px; background:#e7e1dc; }
+.practice-writing-line.short { width:68%; margin-top:6px; }
+.practice-writing-feedback {
+  display:flex;
+  align-items:center;
+  gap:4px;
+  width:max-content;
+  max-width:100%;
+  margin-top:6px;
+  padding:2px 6px;
+  border-radius:20px;
+  background:#f5f1ee;
+  color:#735748;
+  font-size:.53rem;
+}
+.practice-writing-feedback svg { width:11px; height:11px; }
+.practice-pencil {
+  position:absolute;
+  top:5px;
+  right:0;
+  width:22px;
+  height:22px;
+  color:var(--practice-clay-ink);
+}
+.practice-conversation-visual { height:82px; }
+.practice-chat-bubble {
+  position:absolute;
+  display:block;
+  max-width:78%;
+  padding:7px 10px;
+  border:1px solid var(--practice-plum-line);
+  border-radius:10px 10px 10px 2px;
+  background:#fff;
+  box-shadow:0 2px 6px rgb(47 78 111 / 6%);
+  color:#655777;
+  font-size:.64rem;
+  line-height:1.35;
+}
+.practice-chat-prompt { top:6px; left:0; }
+.practice-chat-reply { right:0; bottom:6px; border-radius:10px 10px 2px 10px; background:#e8e3ee; }
+.practice-chat-typing {
+  position:absolute;
+  top:50%;
+  right:28px;
+  display:flex;
+  gap:3px;
+  transform:translateY(-50%);
+}
+.practice-chat-typing i { width:3px; height:3px; border-radius:50%; background:#9384a8; }
+.practice .practice-module > .eyebrow { margin:20px 0 7px; padding-inline:24px; }
+.practice .practice-module > h3 { margin:0 24px 8px; }
+.practice .practice-module > .practice-emphasis { margin:0 24px 6px; }
+.practice .practice-module > .practice-description { margin:0 24px 18px; }
+.practice .practice-module > .practice-cta {
+  align-self:flex-start;
+  width:auto;
+  margin: auto 24px 22px;
+}
+@media(max-width:1000px) {
+  .practice .practice-module-art { padding-inline:20px; }
+  .practice .practice-art-visual { right:18px; width:min(190px,52%); }
+}
+@media(max-width:640px) {
+  .practice .practice-module-art { height:108px; padding-inline:20px; }
+  .practice .practice-icon { width:56px; height:56px; }
+  .practice .practice-icon svg { width:34px; height:34px; }
+  .practice .practice-art-visual { right:18px; width:min(184px,53%); min-width:140px; }
+  .practice .practice-module > .eyebrow { padding-inline:20px; }
+  .practice .practice-module > h3,.practice .practice-module > .practice-emphasis,.practice .practice-module > .practice-description { margin-inline:20px; }
+  .practice .practice-module > .practice-cta { align-self:stretch; margin-inline:20px; }
+}
+
 </style></head>
 <body class="practice"><a class="skip" href="#main">Skip to content</a><span class="sr-only" id="new-tab-description">Opens in a new tab</span><header><div class="header-inner"><a class="brand" href="index.html"><strong>Spanish Practice Center</strong><span>by Azael</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button><nav id="navigation" aria-label="Main navigation"><a href="index.html">Home</a><a href="my-learning-space.html">My Learning Space</a><a href="practice.html" aria-current="page">Practice</a><a href="resources.html">Resources</a><a href="course-roadmap.html">Course Roadmap</a></nav></div></header><main id="main">
 <section class="practice-hero" aria-labelledby="practice-title"><img class="practice-hero-image" src="assets/practice-hero.jpg" alt="" width="2172" height="724" fetchpriority="high"><div class="practice-container">
@@ -48,28 +265,44 @@
 </div></section>
 <section class="practice-section" aria-labelledby="independent-title"><div class="practice-container">
 <div class="practice-section-intro"><p class="eyebrow">INDEPENDENT PRACTICE</p><h2 id="independent-title">Build your Spanish over time</h2><p>Practice high-frequency vocabulary and strengthen your control of verb forms at your own pace.</p></div>
-<div class="practice-modules"><article class="practice-module" id="flashcards" aria-labelledby="flashcards-title">
-<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="8" y="13" width="26" height="30" rx="3"/><path d="m17 6 23 3-3 28"/></svg></span><span class="practice-example cards">hola</span></div>
+<div class="practice-modules"><article class="practice-module practice-module-sage" id="flashcards" aria-labelledby="flashcards-title">
+<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="8" y="13" width="26" height="30" rx="3"/><path d="m17 6 23 3-3 28"/></svg></span><div class="practice-art-visual practice-flashcards-visual">
+<span class="practice-flashcard-sheet practice-flashcard-back"><span>ahorita</span><small>in a little while</small></span>
+<span class="practice-flashcard-sheet practice-flashcard-middle"><span>chamba</span><small>work · job</small></span>
+<span class="practice-flashcard-sheet practice-flashcard-front"><small>SPANISH → ENGLISH</small><span class="practice-flashcard-word"><strong>hola</strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l4 3V7l-4 3H4zM15 9a4 4 0 0 1 0 6M17.5 6.5a7.5 7.5 0 0 1 0 11"/></svg></span><span>hello</span></span>
+</div></div>
 <p class="eyebrow">VOCABULARY</p><h3 id="flashcards-title">Mexican Spanish Flashcards</h3>
 <p class="practice-emphasis">Build a stronger everyday vocabulary.</p><p class="practice-description">Practice a curated set of 600 common words and 300 common verbs from spoken Mexican Spanish, using spaced repetition.</p>
 <a class="practice-cta" href="/go/flashcards" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open Flashcards <span aria-hidden="true">→</span></a>
 </article>
-<article class="practice-module" id="conjugation" aria-labelledby="conjugation-title">
-<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></span><span class="practice-example ">hablo<br>hablas<br>habla</span></div>
+<article class="practice-module practice-module-sand" id="conjugation" aria-labelledby="conjugation-title">
+<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 4h18l9 11v29H12zM30 4v12h9M19 24h13M19 31h13M19 38h9"/></svg></span><div class="practice-art-visual practice-conjugation-visual"><div class="practice-conjugation-window">
+<div class="practice-conjugation-head"><strong>hablar</strong><small>Presente</small></div>
+<span class="practice-conjugation-row"><i>yo</i><b>hablo</b></span>
+<span class="practice-conjugation-row"><i>tú</i><b>hablas</b></span>
+<span class="practice-conjugation-row"><i>él/ella</i><b>habla</b></span>
+</div></div></div>
 <p class="eyebrow">CONJUGATION</p><h3 id="conjugation-title">Conjugón</h3>
 <p class="practice-emphasis">Get more comfortable with verbs.</p><p class="practice-description">Practice verb forms by tense and conjugation pattern at your own pace.</p>
 <a class="practice-cta" href="/go/conjugation" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open Conjugón <span aria-hidden="true">→</span></a>
 </article></div></div></section>
 <section class="practice-section practice-unit" aria-labelledby="unit-title"><div class="practice-container">
 <div class="practice-section-intro"><p class="eyebrow">GUIDED PRACTICE</p><h2 id="unit-title">Practice with a little more direction</h2><p>Use the AI trainers for writing or conversation practice. If you're following the structured course, enter your unit code to focus on what we're studying in class.</p></div>
-<div class="practice-modules"><article class="practice-module" id="writing" aria-labelledby="writing-title">
-<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="m7 41 5-14L33 6a4 4 0 0 1 6 6L18 34zM29 10l8 8M12 27l6 7"/></svg></span><span class="practice-example ">Escribe<br>Practica</span></div>
+<div class="practice-modules"><article class="practice-module practice-module-clay" id="writing" aria-labelledby="writing-title">
+<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="m7 41 5-14L33 6a4 4 0 0 1 6 6L18 34zM29 10l8 8M12 27l6 7"/></svg></span><div class="practice-art-visual practice-writing-visual">
+<div class="practice-writing-note"><strong>Escribe</strong><span class="practice-writing-line"></span><span class="practice-writing-line short"></span><span class="practice-writing-feedback"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8 3 3 7-7"/></svg>Recibe feedback</span></div>
+<svg class="practice-pencil" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 20 1-4L18 4l5 5-12 12-4 1zM16 6l5 5M6 16l5 5"/></svg>
+</div></div>
 <p class="eyebrow">WRITING</p><h3 id="writing-title">AI Writing Trainer</h3>
 <p class="practice-emphasis">Put your Spanish into words.</p><p class="practice-description">Get a writing task, extra practice or feedback on something you've written. If you're following the structured course, you can also use your unit code to practice what we're studying in class.</p>
 <a class="practice-cta" href="/go/writing" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open Writing Trainer <span aria-hidden="true">→</span></a>
 </article>
-<article class="practice-module" id="conversation" aria-labelledby="conversation-title">
-<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8 8h23a4 4 0 0 1 4 4v15H17l-9 8v-8H4V12a4 4 0 0 1 4-4zM35 19h9v20h-6v6l-8-6H20v-7"/></svg></span><span class="practice-example bubble">¿Qué opinas?</span></div>
+<article class="practice-module practice-module-plum" id="conversation" aria-labelledby="conversation-title">
+<div class="practice-module-art" aria-hidden="true"><span class="practice-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8 8h23a4 4 0 0 1 4 4v15H17l-9 8v-8H4V12a4 4 0 0 1 4-4zM35 19h9v20h-6v6l-8-6H20v-7"/></svg></span><div class="practice-art-visual practice-conversation-visual">
+<span class="practice-chat-bubble practice-chat-prompt">¿Qué opinas?</span>
+<span class="practice-chat-bubble practice-chat-reply">Creo que…</span>
+<span class="practice-chat-typing" aria-hidden="true"><i></i><i></i><i></i></span>
+</div></div>
 <p class="eyebrow">CONVERSATION</p><h3 id="conversation-title">AI Conversation Trainer</h3>
 <p class="practice-emphasis">Use your Spanish in conversation.</p><p class="practice-description">Practice through a guided conversation on a topic you'd like to work on. If you're following the structured course, you can also use your unit code to practice what we're studying in class.</p>
 <a class="practice-cta" href="/go/conversation" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open Conversation Trainer <span aria-hidden="true">→</span></a>
