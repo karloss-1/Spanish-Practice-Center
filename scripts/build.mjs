@@ -1,4 +1,4 @@
-import { mkdir, copyFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, copyFile, rm, writeFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 const root = new URL('../', import.meta.url);
 const output = new URL('dist/', root);
@@ -18,7 +18,17 @@ for (const file of ['index.html', 'my-learning-space.html', 'practice.html', 're
   await copyFile(new URL(file, root), new URL(file, output));
 }
 await copyFile(new URL('assets/auth.css', root), new URL('assets/auth.css', output));
-await writeFile(new URL('_routes.json', output), JSON.stringify({ version: 1, include: ['/api/*', '/student-access', '/student-access/*', '/go/*', '/my-learning-space*', '/practice*', '/resources*', '/course-roadmap*', '/assets/resources/*'], exclude: [] }));
+// Only reviewed student-facing reading content/assets are published. No source documents or editorial notes.
+await mkdir(new URL('assets/readings/', output), { recursive: true });
+for (const file of ['read.html', 'reading.html', 'assets/read.css', 'assets/read.js']) {
+  await copyFile(new URL(file, root), new URL(file, output));
+}
+for (const file of await readdir(new URL('assets/readings/', root))) {
+  if (!/^[a-z0-9-]+\.(json|webp|m4a)$/.test(file)) throw new Error(`Unexpected reading asset: ${file}`);
+  await copyFile(new URL(`assets/readings/${file}`, root), new URL(`assets/readings/${file}`, output));
+}
+
+await writeFile(new URL('_routes.json', output), JSON.stringify({ version: 1, include: ['/api/*', '/student-access', '/student-access/*', '/go/*', '/my-learning-space*', '/practice*', '/resources*', '/course-roadmap*', '/assets/resources/*', '/read*', '/assets/readings/*'], exclude: [] }));
 await writeFile(new URL('_headers', output), '/\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n\n/index.html\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n\n/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n');
 await writeFile(new URL('404.html', output), '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Not found</title><p>Page not found. <a href="/">Return home</a></p></html>');
 console.log(`Public assets prepared in ${fileURLToPath(output)}`);
