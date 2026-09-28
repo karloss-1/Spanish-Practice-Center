@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "un-dia-normal-en-mexico",
+    "title": "Un día normal en México",
+    "level": "A1",
+    "readingTime": "3–4 min",
+    "category": "Vida cotidiana",
+    "description": "Acompaña a Elena en un día cotidiano en la Ciudad de México y descubre cómo es su rutina.",
+    "image": "assets/readings/un-dia-normal-en-mexico.webp",
+    "thumbnail": "assets/readings/un-dia-normal-en-mexico-card.webp",
+    "imageAlt": "Commuters beside an orange train on a Mexico City Metro platform."
+  },
+  {
+    "slug": "que-es-un-tianguis",
+    "title": "¿Qué es un tianguis?",
+    "level": "A2",
+    "readingTime": "3–4 min",
+    "category": "Cultura cotidiana",
+    "description": "Descubre qué es un tianguis, cómo funciona y qué puedes encontrar en estos mercados tan comunes en México.",
+    "image": "assets/readings/que-es-un-tianguis.webp",
+    "thumbnail": "assets/readings/que-es-un-tianguis-card.webp",
+    "imageAlt": "Shoppers and produce stalls under temporary tarps in a neighborhood tianguis."
+  },
+  {
+    "slug": "mexico-no-habla-de-una-sola-manera",
+    "title": "México no habla de una sola manera",
+    "level": "B1",
+    "readingTime": "5–7 min",
+    "category": "Lengua y sociedad",
+    "description": "Explora la diversidad del español en México y cómo cambian las palabras según la región y la situación.",
+    "image": "assets/readings/mexico-no-habla-de-una-sola-manera.webp",
+    "thumbnail": "assets/readings/mexico-no-habla-de-una-sola-manera-card.webp",
+    "imageAlt": "Four adults sharing a conversation at a neighborhood café."
+  }
+]

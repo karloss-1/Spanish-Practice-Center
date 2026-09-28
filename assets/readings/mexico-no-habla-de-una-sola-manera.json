@@ -1,0 +1,166 @@
+{
+  "slug": "mexico-no-habla-de-una-sola-manera",
+  "title": "México no habla de una sola manera",
+  "level": "B1",
+  "readingTime": "5–7 min",
+  "category": "Lengua y sociedad",
+  "description": "Explora la diversidad del español en México y cómo cambian las palabras según la región y la situación.",
+  "image": "assets/readings/mexico-no-habla-de-una-sola-manera.webp",
+  "thumbnail": "assets/readings/mexico-no-habla-de-una-sola-manera-card.webp",
+  "imageAlt": "Four adults sharing a conversation at a neighborhood café.",
+  "translationTitle": "Mexico Doesn't Speak in Just One Way",
+  "audio": {
+    "src": "assets/readings/mexico-no-habla-de-una-sola-manera.m4a",
+    "type": "audio/mp4",
+    "kind": "tts",
+    "locale": "es-MX"
+  },
+  "paragraphs": [
+    {
+      "es": "«¿Vienen también los huercos?». La pregunta aparece en un mensaje sobre una reunión familiar. Quien la recibe entiende casi todo, pero se detiene en la última palabra. ¿Son otros invitados? Sí: en este caso, son los niños. Huerco es una palabra que el Diccionario del español de México registra en el noreste del país. Para alguien que ha aprendido la palabra niño, encontrarla puede ser una sorpresa. Niño sigue siendo una palabra útil; ahora hay otra posibilidad.",
+      "en": "«Are the huercos coming too?» The question appears in a message about a family gathering. The person who receives it understands almost everything, but stops at the last word. Are they other guests? Yes: in this case, they're the kids. Huerco is a word that the Diccionario del español de México records in the northeast of the country. For someone who has learned the word niño, running into it can be a surprise. Niño is still a useful word; now there's another possibility."
+    },
+    {
+      "es": "El diccionario también marca huerco como una palabra de uso popular. Eso no significa que sea incorrecta. Tampoco significa que todas las personas del noreste la usen, ni que solo pueda escucharse allí. Por eso, escuchar huerco no basta para saber de qué ciudad es una persona. El mapa ayuda a entender la palabra, pero no cuenta toda la historia de quien habla.",
+      "en": "The dictionary also marks huerco as a word of popular usage. That doesn't mean it's incorrect. It also doesn't mean that everyone in the northeast uses it, or that it can only be heard there. So hearing huerco isn't enough to know what city a person is from. The map helps you understand the word, but it doesn't tell the whole story of the person speaking."
+    },
+    {
+      "es": "Otras diferencias aparecen sin cambiar de lugar. Alguien le dice a un amigo: «Estoy buscando chamba». Después, al escribir una solicitud de empleo, esa misma persona elige: «Estoy buscando trabajo». La idea básica es la misma. Cambian la persona que recibe el mensaje y la situación. El mismo diccionario registra chamba con el sentido de trabajo u ocupación y también la marca como popular. Con el amigo, chamba da un tono más cercano.",
+      "en": "Other differences show up without changing places. Someone says to a friend: «Estoy buscando chamba». Later, when writing a job application, that same person chooses: «Estoy buscando trabajo». The basic idea is the same. What changes is the person receiving the message and the situation. The same dictionary records chamba with the meaning of work or occupation and also marks it as popular. With the friend, chamba gives a more familiar tone."
+    },
+    {
+      "es": "Esto no quiere decir que trabajo sea una palabra reservada para situaciones formales. También cabe perfectamente en una conversación entre amigos. Ni hace falta usar chamba para hablar como una persona de México. Las dos opciones pueden formar parte del vocabulario de un mismo hablante. Elegir una u otra no es siempre una cuestión de saber más español: también importa con quién se habla y qué tono se busca.",
+      "en": "This doesn't mean that trabajo is a word reserved for formal situations. It also fits perfectly well in a conversation between friends. Nor is it necessary to use chamba to talk like a person from Mexico. Both options can be part of the same speaker's vocabulary. Choosing one or the other isn't always a matter of knowing more Spanish: who you're talking to and what tone you're going for also matter."
+    },
+    {
+      "es": "Huerco y chamba muestran dos cosas distintas: una palabra puede estar asociada a un lugar, y nuestra forma de hablar también puede cambiar según la situación. Ninguna de las dos es una regla para adivinar cómo va a hablar cada persona. Una lista de «palabras mexicanas» puede servir para empezar, aunque deja fuera algo importante: las conversaciones en las que esas palabras tienen sentido.",
+      "en": "Huerco and chamba show two different things: a word can be associated with a place, and the way we speak can also change depending on the situation. Neither one is a rule for guessing how each person will speak. A list of «Mexican words» can be useful for getting started, but it leaves out something important: the conversations in which those words make sense."
+    },
+    {
+      "es": "Al encontrar una expresión nueva, quien aprende español puede reconocerla antes de decidir si quiere usarla. Quizá la próxima pregunta en esa reunión sea muy sencilla: «¿Tú también usas esa palabra con tus amigos?». La respuesta puede abrir otra conversación.",
+      "en": "When encountering a new expression, a Spanish learner can recognize it before deciding whether they want to use it. Maybe the next question at that gathering will be a very simple one: «Do you use that word with your friends too?» The answer could open up another conversation."
+    }
+  ],
+  "vocabulary": [
+    {
+      "word": "huerco",
+      "definition": "Niño o joven; en la reunión del texto, niño.",
+      "english": "Child; youngster.",
+      "usage": "Uso: El DEM lo registra en el noreste y lo marca como popular; no implica uso general ni exclusivo de esa región."
+    },
+    {
+      "word": "uso popular",
+      "definition": "Manera de usar una palabra en el habla cotidiana, como entre familiares o amigos.",
+      "english": "Everyday, familiar usage.",
+      "usage": "Uso: Aquí es una marca del DEM; no significa «incorrecto» ni «muy frecuente»."
+    },
+    {
+      "word": "chamba",
+      "definition": "Trabajo u ocupación.",
+      "english": "Work; job.",
+      "usage": "Uso: Uso popular en el DEM. También se documenta fuera de México."
+    },
+    {
+      "word": "solicitud de empleo",
+      "definition": "Documento o mensaje para pedir un puesto de trabajo.",
+      "english": "Job application."
+    },
+    {
+      "word": "tono",
+      "definition": "Manera de expresarse que puede mostrar cercanía o formalidad.",
+      "english": "Tone; the attitude or degree of formality conveyed."
+    },
+    {
+      "word": "hablante",
+      "definition": "Persona que usa una lengua.",
+      "english": "Speaker of a language."
+    },
+    {
+      "word": "tener sentido",
+      "definition": "Poder entenderse dentro de una situación.",
+      "english": "To make sense."
+    },
+    {
+      "word": "reconocer",
+      "definition": "Identificar algo porque se conoce o se ha encontrado antes.",
+      "english": "To recognize."
+    }
+  ],
+  "questions": [
+    {
+      "type": "choice",
+      "question": "¿Qué descubre quien recibe el mensaje sobre la reunión?",
+      "options": [
+        "Que se ha cancelado la invitación de los niños.",
+        "Que una palabra desconocida se refiere a los niños.",
+        "Que niño deja de usarse en el noreste."
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choice",
+      "question": "¿Qué idea conecta los ejemplos de huerco y chamba?",
+      "options": [
+        "Aprender español mexicano consiste en sustituir las palabras conocidas.",
+        "Cada región tiene un vocabulario que no comparte con otras.",
+        "Para entender una palabra también importa dónde y cómo se usa."
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choice",
+      "question": "¿Por qué la persona del ejemplo elige trabajo en su solicitud de empleo?",
+      "options": [
+        "Porque adapta el tono a una situación diferente.",
+        "Porque cambia la actividad que desea realizar.",
+        "Porque descubre que chamba es una palabra incorrecta."
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choice",
+      "question": "¿Qué diferencia hay entre los dos ejemplos?",
+      "options": [
+        "Huerco se relaciona con una región; chamba permite explorar el tono de una situación.",
+        "Huerco es formal; chamba solo se usa por escrito.",
+        "Huerco describe a quien habla; chamba indica de dónde viene."
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choice",
+      "question": "En la lectura, ¿qué significa que trabajo «cabe perfectamente» entre amigos?",
+      "options": [
+        "Que es una palabra corta y fácil de recordar.",
+        "Que los amigos tienen que hablar de sus empleos.",
+        "Que también es una opción natural en esa conversación."
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choice",
+      "question": "Un estudiante entiende chamba, pero prefiere decir trabajo. ¿Qué se puede concluir según el texto?",
+      "options": [
+        "Que todavía no entiende la diferencia entre las palabras.",
+        "Que puede comprender una opción sin adoptarla al hablar.",
+        "Que solo está preparado para situaciones formales."
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choice",
+      "question": "Si alguien usa huerco, ¿qué interpretación sería razonable?",
+      "options": [
+        "Se puede identificar su ciudad de origen con seguridad.",
+        "Se puede suponer que nunca usa niño.",
+        "Usa una forma con relación regional documentada, pero falta información sobre esa persona."
+      ],
+      "answer": 2
+    }
+  ],
+  "discussion": [
+    "En tu lengua, ¿hay dos palabras para una misma cosa que se usen en lugares o situaciones diferentes? Explica un ejemplo y dónde lo has escuchado.",
+    "Cuenta una ocasión en que alguien usó una palabra o una manera de hablar que no entendiste al principio. ¿Qué hiciste para entenderla?",
+    "Un compañero mexicano usa una expresión nueva para ti. ¿Qué le preguntarías para saber qué significa y si podrías usarla en un mensaje de trabajo?"
+  ]
+}

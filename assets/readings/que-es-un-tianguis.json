@@ -1,0 +1,142 @@
+{
+  "slug": "que-es-un-tianguis",
+  "title": "¿Qué es un tianguis?",
+  "level": "A2",
+  "readingTime": "3–4 min",
+  "category": "Cultura cotidiana",
+  "description": "Descubre qué es un tianguis, cómo funciona y qué puedes encontrar en estos mercados tan comunes en México.",
+  "image": "assets/readings/que-es-un-tianguis.webp",
+  "thumbnail": "assets/readings/que-es-un-tianguis-card.webp",
+  "imageAlt": "Shoppers and produce stalls under temporary tarps in a neighborhood tianguis.",
+  "translationTitle": "What Is a Tianguis?",
+  "audio": {
+    "src": "assets/readings/que-es-un-tianguis.m4a",
+    "type": "audio/mp4",
+    "kind": "tts",
+    "locale": "es-MX"
+  },
+  "paragraphs": [
+    {
+      "es": "Imagina que es martes por la mañana y sales a comprar fruta. En una calle del barrio hay puestos de comida y ropa. Te acercas a una mesa con plátanos y jitomates. Un poco más adelante, una señora prepara tacos. Hoy hay tianguis, y puedes hacer varias compras sin salir de esa calle.",
+      "en": "Imagine it's a Tuesday morning and you head out to buy some fruit. On a street in the neighborhood, there are food and clothing stalls. You walk up to a table with bananas and jitomates. A little farther along, a woman is making tacos. There's a tianguis today, and you can do all kinds of shopping without leaving that street."
+    },
+    {
+      "es": "Un tianguis es un mercado de puestos temporales. En muchos lugares se pone un día fijo de la semana, en una calle o una plaza. Los vendedores llegan, colocan sus productos y, al terminar el día, recogen sus puestos. Al día siguiente, la misma calle puede verse muy diferente. Por eso, antes de visitar uno, conviene preguntar qué día se pone.",
+      "en": "A tianguis is a market of temporary stalls. In many places, it's set up on a fixed day of the week, on a street or in a plaza. The vendors arrive, set out their products, and at the end of the day, they pack up their stalls. The next day, the same street can look very different. That's why, before visiting one, it's a good idea to ask which day it's set up."
+    },
+    {
+      "es": "La palabra tianguis viene del náhuatl y significa mercado. Antes de la llegada de los españoles ya existían estos espacios de comercio. Hoy forman parte de la vida de muchos barrios y pueblos, pero no todos son iguales. En unos puedes comprar alimentos para la semana; en otros también encuentras ropa o cosas usadas, de segunda mano.",
+      "en": "The word tianguis comes from Nahuatl and means market. These trading spaces already existed before the Spanish arrived. Today they're part of life in many neighborhoods and towns, but they're not all the same. At some, you can buy food for the week; at others, you also find clothing or used, secondhand items."
+    },
+    {
+      "es": "Vuelves a la primera mesa. Quieres jitomates para preparar una salsa, pero primero necesitas saber el precio. «¿A cómo está el kilo?», preguntas. El vendedor te responde y tú decides cuánto comprar. «Me da medio kilo, por favor». Después pagas y guardas la compra en tu bolsa. Todavía tienes tiempo para mirar otros puestos.",
+      "en": "You go back to the first table. You want jitomates to make a salsa, but first you need to know the price. «¿A cómo está el kilo?», you ask. The vendor answers, and you decide how much to buy. «Me da medio kilo, por favor». Then you pay and put your purchase in your bag. You still have time to look at other stalls."
+    },
+    {
+      "es": "En un tianguis también puedes comer algo o platicar. Te encuentras a una vecina y la saludas. Ella busca fruta, y tú ya tienes lo que necesitas para la salsa. Antes de irte, vuelves al puesto de tacos. Esta vez buscas un lugar para sentarte.",
+      "en": "At a tianguis, you can also grab something to eat or chat. You run into a neighbor and say hello. She's looking for fruit, and you already have what you need for the salsa. Before leaving, you go back to the taco stand. This time you look for a place to sit."
+    }
+  ],
+  "vocabulary": [
+    {
+      "word": "tianguis",
+      "definition": "Mercado de puestos temporales que suele ponerse en días determinados. Uso mexicano.",
+      "english": "A temporary market, usually held on set days."
+    },
+    {
+      "word": "puesto",
+      "definition": "Lugar pequeño donde una persona vende sus productos.",
+      "english": "Market stall."
+    },
+    {
+      "word": "jitomate",
+      "definition": "Tomate rojo. Uso mexicano; también se llama tomate, según la región.",
+      "english": "Tomato; called jitomate in parts of Mexico."
+    },
+    {
+      "word": "de segunda mano",
+      "definition": "Que otra persona ya usó.",
+      "english": "Second-hand; used."
+    },
+    {
+      "word": "¿A cómo está el kilo?",
+      "definition": "Pregunta para saber el precio de un kilo de un producto. Expresión conversacional.",
+      "english": "How much is it per kilo?"
+    },
+    {
+      "word": "Me da medio kilo, por favor",
+      "definition": "Forma de pedir medio kilo de un producto al comprar.",
+      "english": "Half a kilo, please."
+    }
+  ],
+  "questions": [
+    {
+      "type": "choice",
+      "question": "¿Por qué conviene preguntar qué día se pone un tianguis?",
+      "options": [
+        "Porque todos cambian de lugar cada día.",
+        "Porque puede estar allí solo en ciertos días.",
+        "Porque solo vende fruta por la mañana."
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choice",
+      "question": "Verdadero o falso: En todos los tianguis se venden los mismos productos.",
+      "options": [
+        "Verdadero",
+        "Falso"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "order",
+      "question": "Ordena las acciones de la compra de jitomates.",
+      "options": [
+        "Guardas la compra.",
+        "Preguntas el precio.",
+        "Pides medio kilo."
+      ],
+      "answer": [
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "type": "choice",
+      "question": "¿Qué relación hay entre los tianguis y el pasado?",
+      "options": [
+        "Los españoles crearon los primeros.",
+        "Hoy todos venden lo mismo que antes.",
+        "Ya había espacios de este tipo antes de la llegada de los españoles."
+      ],
+      "answer": 2
+    },
+    {
+      "type": "choice",
+      "question": "¿Por qué puedes comprar algo de segunda mano sin comprar comida?",
+      "options": [
+        "Porque la oferta puede incluir objetos usados.",
+        "Porque segunda mano significa una comida pequeña.",
+        "Porque no hay alimentos en los tianguis."
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choice",
+      "question": "Al final, vuelves al puesto de tacos. ¿Para qué?",
+      "options": [
+        "Comprar otra bolsa.",
+        "Sentarte a comer.",
+        "Vender jitomates."
+      ],
+      "answer": 1
+    }
+  ],
+  "discussion": [
+    "¿Dónde compras fruta o verduras normalmente? ¿Qué te gusta de ese lugar?",
+    "¿Hay un mercado parecido en tu comunidad? ¿En qué se parece o se diferencia? Si no hay, compáralo con una tienda que conoces.",
+    "Imagina que compras fruta en un tianguis. ¿Qué fruta quieres y cuánto necesitas? ¿Cómo preguntas el precio y pides la cantidad?"
+  ]
+}

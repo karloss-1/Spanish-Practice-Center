@@ -1,0 +1,123 @@
+{
+  "slug": "un-dia-normal-en-mexico",
+  "title": "Un día normal en México",
+  "level": "A1",
+  "readingTime": "3–4 min",
+  "category": "Vida cotidiana",
+  "description": "Acompaña a Elena en un día cotidiano en la Ciudad de México y descubre cómo es su rutina.",
+  "image": "assets/readings/un-dia-normal-en-mexico.webp",
+  "thumbnail": "assets/readings/un-dia-normal-en-mexico-card.webp",
+  "imageAlt": "Commuters beside an orange train on a Mexico City Metro platform.",
+  "translationTitle": "A Normal Day in Mexico",
+  "audio": {
+    "src": "assets/readings/un-dia-normal-en-mexico.m4a",
+    "type": "audio/mp4",
+    "kind": "tts",
+    "locale": "es-MX"
+  },
+  "paragraphs": [
+    {
+      "es": "Elena desayuna en su cocina. Vive en la Ciudad de México y trabaja en una oficina. Esta mañana toma café y come pan. Su celular está junto a la taza. Hay un mensaje de Rosa, una amiga: «¿Tomamos un café hoy?». Elena quiere ir, pero hoy tiene mucho trabajo.",
+      "en": "Elena is having breakfast in her kitchen. She lives in Mexico City and works in an office. This morning she's having coffee and bread. Her phone is next to the cup. There's a message from Rosa, a friend: «Want to get coffee today?». Elena wants to go, but she has a lot of work today."
+    },
+    {
+      "es": "A las ocho, Elena sale de casa y camina hasta la estación del Metro. Busca su tarjeta en la bolsa y la usa para entrar. Durante el viaje piensa en Rosa. Las dos viven en la misma ciudad, pero no se ven mucho. Elena mira la hora. Todavía es temprano.",
+      "en": "At eight, Elena leaves the house and walks to the Metro station. She looks for her card in her purse and uses it to get in. During the ride, she thinks about Rosa. They both live in the same city, but they don't see each other much. Elena checks the time. It's still early."
+    },
+    {
+      "es": "En la oficina, Elena habla con sus compañeros y trabaja en la computadora. A las dos come y después sigue con el trabajo. Por la tarde termina su trabajo. Ahora sí puede ver a su amiga. Escribe un mensaje: «Salgo a las seis. ¿Nos vemos cerca de tu casa?». Rosa responde: «¡Sí!».",
+      "en": "At the office, Elena talks with her coworkers and works on the computer. At two, she eats lunch and then goes back to work. In the afternoon, she finishes her work. Now she can see her friend. She writes a message: «I'm leaving at six. Want to meet near your place?». Rosa replies: «Yes!»."
+    },
+    {
+      "es": "Después del trabajo, Elena va a una cafetería cerca de la casa de Rosa. Su amiga ya está ahí, en una mesa junto a la ventana. Elena se sienta. Esta vez tiene tiempo para tomar el café despacio.",
+      "en": "After work, Elena goes to a coffee shop near Rosa's house. Her friend is already there, at a table by the window. Elena sits down. This time she has time to drink her coffee slowly."
+    }
+  ],
+  "vocabulary": [
+    {
+      "word": "celular",
+      "definition": "Teléfono para llamar y enviar mensajes. Uso habitual en México; también se usa en otros países.",
+      "english": "Cell phone; mobile phone."
+    },
+    {
+      "word": "estación",
+      "definition": "Lugar donde puedes entrar al Metro o salir de él.",
+      "english": "Metro station."
+    },
+    {
+      "word": "tarjeta",
+      "definition": "Objeto pequeño y plano que Elena usa para entrar al Metro.",
+      "english": "Transit card, in this story."
+    },
+    {
+      "word": "compañeros",
+      "definition": "Aquí, personas que trabajan con Elena.",
+      "english": "Coworkers."
+    },
+    {
+      "word": "despacio",
+      "definition": "Sin hacer algo rápido.",
+      "english": "Slowly; at an unhurried pace."
+    }
+  ],
+  "questions": [
+    {
+      "type": "choice",
+      "question": "¿Quién invita a Elena a tomar un café?",
+      "options": [
+        "Una compañera de oficina.",
+        "Su amiga Rosa.",
+        "Una vecina."
+      ],
+      "answer": 1
+    },
+    {
+      "type": "choice",
+      "question": "¿Cómo viaja Elena al trabajo después de caminar hasta la estación?",
+      "options": [
+        "En Metro.",
+        "En carro.",
+        "En bicicleta."
+      ],
+      "answer": 0
+    },
+    {
+      "type": "choice",
+      "question": "Verdadero o falso: Elena trabaja también después de comer.",
+      "options": [
+        "Verdadero",
+        "Falso"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "order",
+      "question": "Ordena estos momentos del día de Elena.",
+      "options": [
+        "Se sienta con Rosa.",
+        "Desayuna en casa.",
+        "Termina todo el trabajo."
+      ],
+      "answer": [
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "type": "choice",
+      "question": "¿Por qué Elena puede ver a Rosa por la tarde?",
+      "options": [
+        "Porque Rosa va a su oficina.",
+        "Porque Elena no trabaja ese día.",
+        "Porque Elena termina todo el trabajo."
+      ],
+      "answer": 2
+    }
+  ],
+  "discussion": [
+    "¿A qué hora sales de casa normalmente? ¿Adónde vas?",
+    "Elena viaja en Metro. ¿Tú cómo vas al trabajo o a clase?",
+    "¿Con quién tomas café o té? ¿Tienes tiempo para tomarlo despacio?"
+  ]
+}
