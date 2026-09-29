@@ -64,7 +64,7 @@ export function safeReturnPath(value, origin) {
   try {
     const url = new URL(value, origin);
     if (url.origin !== origin || url.pathname === '/student-access' || url.pathname === '/student-access/logout') return '/';
-    return `${url.pathname}${url.search}`;
+    return `${url.pathname}${url.search}${url.hash}`;
   } catch { return '/'; }
 }
 

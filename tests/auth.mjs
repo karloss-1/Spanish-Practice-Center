@@ -12,8 +12,20 @@ const page = loginPage('/resources.html');
 assert.match(page, /type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false"/u);
 assert.match(page, /class="password-toggle" type="button" aria-label="Show password"/u);
 const input = { type: 'password', value: 'aBc 123!' };
+const returnToInput = { value: '/resources.html' };
+const location = { hash: '#por-para' };
 const toggle = { setAttribute(name, value) { this[name] = value; }, addEventListener(name, callback) { assert.equal(name, 'click'); this.click = callback; } };
-runInNewContext(page.match(/<script>(.*?)<\/script>/su)[1], { document: { getElementById: () => input, querySelector: () => toggle } });
+const loginForm = { addEventListener(name, callback) { assert.equal(name, 'submit'); this.submit = callback; } };
+const loginDocument = {
+  getElementById: () => input,
+  querySelector(selector) {
+    if (selector === '.password-toggle') return toggle;
+    if (selector === 'input[name="returnTo"]') return returnToInput;
+    if (selector === '.auth-card form') return loginForm;
+    return null;
+  }
+};
+runInNewContext(page.match(/<script>(.*?)<\/script>/su)[1], { document: loginDocument, window: { location } });
 toggle.click();
 assert.equal(input.type, 'text');
 assert.equal(input.value, 'aBc 123!');
@@ -22,11 +34,18 @@ toggle.click();
 assert.equal(input.type, 'password');
 assert.equal(input.value, 'aBc 123!');
 assert.equal(toggle['aria-label'], 'Show password');
+loginForm.submit();
+assert.equal(returnToInput.value, '/resources.html#por-para');
+location.hash = '';
+returnToInput.value = '/resources.html#ser-estar';
+loginForm.submit();
+assert.equal(returnToInput.value, '/resources.html#ser-estar');
 const now = Date.now();
 const token = await createSession(env, now);
 const authenticatedRequest = path => new Request(`https://portal.example${path}`, { headers: { Cookie: `${SESSION_COOKIE}=${token}` } });
 
 assert.equal(await hasValidSession(authenticatedRequest('/resources.html'), env, now), true);
+assert.equal(SESSION_MAX_AGE, 60 * 60 * 24 * 30);
 assert.equal(await hasValidSession(new Request('https://portal.example/resources.html'), env, now), false);
 assert.equal(await hasValidSession(new Request('https://portal.example/resources.html', { headers: { Cookie: `${SESSION_COOKIE}=${token}x` } }), env, now), false);
 assert.equal(await hasValidSession(authenticatedRequest('/resources.html'), env, now + (SESSION_MAX_AGE + 1) * 1000), false);
@@ -37,6 +56,7 @@ for (const flag of ['HttpOnly', 'Secure', 'SameSite=Lax', 'Path=/']) assert.ok(s
 assert.match(clearSessionCookie(), /Max-Age=0/u);
 
 assert.equal(safeReturnPath('/resources.html?view=all', 'https://portal.example'), '/resources.html?view=all');
+assert.equal(safeReturnPath('/resources.html?view=all#por-para', 'https://portal.example'), '/resources.html?view=all#por-para');
 for (const unsafe of ['https://evil.example/', '//evil.example/', 'javascript:alert(1)', '/student-access']) assert.equal(safeReturnPath(unsafe, 'https://portal.example'), '/');
 
 let nextCalls = 0;
@@ -44,6 +64,12 @@ const deniedPage = await middleware({ request: new Request('https://portal.examp
 assert.equal(deniedPage.status, 401);
 assert.equal(deniedPage.headers.get('Referrer-Policy'), 'same-origin');
 assert.match(await deniedPage.text(), /name="returnTo" value="\/resources\.html\?view=all"/u);
+const expiredToken = await createSession(env, now - (SESSION_MAX_AGE + 1) * 1000);
+const expiredRequest = new Request('https://portal.example/resources.html', { headers: { Cookie: `${SESSION_COOKIE}=${expiredToken}` } });
+assert.equal(await hasValidSession(expiredRequest, env, now), false);
+const expiredDeepLink = await middleware({ request: expiredRequest, env, next: async () => new Response('protected') });
+assert.equal(expiredDeepLink.status, 401);
+assert.match(await expiredDeepLink.text(), /name="returnTo" value="\/resources\.html"/u);
 const deniedApi = await middleware({ request: new Request('https://portal.example/api/student-lookup'), env, next: async () => { nextCalls += 1; } });
 assert.equal(deniedApi.status, 401);
 await middleware({ request: authenticatedRequest('/resources.html'), env, next: async () => { nextCalls += 1; return new Response('protected'); } });
@@ -62,6 +88,13 @@ const goodLogin = await studentAccess({ request: loginRequest(env.STUDENT_PASSWO
 assert.equal(goodLogin.status, 303);
 assert.equal(goodLogin.headers.get('location'), '/resources.html');
 assert.match(goodLogin.headers.get('set-cookie'), /HttpOnly/u);
+const failedDeepLinkLogin = await studentAccess({ request: loginRequest('wrong', '/resources.html#por-para'), env });
+assert.equal(failedDeepLinkLogin.status, 401);
+assert.match(await failedDeepLinkLogin.text(), /name="returnTo" value="\/resources\.html#por-para"/u);
+const successfulDeepLinkLogin = await studentAccess({ request: loginRequest(env.STUDENT_PASSWORD, '/resources.html#por-para'), env });
+assert.equal(successfulDeepLinkLogin.status, 303);
+assert.equal(successfulDeepLinkLogin.headers.get('location'), '/resources.html#por-para');
+assert.match(successfulDeepLinkLogin.headers.get('set-cookie'), /Max-Age=2592000/u);
 const unsafeLogin = await studentAccess({ request: loginRequest(env.STUDENT_PASSWORD, '//evil.example/'), env });
 assert.equal(unsafeLogin.headers.get('location'), '/');
 assert.equal((await studentAccess({ request: loginRequest(env.STUDENT_PASSWORD, '/', 'https://evil.example'), env })).status, 403);

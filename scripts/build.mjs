@@ -1,7 +1,9 @@
 import { mkdir, copyFile, rm, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { validateResourceDeepLinks } from './resource-links.mjs';
 const root = new URL('../', import.meta.url);
 const output = new URL('dist/', root);
+await validateResourceDeepLinks();
 await rm(output, { recursive: true, force: true });
 await mkdir(new URL('assets/', output), { recursive: true });
 for (const directory of [
