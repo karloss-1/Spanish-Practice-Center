@@ -8,7 +8,7 @@ const html = await readFile(new URL('../resources.html', import.meta.url), 'utf8
 const resourceScript = [...html.matchAll(/<script>([\s\S]*?)<\/script>/gu)].at(-1)?.[1];
 assert.ok(resourceScript, 'Resources must keep its inline disclosure and deep-link script.');
 
-function simulateDeepLink(hash, { hidden = true, reducedMotion = false, targetExists = true, inCollection = true } = {}) {
+function simulateDeepLink(hash, { hidden = true, targetExists = true, inCollection = true } = {}) {
   const calls = { scroll: [], classes: new Set(), delay: null, timeout: null, hashchange: null };
   const collectionId = 'test-collection';
   const disclosure = {
@@ -36,7 +36,6 @@ function simulateDeepLink(hash, { hidden = true, reducedMotion = false, targetEx
   };
   const window = {
     location: { hash },
-    matchMedia() { return { matches: reducedMotion }; },
     addEventListener(name, callback) { if (name === 'hashchange') calls.hashchange = callback; },
     clearTimeout() {},
     setTimeout(callback, delay) { calls.timeout = callback; calls.delay = delay; return 1; }
@@ -58,8 +57,10 @@ for (const id of ['learning-cheat-sheet', 'preterite', 'doctor-appointment-conve
   assert.equal(calls.classes.has('is-deep-link-target'), false);
 }
 
-const reduced = simulateDeepLink('#por-para', { reducedMotion: true });
-assert.equal(reduced.calls.scroll[0].behavior, 'auto');
+const reduced = simulateDeepLink('#por-para');
+assert.equal(reduced.calls.scroll[0].block, 'start');
+assert.equal(Object.hasOwn(reduced.calls.scroll[0], 'behavior'), false);
+assert.match(html, /@media\(prefers-reduced-motion:reduce\)[\s\S]*\.resource-deep-link-target \{ transition:none; \}/u);
 const missing = simulateDeepLink('#gustar', { targetExists: false });
 assert.equal(missing.calls.scroll.length, 0);
 assert.equal(missing.collection.hidden, true);

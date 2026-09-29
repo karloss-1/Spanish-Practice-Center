@@ -497,8 +497,7 @@ function revealResourceDeepLink() {
     collection.previousElementSibling?.querySelector('.library-disclosure')?.setAttribute('aria-expanded', 'true');
   }
   requestAnimationFrame(() => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    target.scrollIntoView({ block: 'start', behavior: reducedMotion ? 'auto' : 'smooth' });
+    target.scrollIntoView({ block: 'start' });
     target.classList.add('is-deep-link-target');
     window.clearTimeout(deepLinkHighlightTimeout);
     deepLinkHighlightTimeout = window.setTimeout(() => target.classList.remove('is-deep-link-target'), 2600);
