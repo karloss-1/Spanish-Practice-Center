@@ -287,6 +287,9 @@
 .resources .conversation-actions .library-action:not(.library-button) { min-height:44px; }
 .resources .source-note { color:#5d6c7b; }
 .resources .resource-header .library-button { color:#fff; }
+.resource-deep-link-target { scroll-margin-top:1rem; transition:outline-color .18s ease,box-shadow .18s ease,background-color .18s ease; }
+.resource-deep-link-target.is-deep-link-target { outline:2px solid rgba(47,78,111,.32); outline-offset:3px; box-shadow:0 2px 12px rgba(47,78,111,.12); }
+.pdf-link.is-deep-link-target,.conversation-resource.is-deep-link-target { background:#edf3f6; }
 @media(max-width:1000px) {
   .resources .library-featured { grid-template-columns:minmax(0,1fr) 220px; gap:10px 24px; }
   .resources .resource-header {
@@ -323,6 +326,7 @@
 }
 @media(prefers-reduced-motion:reduce) {
   .resources .resource-header,.resources .pdf-link { transition:none; }
+  .resource-deep-link-target { transition:none; }
 }
 
 </style></head>
@@ -334,7 +338,7 @@
 <div class="library-container library-content">
 <section class="library-section" aria-labelledby="featured-title">
 <div class="library-intro"><h2 id="featured-title">Featured guide</h2><p>A practical guide to help you make the most of your study time.</p></div>
-<article class="library-feature library-featured" aria-labelledby="cheat-sheet-title">
+<article class="library-feature library-featured resource-deep-link-target" id="learning-cheat-sheet" data-resource-target aria-labelledby="cheat-sheet-title">
 <div class="study-notes-preview" aria-hidden="true">
 <span class="study-note-back"></span>
 <div class="study-note-front"><strong>Study notes</strong><span>Review one idea</span><span>Practice 5 minutes</span><span>Try again tomorrow</span></div>
@@ -354,17 +358,17 @@
 <div class="library-collection" id="vocabulary-collection" hidden>
 <div class="library-groups">
 <section class="library-group" aria-labelledby="verbs-group-title"><h4 id="verbs-group-title">300 HIGH-UTILITY VERBS</h4><ul class="pdf-list">
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_001-100.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Verbs 1–100</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_101-200.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Verbs 101–200</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_201-300.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Verbs 201–300</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="high-frequency-verbs-1-100" data-resource-target href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_001-100.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Verbs 1–100</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="high-frequency-verbs-101-200" data-resource-target href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_101-200.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Verbs 101–200</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="high-frequency-verbs-201-300" data-resource-target href="assets/resources/essential-mexican-spanish/High_Frequency_Mexican_Spanish_Verbs_201-300.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Verbs 201–300</span><span class="pdf-meta">PDF</span></a></li>
 </ul></section>
 <section class="library-group" aria-labelledby="words-group-title"><h4 id="words-group-title">600 HIGH-UTILITY WORDS &amp; EXPRESSIONS</h4><ul class="pdf-list">
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_001-100.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 1–100</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_101-200.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 101–200</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_201-300.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 201–300</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_301-400.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 301–400</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_401-500.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 401–500</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_501-600.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 501–600</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="everyday-words-1-100" data-resource-target href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_001-100.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 1–100</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="everyday-words-101-200" data-resource-target href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_101-200.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 101–200</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="everyday-words-201-300" data-resource-target href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_201-300.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 201–300</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="everyday-words-301-400" data-resource-target href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_301-400.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 301–400</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="everyday-words-401-500" data-resource-target href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_401-500.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 401–500</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="everyday-words-501-600" data-resource-target href="assets/resources/essential-mexican-spanish/Everyday_Mexican_Spanish_Words_and_Expressions_501-600.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Words &amp; Expressions 501–600</span><span class="pdf-meta">PDF</span></a></li>
 </ul></section>
 </div>
 <p class="source-note"><strong>Source:</strong> The selection is informed by real conversations from Mexico City in the AMERESCO Corpus. Corpus AMERESCO – Mexico City, coordinated by Albelda &amp; Estellés (Universitat de València, ISSN 2659-8337). Mexican Spanish corpus coordinated by Ricardo Maldonado Soto. Licensed under CC BY-NC-SA 4.0. Vocabulary selection, organization, translations, examples and learning materials by Azael P. L.</p>
@@ -377,22 +381,22 @@
 <div class="library-collection" id="conjugation-collection" hidden>
 <div class="library-groups three-groups">
 <section class="library-group" aria-labelledby="indicative-group-title"><h4 id="indicative-group-title">INDICATIVE MOOD</h4><ul class="pdf-list">
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/01_Present_Indicative.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Present Indicative</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/02_Preterite.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Preterite</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/03_Imperfect.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Imperfect</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/04_Future_and_Conditional.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Future and Conditional</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/05_Present_Perfect.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Present Perfect</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/06_Pluperfect.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Pluperfect</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/07_Future_Perfect_and_Conditional_Perfect.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Future Perfect and Conditional Perfect</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="present-indicative" data-resource-target href="assets/resources/conjugation-guides/01_Present_Indicative.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Present Indicative</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="preterite-conjugation" data-resource-target href="assets/resources/conjugation-guides/02_Preterite.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Preterite</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="imperfect" data-resource-target href="assets/resources/conjugation-guides/03_Imperfect.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Imperfect</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="future-conditional" data-resource-target href="assets/resources/conjugation-guides/04_Future_and_Conditional.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Future and Conditional</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="present-perfect" data-resource-target href="assets/resources/conjugation-guides/05_Present_Perfect.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Present Perfect</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="pluperfect" data-resource-target href="assets/resources/conjugation-guides/06_Pluperfect.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Pluperfect</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="future-conditional-perfect" data-resource-target href="assets/resources/conjugation-guides/07_Future_Perfect_and_Conditional_Perfect.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Future Perfect and Conditional Perfect</span><span class="pdf-meta">PDF</span></a></li>
 </ul></section>
 <section class="library-group" aria-labelledby="subjunctive-group-title"><h4 id="subjunctive-group-title">SUBJUNCTIVE MOOD</h4><ul class="pdf-list">
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/08_Present_Subjunctive.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Present Subjunctive</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/09_Imperfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Imperfect Subjunctive</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/10_Present_Perfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Present Perfect Subjunctive</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/11_Pluperfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Pluperfect Subjunctive</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="present-subjunctive" data-resource-target href="assets/resources/conjugation-guides/08_Present_Subjunctive.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Present Subjunctive</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="imperfect-subjunctive" data-resource-target href="assets/resources/conjugation-guides/09_Imperfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Imperfect Subjunctive</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="present-perfect-subjunctive" data-resource-target href="assets/resources/conjugation-guides/10_Present_Perfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Present Perfect Subjunctive</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="pluperfect-subjunctive" data-resource-target href="assets/resources/conjugation-guides/11_Pluperfect_Subjunctive.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Pluperfect Subjunctive</span><span class="pdf-meta">PDF</span></a></li>
 </ul></section>
 <section class="library-group" aria-labelledby="commands-group-title"><h4 id="commands-group-title">COMMANDS</h4><ul class="pdf-list">
-<li><a class="pdf-link" href="assets/resources/conjugation-guides/12_Imperative.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Imperative</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="imperative" data-resource-target href="assets/resources/conjugation-guides/12_Imperative.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>Imperative</span><span class="pdf-meta">PDF</span></a></li>
 </ul></section>
 </div>
 </div></li>
@@ -403,12 +407,12 @@
 <div class="resource-art resource-grammar-art" aria-hidden="true"><div class="microviz-grammar"><span><b>SER</b><small>identity · origin</small></span><span><b>ESTAR</b><small>state · location</small></span></div></div></article>
 <div class="library-collection" id="grammar-quick-guides-collection" hidden>
 <ul class="pdf-list">
-<li><a class="pdf-link" href="assets/resources/grammar-quick-guides/SER-ESTAR-Essential-Guide.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>SER &amp; ESTAR</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/grammar-quick-guides/POR-PARA-Essential-Guide.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>POR &amp; PARA</span><span class="pdf-meta">PDF</span></a></li>
-<li><a class="pdf-link" href="assets/resources/grammar-quick-guides/PRETERITE-IMPERFECT-Essential-Guide.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>PRETERITE &amp; IMPERFECT</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="ser-estar" data-resource-target href="assets/resources/grammar-quick-guides/SER-ESTAR-Essential-Guide.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>SER &amp; ESTAR</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="por-para" data-resource-target href="assets/resources/grammar-quick-guides/POR-PARA-Essential-Guide.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>POR &amp; PARA</span><span class="pdf-meta">PDF</span></a></li>
+<li><a class="pdf-link resource-deep-link-target" id="preterite" data-resource-target href="assets/resources/grammar-quick-guides/PRETERITE-IMPERFECT-Essential-Guide.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description"><span>PRETERITE &amp; IMPERFECT</span><span class="pdf-meta">PDF</span></a></li>
 </ul>
 </div></li>
-<li><article class="library-item resource-header resource-plum resource-subjunctive" aria-labelledby="subjunctive-map-title">
+<li><article class="library-item resource-header resource-plum resource-subjunctive resource-deep-link-target" id="subjunctive-trigger-map" data-resource-target aria-labelledby="subjunctive-map-title">
 <div class="library-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M24 6v9m0 0-11 7m11-7 11 7M13 22v9m22-9v9M13 31l-6 7m6-7 6 7m16-7-6 7m6-7 6 7"/></svg></div>
 <div class="library-copy"><p class="eyebrow">GRAMMAR · SUBJUNCTIVE</p><h3 id="subjunctive-map-title">Subjunctive Trigger Map</h3><p class="library-short">Review the most common contexts and structures that trigger the Spanish subjunctive.</p><p>Explore an interactive map of 17 key subjunctive trigger groups, with common structures, examples and essential usage notes. A downloadable Quick Reference is also available inside the resource.</p></div>
 <a class="library-action library-button" href="https://karloss-1.github.io/Subjunctive-Trigger-Map/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open Trigger Map</a>
@@ -420,43 +424,43 @@
 <div class="resource-art resource-conversation-art" aria-hidden="true"><div class="microviz-dialogue"><span>¿Me puede ayudar?</span><span>Claro, con gusto.</span></div></div></article>
 <div class="library-collection" id="real-life-conversations-collection" hidden>
 <ul class="conversation-list">
-<li class="conversation-resource"><h4>At a Restaurant</h4><div class="conversation-actions" aria-label="At a Restaurant resources">
+<li class="conversation-resource resource-deep-link-target" id="restaurant-conversation" data-resource-target><h4>At a Restaurant</h4><div class="conversation-actions" aria-label="At a Restaurant resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-el-restaurante.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1208603933/en-el-restaurante-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>At a Coffee Shop</h4><div class="conversation-actions" aria-label="At a Coffee Shop resources">
+<li class="conversation-resource resource-deep-link-target" id="coffee-shop-conversation" data-resource-target><h4>At a Coffee Shop</h4><div class="conversation-actions" aria-label="At a Coffee Shop resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-una-cafeteria.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211702267/en-una-cafeteria-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>At a Hotel</h4><div class="conversation-actions" aria-label="At a Hotel resources">
+<li class="conversation-resource resource-deep-link-target" id="hotel-conversation" data-resource-target><h4>At a Hotel</h4><div class="conversation-actions" aria-label="At a Hotel resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-el-hotel.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211703793/en-el-hotel-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>In an Uber or Taxi</h4><div class="conversation-actions" aria-label="In an Uber or Taxi resources">
+<li class="conversation-resource resource-deep-link-target" id="uber-taxi-conversation" data-resource-target><h4>In an Uber or Taxi</h4><div class="conversation-actions" aria-label="In an Uber or Taxi resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-Uber-o-taxi.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211704283/en-el-uber-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>At a Clothing Store</h4><div class="conversation-actions" aria-label="At a Clothing Store resources">
+<li class="conversation-resource resource-deep-link-target" id="clothing-store-conversation" data-resource-target><h4>At a Clothing Store</h4><div class="conversation-actions" aria-label="At a Clothing Store resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-una-tienda-de-ropa.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211704705/en-la-tienda-de-ropa-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>At a Supermarket</h4><div class="conversation-actions" aria-label="At a Supermarket resources">
+<li class="conversation-resource resource-deep-link-target" id="supermarket-conversation" data-resource-target><h4>At a Supermarket</h4><div class="conversation-actions" aria-label="At a Supermarket resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-el-supermercado.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211705305/en-el-supermercado-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>At a Market or Tianguis</h4><div class="conversation-actions" aria-label="At a Market or Tianguis resources">
+<li class="conversation-resource resource-deep-link-target" id="market-tianguis-conversation" data-resource-target><h4>At a Market or Tianguis</h4><div class="conversation-actions" aria-label="At a Market or Tianguis resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-el-mercado-o-tianguis.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211705625/en-el-tianguis-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>At a Pharmacy</h4><div class="conversation-actions" aria-label="At a Pharmacy resources">
+<li class="conversation-resource resource-deep-link-target" id="pharmacy-conversation" data-resource-target><h4>At a Pharmacy</h4><div class="conversation-actions" aria-label="At a Pharmacy resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-la-farmacia.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211705985/en-la-farmacia-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>At the Airport</h4><div class="conversation-actions" aria-label="At the Airport resources">
+<li class="conversation-resource resource-deep-link-target" id="airport-conversation" data-resource-target><h4>At the Airport</h4><div class="conversation-actions" aria-label="At the Airport resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-el-aeropuerto.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211706387/en-el-aeropuerto-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
-<li class="conversation-resource"><h4>At a Doctor's Appointment</h4><div class="conversation-actions" aria-label="At a Doctor's Appointment resources">
+<li class="conversation-resource resource-deep-link-target" id="doctor-appointment-conversation" data-resource-target><h4>At a Doctor's Appointment</h4><div class="conversation-actions" aria-label="At a Doctor's Appointment resources">
 <a class="library-action library-button" href="assets/resources/real-life-mexican-spanish-conversations/En-una-consulta-medica.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Open PDF</a>
 <a class="library-action" href="https://quizlet.com/mx/1211707143/en-la-consulta-medica-flash-cards/?i=hwb8b&amp;x=1jqt" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-description">Practice with Quizlet</a>
 </div></li>
@@ -479,4 +483,27 @@ document.querySelectorAll('.library-disclosure').forEach(button => {
     panel.hidden = !open;
   });
 });
+
+let deepLinkHighlightTimeout;
+function revealResourceDeepLink() {
+  let targetId;
+  try { targetId = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
+  if (!targetId) return;
+  const target = document.getElementById(targetId);
+  if (!target?.matches('[data-resource-target]')) return;
+  const collection = target.closest('.library-collection');
+  if (collection?.hidden) {
+    collection.hidden = false;
+    collection.previousElementSibling?.querySelector('.library-disclosure')?.setAttribute('aria-expanded', 'true');
+  }
+  requestAnimationFrame(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({ block: 'start', behavior: reducedMotion ? 'auto' : 'smooth' });
+    target.classList.add('is-deep-link-target');
+    window.clearTimeout(deepLinkHighlightTimeout);
+    deepLinkHighlightTimeout = window.setTimeout(() => target.classList.remove('is-deep-link-target'), 2600);
+  });
+}
+window.addEventListener('hashchange', revealResourceDeepLink);
+revealResourceDeepLink();
 </script></body></html>
