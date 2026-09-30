@@ -20,24 +20,30 @@ document.addEventListener('keydown', event => {
 });
 mobile.addEventListener('change', updateMenu);
 updateMenu();
+const authStatus = fetch('/api/auth/status', { credentials: 'same-origin', cache: 'no-store' })
+  .then(response => response.ok ? response.json() : null)
+  .catch(() => null);
 if (document.body.classList.contains('home')) {
-  fetch('/api/auth/status', { credentials: 'same-origin', cache: 'no-store' })
-    .then(response => response.ok ? response.json() : null)
-    .then(result => { if (result?.authenticated) document.body.classList.add('student-authenticated'); })
-    .catch(() => {});
+  authStatus.then(result => {
+    if (result?.authEnabled === false) document.body.classList.add('auth-disabled');
+    else if (result?.authEnabled === true && result?.authenticated === true) document.body.classList.add('student-authenticated');
+  });
 }
 if (!document.body.classList.contains('home')) {
-  const authStyles = document.createElement('link');
-  authStyles.rel = 'stylesheet';
-  authStyles.href = '/assets/auth.css';
-  document.head.append(authStyles);
-  const logout = document.createElement('form');
-  logout.className = 'logout-form';
-  logout.action = '/student-access/logout';
-  logout.method = 'post';
-  logout.innerHTML = '<button type="submit">Log out</button>';
-  navigation.append(logout);
-  logout.addEventListener('submit', () => logout.querySelector('button').disabled = true);
+  authStatus.then(result => {
+    if (result?.authEnabled !== true || result?.authenticated !== true) return;
+    const authStyles = document.createElement('link');
+    authStyles.rel = 'stylesheet';
+    authStyles.href = '/assets/auth.css';
+    document.head.append(authStyles);
+    const logout = document.createElement('form');
+    logout.className = 'logout-form';
+    logout.action = '/student-access/logout';
+    logout.method = 'post';
+    logout.innerHTML = '<button type="submit">Log out</button>';
+    navigation.append(logout);
+    logout.addEventListener('submit', () => logout.querySelector('button').disabled = true);
+  });
 }
 const form = document.querySelector('#student-form');
 if (form) {
