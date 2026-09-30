@@ -33,7 +33,7 @@
 .home-tool > a { margin-top: auto; }
 .home-tool > a, .home-resource a { min-height: 44px; }
 .home [data-student-access]::after { content: "🔒"; margin-left: .35rem; font-size: .78em; line-height: 1; filter: grayscale(1); opacity: .72; }
-.home.student-authenticated [data-student-access]::after { display: none; }
+.home:is(.student-authenticated, .auth-disabled) [data-student-access]::after { display: none; }
 .home-tool > a, .home-resource a { display: inline-flex; align-items: center; gap: 10px; color: #2f4e6f; font-size: .94rem; font-weight: 600; text-decoration: none; line-height: 1.5; }
 .home-tool > a span, .home-resource a span { font-size: 1.35rem; flex-shrink: 0; }
 .home-tool > a:hover, .home-resource a:hover, .home-steps a:hover { text-decoration: underline; text-underline-offset: 4px; }
@@ -53,7 +53,7 @@
 .home-showcase-kicker .eyebrow { margin: 0; }
 .home-showcase-access { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; border: 1px solid #d8d1c4; border-radius: 4px; background: #f2eee5; color: #5b554b; font-size: .7rem; line-height: 1.4; font-weight: 600; }
 .home-showcase-access svg { width: 12px; height: 12px; flex: 0 0 12px; }
-.home.student-authenticated .home-showcase-access { display: none; }
+.home:is(.student-authenticated, .auth-disabled) .home-showcase-access { display: none; }
 .home-showcase [data-student-access]::after { content: none; }
 .home-tools [data-student-access]::after, .home-today [data-student-access]::after { content: none; }
 .home-showcase .home-section-intro { max-width: 720px; }
