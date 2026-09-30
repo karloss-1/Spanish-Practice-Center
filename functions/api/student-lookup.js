@@ -38,7 +38,7 @@ async function readInput(request) {
 
 export async function onRequest({ request, env }) {
   if (request.method !== 'POST') return reply(405, { error: 'method_not_allowed' });
-  if (!await hasValidSession(request, env)) return reply(401, { error: 'authentication_required' });
+  if (env?.AUTH_ENABLED !== 'false' && !await hasValidSession(request, env)) return reply(401, { error: 'authentication_required' });
   const origin = request.headers.get('origin');
   if ((origin && origin !== new URL(request.url).origin) || request.headers.get('sec-fetch-site') === 'cross-site') {
     return reply(403, { error: 'forbidden' });

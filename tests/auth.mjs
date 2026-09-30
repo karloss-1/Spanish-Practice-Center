@@ -7,7 +7,7 @@ import { onRequest as studentAccess } from '../functions/student-access.js';
 import { onRequest as logout } from '../functions/student-access/logout.js';
 import { onRequest as go } from '../functions/go/[resource].js';
 
-const env = { STUDENT_PASSWORD: crypto.randomUUID(), SESSION_SECRET: crypto.randomUUID() + crypto.randomUUID() };
+const env = { AUTH_ENABLED: 'true', STUDENT_PASSWORD: crypto.randomUUID(), SESSION_SECRET: crypto.randomUUID() + crypto.randomUUID() };
 const page = loginPage('/resources.html');
 assert.match(page, /type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false"/u);
 assert.match(page, /class="password-toggle" type="button" aria-label="Show password"/u);
@@ -75,6 +75,18 @@ assert.equal(deniedApi.status, 401);
 await middleware({ request: authenticatedRequest('/resources.html'), env, next: async () => { nextCalls += 1; return new Response('protected'); } });
 assert.equal(nextCalls, 1);
 
+const envWithoutAuthToggle = { STUDENT_PASSWORD: env.STUDENT_PASSWORD, SESSION_SECRET: env.SESSION_SECRET };
+for (const failClosedEnv of [envWithoutAuthToggle, { ...env, AUTH_ENABLED: '' }, { ...env, AUTH_ENABLED: 'yes' }, { ...env, AUTH_ENABLED: 'False' }]) {
+  const response = await middleware({ request: new Request('https://portal.example/practice.html'), env: failClosedEnv, next: async () => new Response('protected') });
+  assert.equal(response.status, 401, 'missing and unexpected AUTH_ENABLED values must keep authentication active');
+}
+
+const publicEnv = { ...env, AUTH_ENABLED: 'false' };
+for (const path of ['/my-learning-space.html', '/practice.html', '/resources.html?section=grammar', '/resources.html#por-para', '/course-roadmap.html', '/assets/resources/grammar-quick-guides/POR-PARA-Essential-Guide.pdf']) {
+  const response = await middleware({ request: new Request(`https://portal.example${path}`), env: publicEnv, next: async () => new Response(`direct access: ${path}`, { status: 200 }) });
+  assert.equal(response.status, 200, `${path} must continue without a session when AUTH_ENABLED=false`);
+}
+
 function loginRequest(password, returnTo = '/resources.html', origin = 'https://portal.example') {
   return new Request('https://portal.example/student-access', {
     method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', Origin: origin },
@@ -127,4 +139,4 @@ assert.match(logoutResponse.headers.get('set-cookie'), /Max-Age=0/u);
 assert.equal((await go({ request: new Request('https://portal.example/go/flashcards'), params: { resource: 'flashcards' } })).headers.get('location'), 'https://karloss-1.github.io/Mexican-Spanish/');
 assert.equal((await go({ request: new Request('https://portal.example/go/not-allowed'), params: { resource: 'not-allowed' } })).status, 404);
 
-console.log('Authentication checks passed: password verification, signed 30-day sessions, route enforcement, safe returns, logout and external allowlist.');
+console.log('Authentication checks passed: fail-closed toggle, direct access when disabled, password verification, signed 30-day sessions, route enforcement, safe returns, logout and external allowlist.');
