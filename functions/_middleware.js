@@ -7,6 +7,7 @@ export async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
   if (AUTH_PATHS.has(url.pathname)) return context.next();
+  if (env?.AUTH_ENABLED === 'false') return context.next();
   if (await hasValidSession(request, env)) {
     const response = await context.next();
     const secured = new Response(response.body, response);

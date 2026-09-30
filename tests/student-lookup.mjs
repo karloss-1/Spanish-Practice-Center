@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { onRequest } from '../functions/api/student-lookup.js';
+import { onRequest as middleware } from '../functions/_middleware.js';
 import { createSession, SESSION_COOKIE } from '../functions/_lib/auth.js';
 
 // Entirely synthetic data: never import real student records into the repository.
@@ -12,11 +13,11 @@ const records = new Map([
   ['student:unsafe', { active: true, url: 'https://notion.site.evil.example/page' }]
 ]);
 let reads = [];
-const env = { SESSION_SECRET: crypto.randomUUID() + crypto.randomUUID(), STUDENT_PASSWORD: crypto.randomUUID(), STUDENTS: { get: async key => { reads.push(key); return records.get(key) ?? null; } } };
+const env = { AUTH_ENABLED: 'true', SESSION_SECRET: crypto.randomUUID() + crypto.randomUUID(), STUDENT_PASSWORD: crypto.randomUUID(), STUDENTS: { get: async key => { reads.push(key); return records.get(key) ?? null; } } };
 const session = await createSession(env);
 async function lookup(name, options = {}) {
   return onRequest({ request: new Request('https://portal.example/api/student-lookup', {
-    method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://portal.example', Cookie: `${SESSION_COOKIE}=${session}`, ...options.headers },
+    method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://portal.example', ...(options.authenticated === false ? {} : { Cookie: `${SESSION_COOKIE}=${session}` }), ...options.headers },
     body: options.body ?? JSON.stringify({ name })
   }), env: options.env ?? env });
 }
@@ -28,6 +29,22 @@ for (const name of ['Example', 'EXAMPLE', '   Example  ', 'Ｅｘａｍｐｌｅ
   assert.deepEqual(await response.json(), { url: records.get('student:example').url });
   assert.deepEqual(reads, ['student:example']);
 }
+for (const authEnv of [env, { ...env, AUTH_ENABLED: '' }, { ...env, AUTH_ENABLED: 'false?' }, noAuthToggleEnv()]) {
+  assert.equal((await lookup('Example', { authenticated: false, env: authEnv })).status, 401, 'lookup must require a session unless AUTH_ENABLED is exactly false');
+}
+reads = [];
+const authDisabledEnv = { ...env, AUTH_ENABLED: 'false' };
+const disabledLookup = await lookup('Example', { authenticated: false, env: authDisabledEnv });
+assert.equal(disabledLookup.status, 200);
+assert.deepEqual(await disabledLookup.json(), { url: records.get('student:example').url });
+assert.deepEqual(reads, ['student:example']);
+assert.equal((await lookup('Example', { authenticated: false, env: authDisabledEnv, headers: { 'Sec-Fetch-Site': 'cross-site' } })).status, 403);
+const endToEndRequest = new Request('https://portal.example/api/student-lookup', {
+  method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://portal.example' }, body: JSON.stringify({ name: 'Example' })
+});
+const endToEndLookup = await middleware({ request: endToEndRequest, env: authDisabledEnv, next: () => onRequest({ request: endToEndRequest, env: authDisabledEnv }) });
+assert.equal(endToEndLookup.status, 200, 'the shared middleware and existing KV lookup must work together when authentication is disabled');
+assert.deepEqual(await endToEndLookup.json(), { url: records.get('student:example').url });
 const missing = await lookup('Unknown');
 assert.deepEqual(await (await lookup('Example M.')).json(), { url: records.get('student:example m').url });
 assert.equal((await lookup('Exam')).status, 404);
@@ -60,3 +77,9 @@ assert.equal(failure.status, 503);
 assert.deepEqual(await failure.json(), { error: 'unavailable' });
 assert.equal((await lookup('Example', { env: {} })).status, 401);
 console.log('Student API checks passed: normalization, privacy, inactivity, ambiguity, validation and failures.');
+
+function noAuthToggleEnv() {
+  const copy = { ...env };
+  delete copy.AUTH_ENABLED;
+  return copy;
+}
