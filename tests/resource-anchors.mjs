@@ -44,7 +44,7 @@ function simulateDeepLink(hash, { hidden = true, targetExists = true, inCollecti
   return { calls, collection, disclosure, window };
 }
 
-for (const id of ['learning-cheat-sheet', 'preterite', 'doctor-appointment-conversation']) {
+for (const id of ['learning-cheat-sheet', 'preterite', 'doctor-appointment-conversation', 'verbs-like-gustar-i', 'verbs-like-gustar-ii']) {
   const inCollection = id !== 'learning-cheat-sheet';
   const { calls, collection, disclosure } = simulateDeepLink(`#${id}`, { inCollection });
   assert.equal(collection.hidden, !inCollection, `${id} must open a collapsed collection only when needed.`);
@@ -55,6 +55,16 @@ for (const id of ['learning-cheat-sheet', 'preterite', 'doctor-appointment-conve
   assert.equal(calls.delay, 2600);
   calls.timeout();
   assert.equal(calls.classes.has('is-deep-link-target'), false);
+}
+
+for (const [id, filename] of [
+  ['verbs-like-gustar-i', 'VERBS-LIKE-GUSTAR-I-Essential-Guide.pdf'],
+  ['verbs-like-gustar-ii', 'VERBS-LIKE-GUSTAR-II-Essential-Guide.pdf']
+]) {
+  const tag = [...html.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/gu)].map(([value]) => value).find(value => value.includes(`id=\"${id}\"`));
+  assert.ok(tag, `${id} must have a Grammar Quick Guide link.`);
+  assert.ok(tag.includes(`href=\"assets/resources/grammar-quick-guides/${filename}\"`));
+  assert.ok(tag.includes(`<span>VERBS LIKE GUSTAR ${id.endsWith('-i') ? 'I' : 'II'}</span>`));
 }
 
 const reduced = simulateDeepLink('#por-para');

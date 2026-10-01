@@ -91,6 +91,12 @@ Cloudflare Pages has no custom domain attached to this project. These full links
 **PRETERITE & IMPERFECT**  
 `https://spanish-practice-center-preview.pages.dev/resources.html#preterite`
 
+**VERBS LIKE GUSTAR I**  
+`https://spanish-practice-center-preview.pages.dev/resources.html#verbs-like-gustar-i`
+
+**VERBS LIKE GUSTAR II**  
+`https://spanish-practice-center-preview.pages.dev/resources.html#verbs-like-gustar-ii`
+
 ## Grammar · Subjunctive
 
 **Subjunctive Trigger Map**  
@@ -130,7 +136,7 @@ Cloudflare Pages has no custom domain attached to this project. These full links
 
 ## Notes
 
-- There is no standalone Gustar resource in the current Resources page, so `#gustar` has no matching target yet.
+- Verbs Like Gustar I and II have separate targets; `#gustar` remains without a matching target.
 - “Go to Practice” is a navigation link to another section of the site, not an individual Resources item.
 - The Subjunctive Trigger Map target lands on its card in Resources; its existing button opens the separate interactive map in a new tab.
 
