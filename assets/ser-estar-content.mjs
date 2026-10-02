@@ -1,4 +1,4 @@
-// Canonical wording transcribed from the supplied Word specification.
+// Approved question wording and feedback for the interactive lesson.
 export const questions = [
   {
     "id": "H01",
@@ -10,16 +10,16 @@ export const questions = [
       "Identify the function and meaning you want to express."
     ],
     "correct": "Identify the function and meaning you want to express.",
-    "correctFeedback": "Correct. Start from function and meaning: Puebla está en México expresses location; Hoy es martes expresses the date; Mi abuelo está muerto expresses a resulting state.",
+    "correctFeedback": "Correct. SER and ESTAR do not correspond to “permanent” and “temporary.” Choose according to the function and meaning you want to express.",
     "incorrectFeedback": {
-      "Decide whether something is permanent or temporary.": "Not quite. The guide rejects that shortcut. Puebla está en México and Mi abuelo está muerto use ESTAR, while Hoy es martes uses SER. Identify the function and meaning instead."
+      "Decide whether something is permanent or temporary.": "Not quite. Puebla está en México and El árbol está muerto use ESTAR, while Hoy es martes uses SER. Instead of asking whether something is permanent or temporary, identify the function and meaning you want to express."
     },
     "anchor": "hero"
   },
   {
     "id": "C01",
     "section": 2,
-    "prompt": "Identify Ana’s profession.",
+    "prompt": "",
     "sentence": "Ana ___ doctora.",
     "options": [
       "es",
@@ -35,7 +35,7 @@ export const questions = [
   {
     "id": "C02",
     "section": 2,
-    "prompt": "Say where the keys are located.",
+    "prompt": "",
     "sentence": "Las llaves ___ en la mesa.",
     "options": [
       "son",
@@ -51,7 +51,7 @@ export const questions = [
   {
     "id": "C03",
     "section": 2,
-    "prompt": "Identify today’s day of the week.",
+    "prompt": "",
     "sentence": "Hoy ___ martes.",
     "options": [
       "es",
@@ -67,7 +67,7 @@ export const questions = [
   {
     "id": "C04",
     "section": 2,
-    "prompt": "Say that the action is in progress.",
+    "prompt": "",
     "sentence": "___ trabajando.",
     "options": [
       "Soy",
@@ -76,7 +76,7 @@ export const questions = [
     "correct": "Estoy",
     "correctFeedback": "Correct. Estoy trabajando presents an action in progress with ESTAR.",
     "incorrectFeedback": {
-      "Soy": "Not quite. The guide uses ESTAR for actions in progress: Estoy trabajando."
+      "Soy": "Not quite. ESTAR is used for actions in progress: Estoy trabajando."
     },
     "anchor": "core-uses"
   },
@@ -99,7 +99,7 @@ export const questions = [
   {
     "id": "E02",
     "section": 3,
-    "prompt": "Locate the theater itself.",
+    "prompt": "",
     "sentence": "El teatro ___ en el centro.",
     "options": [
       "es",
@@ -115,7 +115,7 @@ export const questions = [
   {
     "id": "E03",
     "section": 3,
-    "prompt": "Give the time of the concert.",
+    "prompt": "",
     "sentence": "El concierto ___ a las ocho.",
     "options": [
       "es",
@@ -188,39 +188,39 @@ export const questions = [
     "correct": "Está",
     "correctFeedback": "Correct. Está rico means it tastes good or is delicious.",
     "incorrectFeedback": {
-      "Es": "Not quite for this meaning. The guide pairs Es rico with being rich and Está rico with tasting good. Here use Está rico."
+      "Es": "Not quite for this meaning. Es rico means someone is rich. To say that food tastes good, use Está rico."
     },
     "anchor": "adjective-meanings"
   },
   {
     "id": "S01",
     "section": 5,
-    "prompt": "In this pair, what distinction does the guide emphasize?",
-    "sentence": "La película es aburrida. / La película estuvo aburrida.",
+    "prompt": "You're at a museum and you're enjoying the experience.",
+    "sentence": "Creo que el museo ___ fantástico.",
     "options": [
-      "Characterization versus evaluation of a particular experience.",
-      "Boring versus bored."
+      "es",
+      "está"
     ],
-    "correct": "Characterization versus evaluation of a particular experience.",
-    "correctFeedback": "Correct. The movie remains boring in the basic description; the speaker presents it as a characterization or an evaluation of that occasion.",
+    "correct": "está",
+    "correctFeedback": "Correct. El museo está fantástico evaluates the museum in this particular situation or experience.",
     "incorrectFeedback": {
-      "Boring versus bored.": "Not quite. This pair concerns a movie and the speaker’s perspective. The boring/bored contrast appears in Es aburrido / Está aburrido about a person."
+      "es": "Not quite. El museo es fantástico characterizes the museum more generally. Here you're evaluating your experience of it right now, so use está."
     },
     "anchor": "different-perspective"
   },
   {
     "id": "S02",
     "section": 5,
-    "prompt": "Which sentence evaluates how Ana looks in today’s situation?",
-    "sentence": "",
+    "prompt": "Someone tells you about a new restaurant they haven't visited yet.",
+    "sentence": "La comida ___ deliciosa.",
     "options": [
-      "Ana es guapa.",
-      "Ana está guapísima hoy."
+      "es",
+      "está"
     ],
-    "correct": "Ana está guapísima hoy.",
-    "correctFeedback": "Correct. Ana está guapísima hoy evaluates how she looks in this situation.",
+    "correct": "es",
+    "correctFeedback": "Correct. La comida es deliciosa characterizes the food rather than evaluating it from a particular experience.",
     "incorrectFeedback": {
-      "Ana es guapa.": "That sentence is grammatical, but it characterizes Ana as attractive. The requested evaluation of how she looks today is Ana está guapísima hoy."
+      "está": "Not quite. The speaker isn't evaluating the food from a particular experience. Here, es deliciosa characterizes the food."
     },
     "anchor": "different-perspective"
   },
@@ -236,23 +236,23 @@ export const questions = [
     "correct": "La película es buena.",
     "correctFeedback": "Correct. Buena is an adjective evaluating the movie. La película es buena is the standard sentence.",
     "incorrectFeedback": {
-      "La película es bien.": "Not quite. The guide does not use BIEN with SER. Use the adjective buena: La película es buena."
+      "La película es bien.": "Not quite. BIEN is not used with SER in this pattern. Use the adjective buena: La película es buena."
     },
     "anchor": "bueno-malo-bien-mal"
   },
   {
     "id": "B02",
     "section": 6,
-    "prompt": "Say that you are okay or well.",
+    "prompt": "How are you?",
     "sentence": "",
     "options": [
       "Estoy bien.",
-      "Soy bien."
+      "Estoy bueno."
     ],
     "correct": "Estoy bien.",
-    "correctFeedback": "Correct. Estoy bien means that you are okay or well.",
+    "correctFeedback": "Correct. Estoy bien describes how you are doing. Bien is the natural choice here.",
     "incorrectFeedback": {
-      "Soy bien.": "Not quite. BIEN is not used with SER in this pattern. To say you are okay or well, use Estoy bien."
+      "Estoy bueno.": "Not quite. Estoy bien means “I'm well / I'm doing well.” In Mexican Spanish, estar bueno/a when referring to a person can describe physical attractiveness, so it does not mean the same thing."
     },
     "anchor": "bueno-malo-bien-mal"
   },
@@ -268,14 +268,14 @@ export const questions = [
     "correct": "está",
     "correctFeedback": "Correct. For food, estar bueno expresses that it tastes good: El mole está bueno.",
     "incorrectFeedback": {
-      "es": "Not quite for the requested tasting evaluation. Use El mole está bueno. SER can characterize good qualities, but the guide’s food-tasting expression is estar bueno."
+      "es": "Not quite for the requested tasting evaluation. Use El mole está bueno. SER can characterize good qualities, but estar bueno means that the food tastes good."
     },
     "anchor": "bueno-malo-bien-mal"
   },
   {
     "id": "P01",
     "section": 7,
-    "prompt": "Say what the table is made of.",
+    "prompt": "",
     "sentence": "La mesa ___ de madera.",
     "options": [
       "es",
@@ -291,7 +291,7 @@ export const questions = [
   {
     "id": "P02",
     "section": 7,
-    "prompt": "The door is closed. Describe its resulting state.",
+    "prompt": "",
     "sentence": "La puerta ___ cerrada.",
     "options": [
       "es",
@@ -300,14 +300,14 @@ export const questions = [
     "correct": "está",
     "correctFeedback": "Correct. La puerta está cerrada presents a resulting state, so use ESTAR.",
     "incorrectFeedback": {
-      "es": "Not quite. The guide presents a closed door as a resulting state: La puerta está cerrada."
+      "es": "Not quite. La puerta está cerrada describes a resulting state, so use ESTAR."
     },
     "anchor": "practice-lab"
   },
   {
     "id": "P03",
     "section": 7,
-    "prompt": "Say where the party takes place.",
+    "prompt": "",
     "sentence": "La fiesta ___ en mi casa.",
     "options": [
       "es",
@@ -323,7 +323,7 @@ export const questions = [
   {
     "id": "P04",
     "section": 7,
-    "prompt": "Say where the house is located.",
+    "prompt": "",
     "sentence": "Mi casa ___ en Puebla.",
     "options": [
       "es",
@@ -371,7 +371,7 @@ export const questions = [
   {
     "id": "P07",
     "section": 7,
-    "prompt": "What does this combination mean in the guide?",
+    "prompt": "",
     "sentence": "Está seguro.",
     "options": [
       "He/she is sure.",
@@ -380,14 +380,14 @@ export const questions = [
     "correct": "He/she is sure.",
     "correctFeedback": "Correct. Está seguro means he or she is sure.",
     "incorrectFeedback": {
-      "It/he is safe or reliable.": "Not quite. The guide pairs safe or reliable with Es seguro. Está seguro means he or she is sure."
+      "It/he is safe or reliable.": "Not quite. Es seguro can mean safe or reliable. Está seguro means he or she is sure."
     },
     "anchor": "practice-lab"
   },
   {
     "id": "P08",
     "section": 7,
-    "prompt": "What does this combination mean in the guide?",
+    "prompt": "",
     "sentence": "Está vivo.",
     "options": [
       "He/she is alive.",
@@ -396,46 +396,46 @@ export const questions = [
     "correct": "He/she is alive.",
     "correctFeedback": "Correct. Está vivo means he or she is alive.",
     "incorrectFeedback": {
-      "He/she is clever or shrewd.": "Not quite. Es vivo describes someone as clever or shrewd. Está vivo means someone is alive."
+      "He/she is clever or shrewd.": "Not quite. Es vivo can describe someone as clever or shrewd. Está vivo means someone is alive."
     },
     "anchor": "practice-lab"
   },
   {
     "id": "P09",
     "section": 7,
-    "prompt": "The speaker evaluates one particular restaurant experience positively. Choose the source sentence that presents that perspective.",
-    "sentence": "",
+    "prompt": "You're eating at a restaurant right now and you're really enjoying it.",
+    "sentence": "El restaurante ___ muy bueno.",
     "options": [
-      "El restaurante es bueno.",
-      "El restaurante estuvo muy bueno."
+      "es",
+      "está"
     ],
-    "correct": "El restaurante estuvo muy bueno.",
-    "correctFeedback": "Correct. This presents a positive evaluation of a particular experience.",
+    "correct": "está",
+    "correctFeedback": "Correct. El restaurante está muy bueno evaluates the restaurant in this particular experience.",
     "incorrectFeedback": {
-      "El restaurante es bueno.": "That sentence is grammatical, but it characterizes the restaurant positively. The requested particular-experience evaluation is El restaurante estuvo muy bueno."
+      "es": "Not quite. El restaurante es muy bueno characterizes it more generally. Here you're evaluating your current experience, so use está."
     },
     "anchor": "practice-lab"
   },
   {
     "id": "P10",
     "section": 7,
-    "prompt": "The milk is spoiled. Choose the source expression for its condition.",
+    "prompt": "The milk is spoiled.",
     "sentence": "La leche ___ mala.",
     "options": [
       "es",
       "está"
     ],
     "correct": "está",
-    "correctFeedback": "Correct. La leche está mala describes food in bad condition.",
+    "correctFeedback": "Correct. La leche está mala describes milk that is spoiled or in bad condition.",
     "incorrectFeedback": {
-      "es": "Not quite for this meaning. The guide uses estar malo/a for spoiled food or products in bad condition: La leche está mala."
+      "es": "Not quite for this meaning. Estar malo/a can describe spoiled food or products in bad condition: La leche está mala."
     },
     "anchor": "practice-lab"
   },
   {
     "id": "P11",
     "section": 7,
-    "prompt": "Say that the answer is incorrect.",
+    "prompt": "",
     "sentence": "La respuesta ___ mal.",
     "options": [
       "es",

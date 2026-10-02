@@ -23,8 +23,8 @@ function practiceForm(question) {
   indicator.id = 'practice-indicator'; indicator.tabIndex = -1;
   form.append(indicator);
   const fieldset = element('fieldset');
-  fieldset.append(element('legend', question.prompt));
-  if (question.sentence) {
+  fieldset.append(element('legend', question.prompt || question.sentence || `Question ${attempt.currentIndex + 1}`));
+  if (question.sentence && question.prompt) {
     const sentence = element('p', question.sentence, 'grammar-sentence'); sentence.lang = 'es'; fieldset.append(sentence);
   }
   const options = element('div', '', 'grammar-options');

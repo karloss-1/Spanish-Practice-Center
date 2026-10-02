@@ -10,6 +10,7 @@ const read = path => readFile(new URL(path, root), 'utf8');
 const contract = JSON.parse(await read('tests/fixtures/ser-estar-contract.json'));
 const expectedIds = ['H01', ...['C','E','A','S','B','P'].flatMap((prefix, i) => Array.from({length:[4,3,4,2,3,11][i]}, (_, n) => `${prefix}${String(n+1).padStart(2,'0')}`))];
 assert.deepEqual(questions.map(q => q.id), expectedIds);
+assert.equal(questions.length, 28);
 for (const q of questions) {
   assert.equal(createHash('sha256').update(JSON.stringify(q)).digest('hex'), contract[q.id], `${q.id}: canonical wording or options changed`);
   assert.ok(q.options.includes(q.correct));
@@ -45,6 +46,17 @@ const copyContract = JSON.parse(await read('tests/fixtures/ser-estar-copy.json')
 const normalize = text => text.replace(/\s+/gu, ' ').trim();
 const plainHtml = normalize(html.replace(/<[^>]*>/gu,' ').replaceAll('&amp;','&').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&quot;','"').replaceAll('&#x27;',"'"));
 for (const copy of copyContract) assert.ok(plainHtml.includes(normalize(copy)), `Missing canonical learning copy: ${copy.slice(0,80)}`);
+const studentCopy = [plainHtml, ...questions.flatMap(q => [q.prompt, q.sentence, q.correctFeedback, ...Object.values(q.incorrectFeedback)])].join(' ');
+assert.doesNotMatch(studentCopy, /\b(?:the guide|this guide|according to the guide|in the guide|guide uses|guide presents|guide pairs|guide emphasizes)\b/iu);
+assert.doesNotMatch(studentCopy, /\b(?:estuvo|fue)\b/iu);
+assert.doesNotMatch(studentCopy, /Mi abuelo está muerto/iu);
+assert.match(plainHtml, /El árbol está muerto/iu);
+assert.match(plainHtml, /Creo que el museo ___ fantástico\./u);
+assert.match(plainHtml, /La comida ___ deliciosa\./u);
+assert.deepEqual(questions.find(q=>q.id==='B02').options,['Estoy bien.','Estoy bueno.']);
+assert.equal(questions.find(q=>q.id==='P09').sentence,'El restaurante ___ muy bueno.');
+assert.equal(questions.find(q=>q.id==='P09').correct,'está');
+assert.equal(questions.filter(q=>['C01','C02','C03','C04','E02','E03','P01','P02','P03','P04','P07','P08','P11'].includes(q.id)).every(q=>q.prompt===''),true);
 const resources = await read('resources.html');
 assert.equal((html.match(/data-question=/gu)||[]).length,17);
 for(const q of questions.filter(q=>!q.id.startsWith('P'))) assert.ok(html.includes(`data-question="${q.id}"`));
@@ -55,7 +67,7 @@ const pdf='/assets/resources/grammar-quick-guides/SER-ESTAR-Essential-Guide.pdf'
 assert.match(html,/role="status" aria-live="polite" aria-atomic="true"/u);
 assert.match(html,/<fieldset><legend>/u);
 execFileSync(process.execPath,['scripts/build.mjs'],{cwd:new URL('../',import.meta.url)});
-for(const path of ['grammar/ser-estar.html','assets/grammar.css','assets/grammar-lesson.js','assets/grammar-practice.mjs','assets/ser-estar-content.mjs',pdf.slice(1)]) await access(new URL(`dist/${path}`,root));
+for(const path of ['grammar/ser-estar.html','assets/grammar.css','assets/grammar-lesson.js','assets/grammar-practice.mjs','assets/ser-estar-content.mjs','assets/ser-estar-hero.jpg',pdf.slice(1)]) await access(new URL(`dist/${path}`,root));
 const routes=JSON.parse(await read('dist/_routes.json'));assert.ok(routes.include.includes('/grammar/*'));
 const denied=await middleware({request:new Request('https://portal.example/grammar/ser-estar.html'),env:{},next:()=>new Response('lesson')});assert.equal(denied.status,401);
 const allowed=await middleware({request:new Request('https://portal.example/grammar/ser-estar.html'),env:{AUTH_ENABLED:'false'},next:()=>new Response('lesson')});assert.equal(await allowed.text(),'lesson');

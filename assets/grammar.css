@@ -3,18 +3,15 @@
 .grammar-lesson main { max-width:none; padding:0; }
 .grammar-lesson .header-inner { max-width:1160px; }
 .grammar-container { width:calc(100% - 48px); max-width:1120px; margin:auto; }
-.grammar-hero { background:#faf5ec; border-bottom:1px solid #e8dfd1; }
-.grammar-hero-layout { display:grid; grid-template-columns:1.15fr 1fr; align-items:center; gap:60px; padding-block:48px; min-height:320px; }
+.grammar-hero { position:relative; isolation:isolate; min-height:320px; background:#faf5ec; border-bottom:1px solid #e8dfd1; overflow:hidden; }
+.grammar-hero::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(90deg,#faf5ec 0%,rgba(250,245,236,.98) 34%,rgba(250,245,236,.78) 46%,rgba(250,245,236,0) 70%); }
+.grammar-hero-image { position:absolute; inset:0; z-index:-2; display:block; width:100%; height:100%; object-fit:cover; object-position:center; pointer-events:none; }
+.grammar-hero-layout { position:relative; z-index:1; display:grid; grid-template-columns:1fr; align-items:center; padding-block:48px; min-height:320px; pointer-events:none; }
+.grammar-hero-layout > * { pointer-events:auto; }
 .grammar-hero h1 { font-size:clamp(2.6rem,5vw,3.8rem); margin-bottom:8px; }
 .grammar-guide-label { font-weight:600; margin-bottom:6px; }
 .grammar-lede { max-width:470px; font-size:1.2rem; line-height:1.5; margin-bottom:24px; }
 .grammar-lesson .eyebrow { font-size:.68rem; letter-spacing:.15em; }
-.grammar-art { display:flex; position:relative; justify-content:center; align-items:center; gap:16px; min-height:220px; }
-.grammar-paper { z-index:1; width:185px; padding:22px 18px; min-height:200px; border:1px solid #c7d5df; transform:rotate(-5deg); border-radius:3px; text-align:center; }
-.grammar-paper strong { font-size:1.9rem; font-weight:500; letter-spacing:.07em; display:block; margin-bottom:12px; }
-.grammar-paper span { font-size:.95rem; line-height:1.65; }
-.grammar-paper.estar { transform:rotate(4deg) translateY(18px); border-color:#c3d5c8; }
-.grammar-book { position:absolute; bottom:0; width:90%; height:22px; background:#e5d7bf; border-radius:3px; border-top:5px solid #d5c2a4; }
 .grammar-actions { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
 .grammar-button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:44px; padding:10px 17px; border:1px solid var(--blue); border-radius:4px; background:#fff; color:var(--blue); font-size:.85rem; font-weight:600; line-height:1.35; text-decoration:none; }
 .grammar-button.primary { background:var(--blue); color:#fff; }
@@ -107,11 +104,10 @@
 }
 @media(max-width:640px) {
  .grammar-container { width:calc(100% - 40px); }
- .grammar-hero-layout { grid-template-columns:1fr; padding-block:30px; gap:28px; }
- .grammar-art { min-height:180px; }
- .grammar-paper { width:calc((100% - 16px)/2); max-width:145px; min-height:155px; padding:14px; }
- .grammar-paper strong { font-size:1.4rem; margin-bottom:6px; }
- .grammar-paper span { font-size:.8rem; }
+ .grammar-hero { display:flex; flex-direction:column; }
+ .grammar-hero::after { display:none; }
+ .grammar-hero-layout { order:1; padding-block:30px; min-height:0; }
+ .grammar-hero-image { position:static; order:2; height:180px; object-position:right center; }
  .grammar-nav .grammar-container { width:100%; padding-inline:20px; flex-direction:row; gap:20px; }
  .grammar-section { padding-block:24px; }
  .grammar-core,.grammar-check-grid,.grammar-adjectives,.grammar-expressions,.grammar-reference-grid,.grammar-examples { grid-template-columns:1fr; }
