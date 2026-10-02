@@ -1,0 +1,123 @@
+/* Lesson-only surfaces reuse the portal's typography, navy, borders and focus styles. */
+.grammar-lesson { background:#fff; color:var(--blue); }
+.grammar-lesson main { max-width:none; padding:0; }
+.grammar-lesson .header-inner { max-width:1160px; }
+.grammar-container { width:calc(100% - 48px); max-width:1120px; margin:auto; }
+.grammar-hero { position:relative; isolation:isolate; min-height:320px; background:#faf5ec; border-bottom:1px solid #e8dfd1; overflow:hidden; }
+.grammar-hero::after { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(90deg,#faf5ec 0%,rgba(250,245,236,.98) 34%,rgba(250,245,236,.78) 46%,rgba(250,245,236,0) 70%); }
+.grammar-hero-image { position:absolute; inset:0; z-index:-2; display:block; width:100%; height:100%; object-fit:cover; object-position:center; pointer-events:none; }
+.grammar-hero-layout { position:relative; z-index:1; display:grid; grid-template-columns:1fr; align-items:center; padding-block:48px; min-height:320px; pointer-events:none; }
+.grammar-hero-layout > * { pointer-events:auto; }
+.grammar-hero h1 { font-size:clamp(2.6rem,5vw,3.8rem); margin-bottom:8px; }
+.grammar-guide-label { font-weight:600; margin-bottom:6px; }
+.grammar-lede { max-width:470px; font-size:1.2rem; line-height:1.5; margin-bottom:24px; }
+.grammar-lesson .eyebrow { font-size:.68rem; letter-spacing:.15em; }
+.grammar-actions { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
+.grammar-button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:44px; padding:10px 17px; border:1px solid var(--blue); border-radius:4px; background:#fff; color:var(--blue); font-size:.85rem; font-weight:600; line-height:1.35; text-decoration:none; }
+.grammar-button.primary { background:var(--blue); color:#fff; }
+.grammar-button:hover { background:#eef3f8; text-decoration:none; }
+.grammar-button.primary:hover { background:#233d59; }
+.grammar-nav { position:sticky; top:0; z-index:5; display:block; background:#fff; border-bottom:1px solid var(--line); }
+.grammar-nav .grammar-container { display:flex; gap:22px; overflow-x:auto; padding:0 5px; scrollbar-width:thin; }
+.grammar-nav a { flex:0 0 auto; font-size:.76rem; padding:15px 0; }
+.grammar-nav a[aria-current] { border-bottom-color:var(--blue); font-weight:700; }
+.grammar-content { padding-block:24px 40px; }
+.grammar-section { padding-block:32px; border-bottom:1px solid var(--line); scroll-margin-top:76px; }
+.grammar-section h2 { color:var(--blue); font-size:1.65rem; }
+.grammar-section > p:not(.eyebrow) { max-width:950px; }
+.grammar-overview { display:grid; grid-template-columns:1.7fr 1fr; gap:30px; padding-top:0; }
+.grammar-overview h2 { font-size:1.7rem; }
+.grammar-examples { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.grammar-examples p { background:#f0f5fb; padding:16px; border-radius:4px; margin:0; font-weight:600; }
+.grammar-progress { font-size:.8rem; color:var(--muted); margin-top:14px; }
+.grammar-core { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.grammar-core > p { grid-column:1/-1; margin-bottom:0; }
+.ser { background:#f0f6fc; }
+.estar { background:#f0f6ef; }
+.grammar-use { padding:22px; border:1px solid #c7ddee; border-radius:5px; }
+.grammar-use.estar { border-color:#c9dece; }
+.grammar-use h3 { font-size:1.55rem; margin-bottom:18px; }
+.grammar-use dl { margin:0; font-size:.88rem; line-height:1.5; }
+.grammar-use dl div { display:grid; grid-template-columns:.9fr 1.2fr; gap:16px; padding:10px 0; border-top:1px solid #dce5eb; }
+.grammar-use dt { font-weight:600; }
+.grammar-use dd { margin:0; }
+.grammar-check-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; }
+.grammar-check { background:#faf5ed; padding:22px; border-radius:5px; align-self:start; border:1px solid #ede4d6; }
+.grammar-check fieldset { padding:0; margin:0 0 16px; border:0; min-width:0; }
+.grammar-check legend { font-weight:600; font-size:.95rem; padding:0; line-height:1.5; margin-bottom:12px; }
+.grammar-options { display:grid; gap:6px; }
+.grammar-option { display:flex; align-items:center; gap:10px; font-size:.9rem; font-weight:400; margin:0; min-height:44px; padding:8px; border:1px solid transparent; border-radius:4px; cursor:pointer; }
+.grammar-option:has(input:checked) { background:white; border-color:#b7c9d7; }
+.grammar-option input { width:18px; height:18px; flex:0 0 18px; margin:0; accent-color:var(--blue); }
+.grammar-option:has(input:focus-visible) { outline:3px solid #986019; outline-offset:2px; }
+.grammar-check fieldset:disabled { opacity:1; }
+.grammar-sentence { font-size:1.08rem; font-weight:600; margin-bottom:8px; }
+.grammar-feedback:not(:empty) { padding:14px 0 0; margin-top:14px; border-top:1px solid #d6cdbf; font-size:.9rem; line-height:1.6; }
+.grammar-feedback strong { display:block; margin-bottom:5px; }
+.grammar-feedback p { margin:0; }
+.grammar-feedback[data-state=incorrect] strong { color:#793c2b; }
+.grammar-feedback[data-state=correct] strong { color:#285a40; }
+.grammar-feedback:focus { outline:2px solid var(--accent); outline-offset:5px; }
+.grammar-compare { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.grammar-compare > * { min-width:0; padding:18px; border-radius:4px; }
+.grammar-compare h3 { font-size:.82rem; margin-bottom:10px; }
+.grammar-compare p { margin:0; font-size:.93rem; line-height:1.65; }
+.grammar-pairs { display:grid; gap:12px; }
+.grammar-adjectives { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.grammar-pair { border:1px solid var(--line); border-radius:5px; overflow:hidden; padding:14px; }
+.grammar-pair h3 { text-transform:uppercase; font-size:.85rem; margin-bottom:12px; }
+.grammar-pair .grammar-compare { gap:6px; }
+.grammar-pair .grammar-compare > * { padding:10px; }
+.grammar-pair p { font-size:.84rem; }
+.grammar-pair strong { font-size:.72rem; }
+.grammar-word-types { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:20px 0; }
+.grammar-word-types span { padding:16px; border:1px solid var(--line); border-radius:5px; background:#f3f5f5; font-weight:600; }
+.grammar-word-types small { display:block; font-weight:400; }
+.grammar-expressions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.grammar-expressions article { padding:20px; background:#f7f9fa; border:1px solid var(--line); border-radius:4px; }
+.grammar-expressions h3 { margin-bottom:10px; }
+.grammar-expressions p { margin:0; font-size:.93rem; }
+.grammar-note { padding-block:20px; font-size:.95rem; }
+#practice-question { max-width:800px; margin-top:20px; }
+#practice-lab > .grammar-actions { margin-top:16px; }
+.grammar-results { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; margin-block:20px; }
+.grammar-results p { background:#f0f5f4; border:1px solid #d3e0db; border-radius:4px; padding:16px; }
+.grammar-results strong { display:block; font-size:.83rem; line-height:1.4; margin-bottom:10px; }
+.grammar-results span { font-size:1.15rem; }
+#question-reviews { margin-top:24px; }
+.grammar-review { border:1px solid var(--line); padding:16px; border-radius:4px; margin-bottom:10px; }
+.grammar-review summary { font-weight:600; min-height:30px; }
+.grammar-review p { margin:12px 0; }
+.grammar-reference-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.grammar-reference-grid > p { grid-column:1/-1; }
+.grammar-reference { padding:20px; background:#f8fafb; border:1px solid var(--line); border-radius:4px; }
+.grammar-reference p { font-size:.93rem; margin-bottom:0; }
+.grammar-pdf { display:flex; justify-content:space-between; align-items:center; gap:24px; }
+.grammar-credit { font-size:.8rem; color:var(--muted); }
+.grammar-back { display:inline-block; margin-top:24px; }
+.grammar-lesson :is(#results-title,#practice-indicator):focus { outline:2px solid var(--accent); outline-offset:5px; }
+@media(max-width:1000px) {
+ .grammar-hero-layout { gap:20px; }
+ .grammar-overview { grid-template-columns:1fr; }
+ .grammar-adjectives { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .grammar-results { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media(max-width:640px) {
+ .grammar-container { width:calc(100% - 40px); }
+ .grammar-hero { position:relative; }
+ .grammar-hero::after { display:none; }
+ .grammar-hero-layout { padding-block:30px; min-height:320px; }
+ .grammar-hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:right center; opacity:.12; }
+ .grammar-nav .grammar-container { width:100%; padding-inline:20px; flex-direction:row; gap:20px; }
+ .grammar-section { padding-block:24px; }
+ .grammar-core,.grammar-check-grid,.grammar-adjectives,.grammar-expressions,.grammar-reference-grid,.grammar-examples { grid-template-columns:1fr; }
+ .grammar-compare { grid-template-columns:1fr; }
+ .grammar-word-types,.grammar-results { grid-template-columns:1fr 1fr; }
+ .grammar-use { padding:18px; }
+ .grammar-use dl div { grid-template-columns:1fr; gap:4px; }
+ .grammar-check { padding:18px; }
+ .grammar-pdf { flex-direction:column; align-items:flex-start; }
+ .grammar-reference-grid > p { grid-column:auto; }
+ .grammar-lede { font-size:1.08rem; }
+ .grammar-overview h2 { font-size:1.55rem; }
+}

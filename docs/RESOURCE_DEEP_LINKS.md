@@ -85,6 +85,8 @@ Cloudflare Pages has no custom domain attached to this project. These full links
 **SER & ESTAR**  
 `https://spanish-practice-center-preview.pages.dev/resources.html#ser-estar`
 
+The existing target offers **Learn & Practice**, opening `/grammar/ser-estar.html`, and **Open PDF**, preserving the original Essential Guide. The lesson and PDF use the existing student-access middleware. The section anchor and its automatic collection expansion remain unchanged.
+
 **POR & PARA**  
 `https://spanish-practice-center-preview.pages.dev/resources.html#por-para`
 
