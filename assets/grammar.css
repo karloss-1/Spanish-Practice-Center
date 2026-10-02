@@ -104,10 +104,10 @@
 }
 @media(max-width:640px) {
  .grammar-container { width:calc(100% - 40px); }
- .grammar-hero { display:flex; flex-direction:column; }
+ .grammar-hero { position:relative; }
  .grammar-hero::after { display:none; }
- .grammar-hero-layout { order:1; padding-block:30px; min-height:0; }
- .grammar-hero-image { position:static; order:2; height:180px; object-position:right center; }
+ .grammar-hero-layout { padding-block:30px; min-height:320px; }
+ .grammar-hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:right center; opacity:.12; }
  .grammar-nav .grammar-container { width:100%; padding-inline:20px; flex-direction:row; gap:20px; }
  .grammar-section { padding-block:24px; }
  .grammar-core,.grammar-check-grid,.grammar-adjectives,.grammar-expressions,.grammar-reference-grid,.grammar-examples { grid-template-columns:1fr; }
