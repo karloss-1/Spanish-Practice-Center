@@ -82,6 +82,15 @@ Cloudflare Pages has no custom domain attached to this project. These full links
 
 ## Grammar Quick Guides
 
+**DIRECT vs. INDIRECT OBJECTS**  
+`https://spanish-practice-center-preview.pages.dev/resources.html#direct-indirect-objects`
+
+**DIRECT & INDIRECT OBJECT PRONOUNS**  
+`https://spanish-practice-center-preview.pages.dev/resources.html#direct-indirect-object-pronouns`
+
+**OBJECT PRONOUNS: PLACEMENT & COMBINATIONS**  
+`https://spanish-practice-center-preview.pages.dev/resources.html#object-pronouns-placement-combinations`
+
 **SER & ESTAR**  
 `https://spanish-practice-center-preview.pages.dev/resources.html#ser-estar`
 
